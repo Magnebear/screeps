@@ -9,13 +9,23 @@ var roleRepair = require('role.repair');
 
 var maxHarvester = 1;
 var maxBuilders = 2;
+<<<<<<< HEAD
 var maxUpgraders = 4;
 var maxMegaMiners1 = 1
 var maxMegaMiners2 = 1
+=======
+var maxUpgraders = 6;
+var maxMegaMiners = 1
+>>>>>>> 3e1b4b62802a40f61f65f495aea9f6390c8e6062
 var maxTransporters = 4;
-var maxRepair = 1;
+var maxRepair = 2;
 
+<<<<<<< HEAD
 //Test 2
+=======
+//var Memory.clock = 0;
+//Test commit!
+>>>>>>> 3e1b4b62802a40f61f65f495aea9f6390c8e6062
 
 module.exports.loop = function () {
 
@@ -33,7 +43,7 @@ module.exports.loop = function () {
 	var megaMiners2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'megaMiner2');
     var transporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter');
     var repairs = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair');
-    
+
     if (Memory.clock < 25){
         Memory.clock++;
     } else {
@@ -54,9 +64,10 @@ module.exports.loop = function () {
     var megaMiner = [WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE];
     var transporterCreep = [CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE]
     var repairCreep = [WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE]
-    
+
     //megaMiner dispatch and controll
 
+<<<<<<< HEAD
     
     
     if(megaMiners1.length < 1) {
@@ -65,6 +76,18 @@ module.exports.loop = function () {
     } else if(megaMiners1.length < 1) {
 		var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, {role: 'megaMiner2', srcID:'59830055b097071b4adc4190',contID:'59a833729347b91c822b50ba'});
         console.log('Spawning new MegaMiner2: ' + newName);
+=======
+    //var test = _.filter(Game.creeps, (creep) => creep.memory.srcId == '59830055b097071b4adc418f');
+   // console.log(Game.getObjectById(Memory.megaMinerSrc0.id).ticksToLive);
+    //if(Game.getObjectById(Memory.megaMinerSrc0.id).ticksToLive < 100){
+    //  console.log("dying!");
+   // }
+
+
+    if(megaMiners.length < 1) {
+        var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, {role:'megaMiner',posX:11,posY:43,srcID:'59830055b097071b4adc418f'});
+        console.log('Spawning new MegaMiner: ' + newName);
+>>>>>>> 3e1b4b62802a40f61f65f495aea9f6390c8e6062
     } else if (harvesters.length < maxHarvester) {
         var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'harvester'});
         console.log('Spawning new harvester: ' + newName);
@@ -81,23 +104,26 @@ module.exports.loop = function () {
         var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'builder'});
         console.log('Spawning new builder: ' + newName);
     }
-    
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3e1b4b62802a40f61f65f495aea9f6390c8e6062
     if(harvesters.length == 0){
         var newName = Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {role: 'harvester'});
         Memory.TestVariable = newName
     }
-    
-    if(Game.spawns['Spawn1'].spawning) { 
+
+    if(Game.spawns['Spawn1'].spawning) {
         var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
         Game.spawns['Spawn1'].room.visual.text(
-            '🛠️' + spawningCreep.memory.role,
-            Game.spawns['Spawn1'].pos.x + 1, 
-            Game.spawns['Spawn1'].pos.y, 
+            'ð ï¸' + spawningCreep.memory.role,
+            Game.spawns['Spawn1'].pos.x + 1,
+            Game.spawns['Spawn1'].pos.y,
             {align: 'left', opacity: 0.8});
     }
-    
+
     var tower = Game.getObjectById('59a48e720033416e2fa8ea27');
     if(tower) {
         var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
