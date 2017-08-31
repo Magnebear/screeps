@@ -56,9 +56,9 @@ module.exports.loop = function () {
     //megaMiner dispatch and controll
 
     var test = _.filter(Game.creeps, (creep) => creep.memory.srcId == '59830055b097071b4adc418f');
-    if(Game.getObjectById(Memory.megaMinerSrc0.id).ticksToLive < 100){
-      console.log("dying!");
-    }
+    //if(Game.getObjectById(Memory.megaMinerSrc0.id).ticksToLive < 100){
+    //  console.log("dying!");
+    //}
 
 
     if(megaMiners.length < 1) {
