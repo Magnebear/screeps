@@ -9,10 +9,10 @@ var roleRepair = require('role.repair');
 
 var maxHarvester = 1;
 var maxBuilders = 2;
-var maxUpgraders = 4;
+var maxUpgraders = 6;
 var maxMegaMiners = 1
 var maxTransporters = 4;
-var maxRepair = 1;
+var maxRepair = 2;
 
 //var Memory.clock = 0;
 
@@ -55,10 +55,12 @@ module.exports.loop = function () {
     
     //megaMiner dispatch and controll
 
-    
+    var test = _.filter(Game.creeps, (creep) => creep.memory.srcId == '59830055b097071b4adc418f');
+    console.log(test);
     
     if(megaMiners.length < 1) {
         var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, {role: 'megaMiner'});
+        //, posX:11,posY:43,srcID:"59830055b097071b4adc418f"
         console.log('Spawning new MegaMiner: ' + newName);
     } else if (harvesters.length < maxHarvester) {
         var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'harvester'});
@@ -79,7 +81,7 @@ module.exports.loop = function () {
     
 
 
-    if(harvesters.length == 1){
+    if(harvesters.length == 0){
         var newName = Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {role: 'harvester'});
         Memory.TestVariable = newName
     }
@@ -87,7 +89,7 @@ module.exports.loop = function () {
     if(Game.spawns['Spawn1'].spawning) { 
         var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
         Game.spawns['Spawn1'].room.visual.text(
-            '🛠️' + spawningCreep.memory.role,
+            'ð ï¸' + spawningCreep.memory.role,
             Game.spawns['Spawn1'].pos.x + 1, 
             Game.spawns['Spawn1'].pos.y, 
             {align: 'left', opacity: 0.8});
