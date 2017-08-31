@@ -14,8 +14,7 @@ var maxMegaMiners = 1
 var maxTransporters = 4;
 var maxRepair = 1;
 
-//var Memory.clock = 0;
-
+//Test 2
 
 module.exports.loop = function () {
 
