@@ -3,7 +3,7 @@ var Traveler = require('Traveler');
 var roleRepair = {
     run: function(creep) {
         if(creep.memory.repairTarget==null) {
-            var repairTargets = targets = creep.room.find(FIND_STRUCTURES, {
+            var repairTargets = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return(structure.structureType == STRUCTURE_EXTENSION ||
                     structure.structureType == STRUCTURE_SPAWN ||
