@@ -54,37 +54,17 @@ module.exports.loop = function () {
     var repairCreep = [WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE]
 
     //megaMiner dispatch and controll
-    try {
-      Memory.megaMinerSrc0=Game.creeps[Memory.MM0name]
-      //Spawning complete
-      Memory.spawnMM0 = false;
-    } catch(err) {
-      //do nothing...
-    }
-    try {
-      Memory.megaMinerSrc1=Game.creeps[Memory.MM1name]
-      //Spawning complete
-      Memory.spawnMM1 = false;
-    } catch(err) {
-      //do nothing...
-    } 
 
-
-    if(Memory.spawnMM1 == false || Game.getObjectById(Memory.megaMinerSrc0.id).ticksToLive < 100){
-      console.log("Creating new MegaMiner for source 0");
-      Memory.spawnMM1 = true;
-      var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, {role:'megaMiner',posX:11,posY:43,srcID:'59830055b097071b4adc418f',contID:'59a5d22932ef987c0f96bf3b'});
-      Memory.MM0name = newName;
-    }
-    if (Memory.spawnMM2 == false || Game.getObjectById(Memory.megaMinerSrc1.id).ticksToLive < 100){
-      console.log("Creating new MegaMiner for source 0");
-      Memory.spawnMM2 = true;
-      var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, {role:'megaMiner',posX:18,posY:46,srcID:'59830055b097071b4adc4190',contID:'59a833729347b91c822b50ba'});
-      Memory.MM1name = newName;
+    var test = _.filter(Game.creeps, (creep) => creep.memory.srcId == '59830055b097071b4adc418f');
+    console.log(Game.getObjectById(Memory.megaMinerSrc0.id).ticksToLive);
+    if(Game.getObjectById(Memory.megaMinerSrc0.id).ticksToLive < 100){
+      console.log("dying!");
     }
 
-    if(Memory.spawnMM1 == true || Memory.spawnMM2 == true) {
-      //Continue
+
+    if(megaMiners.length < 1) {
+        var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, {role:'megaMiner',posX:11,posY:43,srcID:'59830055b097071b4adc418f'});
+        console.log('Spawning new MegaMiner: ' + newName);
     } else if (harvesters.length < maxHarvester) {
         var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'harvester'});
         console.log('Spawning new harvester: ' + newName);
@@ -112,7 +92,7 @@ module.exports.loop = function () {
     if(Game.spawns['Spawn1'].spawning) {
         var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
         Game.spawns['Spawn1'].room.visual.text(
-            'ð ï¸' + spawningCreep.memory.role,
+            'ð ï¸' + spawningCreep.memory.role,
             Game.spawns['Spawn1'].pos.x + 1,
             Game.spawns['Spawn1'].pos.y,
             {align: 'left', opacity: 0.8});
