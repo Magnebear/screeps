@@ -56,11 +56,13 @@ module.exports.loop = function () {
     //megaMiner dispatch and controll
 
     var test = _.filter(Game.creeps, (creep) => creep.memory.srcId == '59830055b097071b4adc418f');
-    console.log(test);
+    if(Game.getObjectById(Memory.megaMinerSrc0.id).ticksToLive < 100){
+      console.log("dying!");
+    }
+
 
     if(megaMiners.length < 1) {
-        var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, {role: 'megaMiner'});
-        //, posX:11,posY:43,srcID:"59830055b097071b4adc418f"
+        var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, {role:'megaMiner',posX:11,posY:43,srcID:'59830055b097071b4adc418f'});
         console.log('Spawning new MegaMiner: ' + newName);
     } else if (harvesters.length < maxHarvester) {
         var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'harvester'});
