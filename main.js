@@ -15,7 +15,7 @@ var maxTransporters = 4;
 var maxRepair = 2;
 
 //var Memory.clock = 0;
-
+//Test commit!
 
 module.exports.loop = function () {
 
@@ -32,7 +32,7 @@ module.exports.loop = function () {
     var megaMiners = _.filter(Game.creeps, (creep) => creep.memory.role == 'megaMiner');
     var transporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter');
     var repairs = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair');
-    
+
     if (Memory.clock < 25){
         Memory.clock++;
     } else {
@@ -52,12 +52,12 @@ module.exports.loop = function () {
     var megaMiner = [WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE];
     var transporterCreep = [CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE]
     var repairCreep = [WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE]
-    
+
     //megaMiner dispatch and controll
 
     var test = _.filter(Game.creeps, (creep) => creep.memory.srcId == '59830055b097071b4adc418f');
     console.log(test);
-    
+
     if(megaMiners.length < 1) {
         var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, {role: 'megaMiner'});
         //, posX:11,posY:43,srcID:"59830055b097071b4adc418f"
@@ -78,23 +78,23 @@ module.exports.loop = function () {
         var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'builder'});
         console.log('Spawning new builder: ' + newName);
     }
-    
+
 
 
     if(harvesters.length == 0){
         var newName = Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {role: 'harvester'});
         Memory.TestVariable = newName
     }
-    
-    if(Game.spawns['Spawn1'].spawning) { 
+
+    if(Game.spawns['Spawn1'].spawning) {
         var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
         Game.spawns['Spawn1'].room.visual.text(
             'ð ï¸' + spawningCreep.memory.role,
-            Game.spawns['Spawn1'].pos.x + 1, 
-            Game.spawns['Spawn1'].pos.y, 
+            Game.spawns['Spawn1'].pos.x + 1,
+            Game.spawns['Spawn1'].pos.y,
             {align: 'left', opacity: 0.8});
     }
-    
+
     var tower = Game.getObjectById('59a48e720033416e2fa8ea27');
     if(tower) {
         var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
