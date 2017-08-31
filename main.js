@@ -62,7 +62,7 @@ module.exports.loop = function () {
     if(megaMiners1.length < 1) {
         var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, {role: 'megaMiner1', srcID:'59830055b097071b4adc418f',contID:'59a5d22932ef987c0f96bf3b'});
         console.log('Spawning new MegaMiner1: ' + newName);
-    } else if(megaMiners1.length < 1) {
+    } else if(megaMiners2.length < 1) {
 		var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, {role: 'megaMiner2', srcID:'59830055b097071b4adc4190',contID:'59a833729347b91c822b50ba'});
         console.log('Spawning new MegaMiner2: ' + newName);
     } else if (harvesters.length < maxHarvester) {
@@ -107,7 +107,6 @@ module.exports.loop = function () {
         var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
             filter: (structure) => (structure.hits < 2000) && (structure.structureType != STRUCTURE_EXTENSION)
         });
-        //console.log(closestDamagedStructure)
         if(closestDamagedStructure) {
             tower.repair(closestDamagedStructure);
         }
