@@ -14,7 +14,7 @@ var roleRepair = {
                 }
             });
             if(repairTargets.length > 0){
-                creep.memory.repairTarget = repairTargets[0]
+                creep.memory.repairTarget = _.sample[repairTargets];
             } else {
                 //Idle state
                 creep.travelTo(Game.flags.repairHolding)
