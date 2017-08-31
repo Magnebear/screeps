@@ -57,7 +57,7 @@ module.exports.loop = function () {
     
     
     if(megaMiners.length < 1) {
-        var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, {role: 'megaMiner'});
+        var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, {role: 'megaMiner', srcID:'59830055b097071b4adc418f',contID:'59a5d22932ef987c0f96bf3b'});
         console.log('Spawning new MegaMiner: ' + newName);
     } else if (harvesters.length < maxHarvester) {
         var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'harvester'});
