@@ -9,7 +9,7 @@ var roleRepair = require('role.repair');
 
 var maxHarvester = 1;
 var maxBuilders = 2;
-var maxUpgraders = 4;
+var maxUpgraders = 10;
 var maxMegaMiners1 = 1
 var maxMegaMiners2 = 1
 var maxTransporters = 4;
