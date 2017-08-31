@@ -8,7 +8,8 @@ var roleRepair = {
                     return(structure.structureType == STRUCTURE_EXTENSION ||
                     structure.structureType == STRUCTURE_SPAWN ||
                     structure.structureType == STRUCTURE_TOWER ||
-                    structure.structureType == STRUCTURE_ROAD)
+                    structure.structureType == STRUCTURE_ROAD ||
+                    structure.structureType == STRUCTURE_CONTAINER)
                     && structure.hits < (structure.hitsMax/2)
                 }
             });
@@ -19,8 +20,8 @@ var roleRepair = {
                 creep.travelTo(Game.flags.repairHolding)
             }
         } else if (creep.carry.energy < 5) {
-            var roomContainers = Game.rooms[creep.room.name].find(FIND_STRUCTURES, { 
-                filter: (structure) => { return ((structure.structureType == STRUCTURE_CONTAINER) && (structure.store[RESOURCE_ENERGY] > 0)) } 
+            var roomContainers = Game.rooms[creep.room.name].find(FIND_STRUCTURES, {
+                filter: (structure) => { return ((structure.structureType == STRUCTURE_CONTAINER) && (structure.store[RESOURCE_ENERGY] > 0)) }
             });
             if(creep.withdraw(roomContainers[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                    creep.travelTo(roomContainers[0]);
