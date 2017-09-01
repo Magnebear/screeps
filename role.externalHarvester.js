@@ -5,7 +5,7 @@ var roleExternalHarvester = {
     run: function(creep) {
 	var source = Game.getObjectById(creep.memory.targetSource);
 	var destContainer = Game.getObjectById(creep.memory.targetContainer);
-	var flag = Game.getObjectById(creep.memory.flag);
+	var flag = Game.flags.(creep.memory.flag);
 	
 	
 	console.log(source)
@@ -14,7 +14,7 @@ var roleExternalHarvester = {
 
 	if(creep.memory.harvesting){
 		if(source == null){
-			creep.travelTo(Game.flags.flag);
+			creep.travelTo(flag);
 		} else if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
 			creep.travelTo(source);
 		}
