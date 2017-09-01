@@ -115,8 +115,8 @@ module.exports.loop = function () {
             {align: 'left', opacity: 0.8});
     }
     
-    var tower = Game.getObjectById('59a48e720033416e2fa8ea27');
-
+	towerController.run(Game.getObjectById('59a48e720033416e2fa8ea27'));
+	
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
 		switch(creep.memory.role) {
