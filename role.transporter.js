@@ -2,7 +2,7 @@ var Traveler = require('Traveler');
 
 var roleTransporter = {
     run: function(creep) {
-		var c = Game.rooms[creep.room.name].find(FIND_STRUCTURES, { filter: (structure) => { return ((structure.structureType == STRUCTURE_CONTAINER) && (structure.store[RESOURCE_ENERGY] > 0)) } } );
+		var c = Game.getObjectById("59a5d22932ef987c0f96bf3b");
         var bC = Game.getObjectById("59a7c22c82c55314c9f9a863");
 		if(creep.memory.delivering == true){
             var targets = creep.room.find(FIND_STRUCTURES, {
@@ -19,7 +19,7 @@ var roleTransporter = {
                     if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.travelTo(targets[0]);
                     }
-            } else if(bC.store[RESOURCE_ENERGY] > 200){
+            } else if(c.store[RESOURCE_ENERGY] > 200){
 				//Transfer to big storage...
 				 if(creep.transfer(bC, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.travelTo(bC);
