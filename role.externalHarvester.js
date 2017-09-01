@@ -5,7 +5,7 @@ var roleExternalHarvester = {
     run: function(creep) {
 	var source = Game.getObjectById(creep.memory.targetSource);
 	var destContainer = Game.getObjectById(creep.memory.targetContainer);
-	var flag = Game.flags.(creep.memory.flag);
+	var flag = Game.flags[creep.memory.flag];
 	
 	
 	console.log(source)
