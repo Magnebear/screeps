@@ -10,6 +10,7 @@ var roleClaimer = require('role.claimer');
 var roleExternalHarvester = require('role.externalHarvester');
 
 var towerController = require("cont.towerController");
+var linkController = require("LinkController");
 
 var maxHarvester = 1;
 var maxBuilders = 2;
@@ -126,7 +127,7 @@ module.exports.loop = function () {
     
 	towerController.run(Game.getObjectById('59a48e720033416e2fa8ea27'));
 	towerController.run(Game.getObjectById('59a9bd8b58bf8523b6247f27'));
-	
+	linkController.run("59a9d6c7901b9f6272a9c69a", "59a9ca4e83bd410897a24445")
 	
 	
     for(var name in Game.creeps) {
