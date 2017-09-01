@@ -5,7 +5,9 @@ var linkControll = {
 		
 		if(o.energy == 800){
 			o.transferEnergy(d);
-			console.log("Energy transfered!")
+			console.log("Energy transfered!");
+		} else {
+			console.log("not enough nergy");
 		}
 	}
 };
