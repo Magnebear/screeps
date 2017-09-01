@@ -21,7 +21,7 @@ var roleTransporter = {
                     if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.travelTo(targets[0]);
                     }
-            } else if(c.store[RESOURCE_ENERGY] > 750){
+            } else if(c.store[RESOURCE_ENERGY] > 750 || l.energy > 0){
 				//Transfer to big storage...
 				 if(creep.transfer(bC, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.travelTo(bC);
@@ -34,16 +34,16 @@ var roleTransporter = {
                 creep.memory.delivering = false;
             }
         } else {
-			if(c.store[RESOURCE_ENERGY] > 50){
+			if (l.energy > 0)){
+				if(creep.withdraw(l, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+				   creep.travelTo(l);
+				}
+			} else if(c.store[RESOURCE_ENERGY] > 200){
 				if(creep.withdraw(c, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 				   creep.travelTo(c);
 				}
 				
-			} else if (l.energy > 0)){
-				if(creep.withdraw(l, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-				   creep.travelTo(l);
-				}
-			}			
+			} 	
 			if(creep.carry.energy == creep.carryCapacity){
 				creep.memory.delivering = true;
 			}
