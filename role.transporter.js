@@ -37,7 +37,6 @@ var roleTransporter = {
 				if(creep.withdraw(c, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 				   creep.travelTo(c);
 				}
-			} else if (c2.store[RESOURCE_ENERGY] > 200){
 				if(creep.carry.energy == creep.carryCapacity){
 					creep.memory.delivering = true;
 				}
