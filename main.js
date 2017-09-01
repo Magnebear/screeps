@@ -37,7 +37,7 @@ module.exports.loop = function () {
     var transporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter');
 	var repairs = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair');
 	var claimers = _.filter(Game.creeps, (creep) => creep.memory.role == 'claimer');
-	var claimers = _.filter(Game.creeps, (creep) => creep.memory.role == 'claimer');
+	var externalHarvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester');
 
 
     if (Memory.clock < 25){
@@ -91,7 +91,7 @@ module.exports.loop = function () {
     } else if (builders.length < maxBuilders) {
         var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'builder'});
         console.log('Spawning new builder: ' + newName);
-    } else if (builders.length < maxExternalHarvesters) {
+    } else if (externalHarvesters.length < maxExternalHarvesters) {
         var newName = Game.spawns['Spawn1'].createCreep(externalHarvesterCreep, undefined, 
 		{role: 'externalHarvester',
 		targetSource:"59830062b097071b4adc42d6",
