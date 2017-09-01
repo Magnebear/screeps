@@ -16,7 +16,7 @@ var maxBuilders = 3;
 var maxUpgraders = 8;
 var maxMegaMiners1 = 1
 var maxMegaMiners2 = 1
-var maxTransporters = 4;
+var maxTransporters = 3;
 var maxRepair = 1;
 var maxExternalHarvesters = 2;
 
