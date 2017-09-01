@@ -121,20 +121,28 @@ module.exports.loop = function () {
 		switch(creep.memory.role) {
 				case "harvester":
 					roleHarvester.run(creep);
+					break;
 				case "upgrader":
 					roleUpgrader.run(creep);
+					break;
 				case "builder":
 					roleBuilder.run(creep);
+					break;
 				case "megaMiner1":
 					roleMegaMiner.run(creep);
+					break;
 				case "megaMiner2":
 					roleMegaMiner.run(creep);
+					break;
 				case "transporter":
 					roleTransporter.run(creep);
+					break;
 				case "repair":
 					roleRepair.run(creep);
+					break;
 				case "claimer":
 					roleClaimer.run(creep);
+					break;
 		}
     }
 }
