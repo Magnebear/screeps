@@ -16,8 +16,6 @@ var maxMegaMiners2 = 1
 var maxTransporters = 4;
 var maxRepair = 2;
 
-//Test 2
-
 module.exports.loop = function () {
 
     for(var name in Memory.creeps) {
@@ -120,26 +118,23 @@ module.exports.loop = function () {
 
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
-        if(creep.memory.role == 'harvester') {
-            roleHarvester.run(creep);
-        }
-        if(creep.memory.role == 'upgrader') {
-            roleUpgrader.run(creep);
-        }
-        if(creep.memory.role == 'builder') {
-            roleBuilder.run(creep);
-        }
-        if(creep.memory.role == 'megaMiner1' || creep.memory.role == 'megaMiner2') {
-            roleMegaMiner.run(creep);
-        }
-        if(creep.memory.role == 'transporter') {
-            roleTransporter.run(creep);
-        }
-        if(creep.memory.role == 'repair') {
-            roleRepair.run(creep);
-        }
-	if(creep.memory.role == 'claimer') {
-            roleClaimer.run(creep);
-        }
+		switch(creeps.memory.role) {
+				case "harvester":
+					roleHarvester.run(creep);
+				case "upgrader":
+					roleUpgrader.run(creep);
+				case "builder":
+					roleBuilder.run(creep);
+				case "megaMiner1":
+					roleMegaMiner.run(creep);
+				case "megaMiner2":
+					roleMegaMiner.run(creep);
+				case "transporter":
+					roleTransporter.run(creep);
+				case "repair":
+					roleRepair.run(creep);
+				case "claimer":
+					roleClaimer.run(creep);
+		}
     }
 }
