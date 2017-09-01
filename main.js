@@ -51,7 +51,8 @@ module.exports.loop = function () {
 		console.log('MegaMiners2: ' + megaMiners2.length);
         console.log('transporters: ' + transporters.length);
         console.log('repair: ' + repairs.length);
-        console.log('-------------------------------')
+		console.log('externalHarvesters: ' + externalHarvesters.length);
+		console.log('-------------------------------')
         Memory.clock = 0;
     }
 
