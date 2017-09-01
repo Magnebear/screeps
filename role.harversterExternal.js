@@ -1,6 +1,6 @@
 var Traveler = require('Traveler');
 
-var roleHarvesterExternal = {
+var roleExternalHarvester = {
     /** @param {Creep} creep **/
     run: function(creep) {
 	var source = Game.getObjectById("59830062b097071b4adc42d6");
@@ -26,4 +26,4 @@ var roleHarvesterExternal = {
 	}
 };
 
-module.exports = roleHarvesterExternal;
+module.exports = roleExternalHarvester;
