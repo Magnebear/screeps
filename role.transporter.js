@@ -19,7 +19,7 @@ var roleTransporter = {
                     if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.travelTo(targets[0]);
                     }
-            } else if(bC.store[RESOURCE_ENERGY] > 800){
+            } else if(bC.store[RESOURCE_ENERGY] > 200){
 				//Transfer to big storage...
 				 if(creep.transfer(bC, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.travelTo(bC);
