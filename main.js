@@ -12,7 +12,7 @@ var roleExternalHarvester = require('role.externalHarvester');
 var towerController = require("cont.towerController");
 
 var maxHarvester = 1;
-var maxBuilders = 3;
+var maxBuilders = 2;
 var maxUpgraders = 8;
 var maxMegaMiners1 = 1
 var maxMegaMiners2 = 1
@@ -70,13 +70,21 @@ module.exports.loop = function () {
     
     
     if(megaMiners1.length < 1) {
-        var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, {role: 'megaMiner1', srcID:'59830055b097071b4adc418f',contID:'59a5d22932ef987c0f96bf3b'});
-        console.log('Spawning new MegaMiner1: ' + newName);
+        var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, 
+			{role: 'megaMiner1',
+			srcID:'59830055b097071b4adc418f',
+			contID:'59a5d22932ef987c0f96bf3b'
+		});
+			console.log('Spawning new MegaMiner1: ' + newName);
     } else if (transporters.length < maxTransporters) {
         var newName = Game.spawns['Spawn1'].createCreep(transporterCreep, undefined, {role: 'transporter'});
         console.log('Spawning new transporter: ' + newName);
     } else if(megaMiners2.length < 1) {
-		var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, {role: 'megaMiner2', srcID:'59830055b097071b4adc4190',contID:'59a833729347b91c822b50ba'});
+		var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, 
+			{role: 'megaMiner2',
+			srcID:'59830055b097071b4adc4190',
+			contID:'59a833729347b91c822b50ba'
+		});
         console.log('Spawning new MegaMiner2: ' + newName);
     } else if (harvesters.length < maxHarvester) {
         var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'harvester'});
@@ -95,10 +103,11 @@ module.exports.loop = function () {
         console.log('Spawning new builder: ' + newName);
     } else if (externalHarvesters.length < maxExternalHarvesters) {
         var newName = Game.spawns['Spawn1'].createCreep(externalHarvesterCreep, undefined, 
-		{role: 'externalHarvester',
-		targetSource:"59830062b097071b4adc42d6",
-		targetContainer:"59a7c22c82c55314c9f9a863",
-		flag:"externalSource01"});
+			{role: 'externalHarvester',
+			targetSource:"59830062b097071b4adc42d6",
+			targetContainer:"59a9d6c7901b9f6272a9c69a",
+			flag:"externalSource01"
+		});
         console.log('Spawning new externalHarvester: ' + newName);
     }
     

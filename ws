@@ -9,5 +9,6 @@
         <File name="role.transporter.js" />
         <File name="role.upgrader.js" />
         <File name="Traveler.js" />
+        <File name="role.externalHarvester.js" />
     </Project>
 </NotepadPlus>
