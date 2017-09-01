@@ -34,6 +34,7 @@ var roleRepair = {
             }
             if(t.hits==t.hitsMax){
                 creep.memory.repairTarget = null;
+				creep.say("Repp complete!");
             }
         }
     }
