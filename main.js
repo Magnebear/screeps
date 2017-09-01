@@ -20,7 +20,7 @@ var maxMegaMiners1 = 1
 var maxMegaMiners2 = 1
 var maxTransporters = 3;
 var maxRepair = 1;
-var maxExternalHarvesters = 2;
+var maxExternalHarvesters = 4;
 
 
 module.exports.loop = function () {
