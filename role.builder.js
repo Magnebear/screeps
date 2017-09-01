@@ -29,8 +29,10 @@ var roleBuilder = {
                creep.travelTo(bC);
             } else {
 				var c = Game.getObjectById("59a833729347b91c822b50ba")
-				if(c.store[RESOURCE_ENERGY] > 0 || creep.withdraw(c, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+				if(c.store[RESOURCE_ENERGY] > 0){
+					if(creep.withdraw(c, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 						creep.travelTo(c);
+					}
 				}
 			}
 	    }
