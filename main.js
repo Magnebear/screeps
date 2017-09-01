@@ -6,6 +6,7 @@ var roleBuilder = require('role.builder');
 var roleMegaMiner = require('role.megaMiner');
 var roleTransporter = require('role.transporter');
 var roleRepair = require('role.repair');
+var roleClaimer = require('role.claimer');
 
 var maxHarvester = 1;
 var maxBuilders = 2;
@@ -26,13 +27,14 @@ module.exports.loop = function () {
         }
     }
 
-    var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-    var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-    var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
-    var megaMiners1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'megaMiner1');
+	var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+	var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+	var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
+	var megaMiners1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'megaMiner1');
 	var megaMiners2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'megaMiner2');
-    var transporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter');
-    var repairs = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair');
+    	var transporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter');
+	var repairs = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair');
+	var claimers = _.filter(Game.creeps, (creep) => creep.memory.role == 'claimer');
     
     if (Memory.clock < 25){
         Memory.clock++;
@@ -42,7 +44,7 @@ module.exports.loop = function () {
         console.log('Upgraders: ' + upgraders.length);
         console.log('Harvesters: ' + harvesters.length);
         console.log('MegaMiners1: ' + megaMiners1.length);
-		console.log('MegaMiners2: ' + megaMiners2.length);
+	console.log('MegaMiners2: ' + megaMiners2.length);
         console.log('transporters: ' + transporters.length);
         console.log('repair: ' + repairs.length);
         console.log('-------------------------------')
@@ -53,6 +55,7 @@ module.exports.loop = function () {
     var upgradeCreep = [WORK,WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE];
     var megaMiner = [WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE];
     var transporterCreep = [CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE]
+    var repairCreep = [WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE]
     var repairCreep = [WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE]
     
     //megaMiner dispatch and controll
@@ -74,7 +77,10 @@ module.exports.loop = function () {
     } else if(upgraders.length < maxUpgraders) {
         var newName = Game.spawns['Spawn1'].createCreep(upgradeCreep, undefined, {role: 'upgrader'});
         console.log('Spawning new upgrader: ' + newName);
-    }else if (repairs.length < maxRepair) {
+    } else if(claimers.length < 1) {
+        var newName = Game.spawns['Spawn1'].createCreep([CLAIM,MOVE], undefined, {role: 'claimer'});
+        console.log('Spawning new Claimer: ' + newName);
+    } else if (repairs.length < maxRepair) {
         var newName = Game.spawns['Spawn1'].createCreep(repairCreep, undefined, {role: 'repair'});
         console.log('Spawning new builder: ' + newName);
     }else if (builders.length < maxBuilders) {
@@ -131,6 +137,9 @@ module.exports.loop = function () {
         }
         if(creep.memory.role == 'repair') {
             roleRepair.run(creep);
+        }
+	if(creep.memory.role == 'claimer') {
+            roleClaimer.run(creep);
         }
     }
 }
