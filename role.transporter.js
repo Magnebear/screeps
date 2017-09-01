@@ -4,6 +4,7 @@ var roleTransporter = {
     run: function(creep) {
 		var c = Game.getObjectById("59a5d22932ef987c0f96bf3b");
 		var c2 = Game.getObjectById("59a833729347b91c822b50ba");
+		var l = Game.getObjectById("59a9ca4e83bd410897a24445");
         var bC = Game.getObjectById("59a7c22c82c55314c9f9a863");
 		if(creep.memory.delivering == true){
             var targets = creep.room.find(FIND_STRUCTURES, {
@@ -37,11 +38,15 @@ var roleTransporter = {
 				if(creep.withdraw(c, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 				   creep.travelTo(c);
 				}
-				if(creep.carry.energy == creep.carryCapacity){
-					creep.memory.delivering = true;
-				}
+				
+			} else if (false){
+				
+			}			
+        
+			if(creep.carry.energy == creep.carryCapacity){
+				creep.memory.delivering = true;
 			}
-        }
+		}
     }
 };
 
