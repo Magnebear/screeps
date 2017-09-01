@@ -9,6 +9,7 @@ var roleRepair = require('role.repair');
 var roleClaimer = require('role.claimer');
 var roleExternalHarvester = require('role.externalHarvester');
 
+var towerController = require("cont.towerController");
 
 var maxHarvester = 1;
 var maxBuilders = 2;
@@ -101,12 +102,10 @@ module.exports.loop = function () {
         console.log('Spawning new externalHarvester: ' + newName);
     }
     
-
-
     if(harvesters.length == 0){
 		Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {role: 'harvester'});
     }
-    xx
+	
     if(Game.spawns['Spawn1'].spawning) { 
         var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
         Game.spawns['Spawn1'].room.visual.text(
