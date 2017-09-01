@@ -30,7 +30,7 @@ module.exports.loop = function () {
 	var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
 	var megaMiners1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'megaMiner1');
 	var megaMiners2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'megaMiner2');
-    	var transporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter');
+    var transporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter');
 	var repairs = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair');
 	var claimers = _.filter(Game.creeps, (creep) => creep.memory.role == 'claimer');
     
@@ -75,7 +75,7 @@ module.exports.loop = function () {
     } else if(upgraders.length < maxUpgraders) {
         var newName = Game.spawns['Spawn1'].createCreep(upgradeCreep, undefined, {role: 'upgrader'});
         console.log('Spawning new upgrader: ' + newName);
-    } else if(claimers.length < 1) {
+    } else if(claimers.length < 0) {
         var newName = Game.spawns['Spawn1'].createCreep([CLAIM,MOVE], undefined, {role: 'claimer'});
         console.log('Spawning new Claimer: ' + newName);
     } else if (repairs.length < maxRepair) {
@@ -96,7 +96,7 @@ module.exports.loop = function () {
     if(Game.spawns['Spawn1'].spawning) { 
         var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
         Game.spawns['Spawn1'].room.visual.text(
-            'Ã°Å¸âº Ã¯Â¸Â' + spawningCreep.memory.role,
+            spawningCreep.memory.role,
             Game.spawns['Spawn1'].pos.x + 1, 
             Game.spawns['Spawn1'].pos.y, 
             {align: 'left', opacity: 0.8});
