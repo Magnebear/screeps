@@ -5,7 +5,7 @@ var linkControll = {
 
 		
 		
-		if(originLink.energy < 600){
+		if(originLink.energy > 600){
 			originLink.transferEnergy(destinationLink);
 			console.log("Energy transfered!");
 		} else {
