@@ -12,12 +12,12 @@ var roleExternalHarvester = require('role.externalHarvester');
 var towerController = require("cont.towerController");
 
 var maxHarvester = 1;
-var maxBuilders = 6;
+var maxBuilders = 3;
 var maxUpgraders = 8;
 var maxMegaMiners1 = 1
 var maxMegaMiners2 = 1
 var maxTransporters = 4;
-var maxRepair = 2;
+var maxRepair = 1;
 var maxExternalHarvesters = 2;
 
 
