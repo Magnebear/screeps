@@ -7,6 +7,11 @@ var roleExternalHarvester = {
 	var destContainer = Game.getObjectById(creep.memory.targetContainer);
 	var flag = Game.getObjectById(creep.memory.flag);
 	
+	
+	console.log(source)
+	console.log(destContainer)
+	console.log(flag)
+
 	if(creep.memory.harvesting){
 		if(source == null){
 			creep.travelTo(Game.flags.flag);
