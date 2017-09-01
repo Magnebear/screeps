@@ -14,7 +14,7 @@ var roleTransporter = {
                 }
             });
             targets.sort();
-            //console.log(targets);
+            console.log(targets);
             if(targets.length > 0) {
                     if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.travelTo(targets[0]);
