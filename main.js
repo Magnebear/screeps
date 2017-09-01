@@ -7,6 +7,8 @@ var roleMegaMiner = require('role.megaMiner');
 var roleTransporter = require('role.transporter');
 var roleRepair = require('role.repair');
 var roleClaimer = require('role.claimer');
+var roleExternalHarvester = require('role.externalHarvester');
+
 
 var maxHarvester = 1;
 var maxBuilders = 2;
@@ -42,7 +44,7 @@ module.exports.loop = function () {
         console.log('Upgraders: ' + upgraders.length);
         console.log('Harvesters: ' + harvesters.length);
         console.log('MegaMiners1: ' + megaMiners1.length);
-	console.log('MegaMiners2: ' + megaMiners2.length);
+		console.log('MegaMiners2: ' + megaMiners2.length);
         console.log('transporters: ' + transporters.length);
         console.log('repair: ' + repairs.length);
         console.log('-------------------------------')
@@ -103,18 +105,7 @@ module.exports.loop = function () {
     }
     
     var tower = Game.getObjectById('59a48e720033416e2fa8ea27');
-    if(tower) {
-        var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-        if(closestHostile) {
-            tower.attack(closestHostile);
-        }
-        var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
-            filter: (structure) => (structure.hits < 2000) && (structure.structureType != STRUCTURE_EXTENSION)
-        });
-        if(closestDamagedStructure) {
-            tower.repair(closestDamagedStructure);
-        }
-    }
+	
 
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
@@ -142,6 +133,9 @@ module.exports.loop = function () {
 					break;
 				case "claimer":
 					roleClaimer.run(creep);
+					break;
+				case "externalHarvester":
+					roleExternalHarvester.run(creep);
 					break;
 		}
     }
