@@ -34,7 +34,7 @@ module.exports.loop = function () {
 
 
 
-    if (Memory.clock < 25){
+    if (Memory.clock < 10){
         Memory.clock++;
     } else {
 		var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
