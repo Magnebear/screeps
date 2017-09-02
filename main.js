@@ -37,6 +37,9 @@ module.exports.loop = function () {
     if (Memory.clock < 10){
         Memory.clock++;
     } else {
+		
+		const startCpu = Game.cpu.getUsed();
+		
 		var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
 		var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
 		var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
@@ -48,6 +51,8 @@ module.exports.loop = function () {
 		var externalHarvesters1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester1');
 		var externalHarvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester2');
 
+		console.log('elapsed:', Game.cpu.getUsed() - startCpu;);
+	
         console.log('-------------------------------')
         console.log('Builders: ' + builders.length);
         console.log('Upgraders: ' + upgraders.length);
