@@ -1,13 +1,9 @@
 var towerControll = {
     run: function(tower) {
-		console.log("Staring tower code.", tower)
 		var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-		console.log("Hostile:",closestHostile);
 		if(closestHostile) {
-			console.log("Attacking!");
-			console.log(tower.attack(closestHostile));
+			tower.attack(closestHostile);
 		} else {
-			console.log("Repping code!")
 			var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
 				filter: (structure) =>
 				(structure.hits < 2000) && 
