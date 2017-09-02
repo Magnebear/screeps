@@ -129,7 +129,7 @@ module.exports.loop = function () {
 	//towerController.run('59a48e720033416e2fa8ea27');
 	//towerController.run('59a48e720033416e2fa8ea27');
 	
-	var tower = Game.getObjectById(59a48e720033416e2fa8ea27);
+	var tower = Game.getObjectById("59a48e720033416e2fa8ea27");
 
 	var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
 	console.log("Hostile:",closestHostile);
