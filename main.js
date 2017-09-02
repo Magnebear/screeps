@@ -38,7 +38,6 @@ module.exports.loop = function () {
         Memory.clock++;
     } else {
 		
-		const startCpu = Game.cpu.getUsed();
 		
 		
 		
@@ -67,7 +66,6 @@ module.exports.loop = function () {
 		console.log('externalHarvesters2: ' + externalHarvesters2.length);
 		console.log('-------------------------------')
         
-		console.log('elapsed:', Game.cpu.getUsed() - startCpu);
 		
 		creepControll();
 		Memory.clock = 0;
@@ -153,11 +151,16 @@ module.exports.loop = function () {
             {align: 'left', opacity: 0.8});
     }
     
+//const startCpu = Game.cpu.getUsed();
+//console.log(' elapsed:', Game.cpu.getUsed() - startCpu);
+
 	towerController.run(Game.getObjectById('59a9bd8b58bf8523b6247f27'));
 	towerController.run(Game.getObjectById('59aa6fc87073420285cddfe8'));
 	
+
 	linkController.run("59a9d6c7901b9f6272a9c69a", "59a9ca4e83bd410897a24445");
 
+	
 	
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
@@ -197,5 +200,6 @@ module.exports.loop = function () {
 					break;
 	
 		}
+
     }
 }
