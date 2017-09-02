@@ -3,8 +3,7 @@ var towerControll = {
 		twr = Game.getObjectById(tower)	
 		
 		var closestHostile = twr.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-		console.log(FIND_HOSTILE_CREEPS);
-		console.log(closestHostile);
+		console.log("Hostile:",closestHostile);
 		if(closestHostile) {
 			console.log("Attacking!");
 			twr.attack(closestHostile);
