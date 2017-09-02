@@ -1,6 +1,7 @@
 <NotepadPlus>
     <Project name="Screeps">
         <File name="main.js" />
+        <File name="Room2Controller.js" />
         <File name="README.md" />
         <File name="role.builder.js" />
         <File name="role.harvester.js" />
@@ -10,5 +11,7 @@
         <File name="role.upgrader.js" />
         <File name="Traveler.js" />
         <File name="role.externalHarvester.js" />
+        <File name="role.claimer.js" />
+        <File name="cont.towerController.js" />
     </Project>
 </NotepadPlus>

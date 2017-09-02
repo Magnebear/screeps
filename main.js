@@ -17,7 +17,7 @@ var linkController = require("LinkController");
 
 var room2controller = require("Room2Controller");
 
-var maxHarvester = 0;
+var maxHarvester = 4;
 var maxBuilders = 2;
 var maxExternalBuilders = 1;
 var maxUpgraders = 10;
@@ -70,7 +70,7 @@ module.exports.loop = function () {
     }
 
     function creepControll(){
-		var defaultCreep = [WORK,WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE];
+		var defaultCreep = [WORK,WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE];
 		var upgradeCreep = [WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE];
 		var megaMiner = [WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE];
 		var transporterCreep = [CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE]
