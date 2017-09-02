@@ -108,20 +108,20 @@ module.exports.loop = function () {
         console.log('Spawning new builder: ' + newName);
     } else if (externalHarvesters.length < maxExternalHarvesters1) {
         var newName = Game.spawns['Spawn1'].createCreep(externalHarvesterCreep, undefined, 
-			{role: 'externalHarvester',
+			{role: 'externalHarvester1',
 			targetSource:"59830062b097071b4adc42d6",
 			targetContainer:"59a9d6c7901b9f6272a9c69a",
 			flag:"externalSource01"
 		});
-        console.log('Spawning new externalHarvester: ' + newName);
+        console.log('Spawning new externalHarvester1: ' + newName);
     } else if (externalHarvesters.length < maxExternalHarvesters2) {
         var newName = Game.spawns['Spawn1'].createCreep(externalHarvesterCreep, undefined, 
-			{role: 'externalHarvester',
+			{role: 'externalHarvester2',
 			targetSource:"59830055b097071b4adc4193",
 			targetContainer:"59a833729347b91c822b50ba",
 			flag:"externalSource02"
 		});
-        console.log('Spawning new externalHarvester: ' + newName);
+        console.log('Spawning new externalHarvester2: ' + newName);
     }
     
     if(harvesters.length == 0){
