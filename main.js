@@ -1,5 +1,7 @@
 var Traveler = require('Traveler');
 
+var room2controller
+
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
@@ -12,9 +14,11 @@ var roleExternalHarvester = require('role.externalHarvester');
 var towerController = require("cont.towerController");
 var linkController = require("LinkController");
 
+var room2controller = require("Rom2Controller");
+
 var maxHarvester = 0;
 var maxBuilders = 2;
-var maxUpgraders = 12;
+var maxUpgraders = 10;
 var maxMegaMiners1 = 1
 var maxMegaMiners2 = 1
 var maxTransporters = 3;
