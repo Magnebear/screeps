@@ -12,7 +12,6 @@ var roleExternalHarvester = require('role.externalHarvester');
 var towerController = require("cont.towerController");
 var linkController = require("LinkController");
 
-
 var maxHarvester = 0;
 var maxBuilders = 2;
 var maxUpgraders = 12;
@@ -24,7 +23,6 @@ var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 4;
 
 module.exports.loop = function () {
-
     for(var name in Memory.creeps) {
         if(!Game.creeps[name]) {
             delete Memory.creeps[name];
@@ -32,15 +30,9 @@ module.exports.loop = function () {
         }
     }
 
-
-
     if (Memory.clock < 3){
         Memory.clock++;
     } else {
-		
-		
-		
-		
 		var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
 		var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
 		var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
@@ -50,9 +42,7 @@ module.exports.loop = function () {
 		var repairs = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair');
 		var claimers = _.filter(Game.creeps, (creep) => creep.memory.role == 'claimer');
 		var externalHarvesters1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester1');
-		var externalHarvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester2');
-
-		
+		var externalHarvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester2');		
 	
         console.log('-------------------------------')
         console.log('Builders: ' + builders.length);
@@ -66,14 +56,10 @@ module.exports.loop = function () {
 		console.log('externalHarvesters2: ' + externalHarvesters2.length);
 		console.log('-------------------------------')
         
-		
 		creepControll();
 		Memory.clock = 0;
 		
-		
-		
     }
-
 
     function creepControll(){
 		var defaultCreep = [WORK,WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE];
@@ -138,9 +124,6 @@ module.exports.loop = function () {
 			Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {role: 'harvester'});
 		}
 	}	
-    
-    
-
 	
     if(Game.spawns['Spawn1'].spawning) { 
         var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
@@ -157,10 +140,7 @@ module.exports.loop = function () {
 	towerController.run(Game.getObjectById('59a9bd8b58bf8523b6247f27'));
 	towerController.run(Game.getObjectById('59aa6fc87073420285cddfe8'));
 	
-
 	linkController.run("59a9d6c7901b9f6272a9c69a", "59a9ca4e83bd410897a24445");
-
-	
 	
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
@@ -198,8 +178,6 @@ module.exports.loop = function () {
 				case "externalHarvester2":
 					roleExternalHarvester.run(creep);
 					break;
-	
 		}
-
     }
 }
