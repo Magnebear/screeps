@@ -40,7 +40,6 @@ module.exports.loop = function () {
     var transporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter');
 	var repairs = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair');
 	var claimers = _.filter(Game.creeps, (creep) => creep.memory.role == 'claimer');
-	var externalHarvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester');
 	var externalHarvesters1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester1');
 	var externalHarvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester2');
 
@@ -106,7 +105,7 @@ module.exports.loop = function () {
     } else if (builders.length < maxBuilders) {
         var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'builder'});
         console.log('Spawning new builder: ' + newName);
-    } else if (externalHarvesters.length < maxExternalHarvesters1) {
+    } else if (externalHarvesters1.length < maxExternalHarvesters1) {
         var newName = Game.spawns['Spawn1'].createCreep(externalHarvesterCreep, undefined, 
 			{role: 'externalHarvester1',
 			targetSource:"59830062b097071b4adc42d6",
@@ -114,7 +113,7 @@ module.exports.loop = function () {
 			flag:"externalSource01"
 		});
         console.log('Spawning new externalHarvester1: ' + newName);
-    } else if (externalHarvesters.length < maxExternalHarvesters2) {
+    } else if (externalHarvesters2.length < maxExternalHarvesters2) {
         var newName = Game.spawns['Spawn1'].createCreep(externalHarvesterCreep, undefined, 
 			{role: 'externalHarvester2',
 			targetSource:"59830055b097071b4adc4193",
