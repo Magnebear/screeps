@@ -5,7 +5,7 @@ var towerControll = {
 		console.log("Hostile:",closestHostile);
 		if(closestHostile) {
 			console.log("Attacking!");
-			tower.attack(closestHostile);
+			console.log(tower.attack(closestHostile);
 		}
 		var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
 			filter: (structure) =>
