@@ -13,7 +13,7 @@ var towerController = require("cont.towerController");
 var linkController = require("LinkController");
 
 
-var maxHarvester = 1;
+var maxHarvester = 0;
 var maxBuilders = 2;
 var maxUpgraders = 12;
 var maxMegaMiners1 = 1
@@ -126,9 +126,9 @@ module.exports.loop = function () {
 			console.log('Spawning new externalHarvester2: ' + newName);
 		}
 		
-		//Backu harvester spawning
-		if(harvesters.length == 0){
-		Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {role: 'harvester'});
+		//Backup harvester spawning
+		if(Game.creeps.length < 2){
+			Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {role: 'harvester'});
 		}
 	}	
     
