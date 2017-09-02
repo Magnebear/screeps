@@ -14,7 +14,7 @@ var roleExternalHarvester = require('role.externalHarvester');
 var towerController = require("cont.towerController");
 var linkController = require("LinkController");
 
-var room2controller = require("Rom2Controller");
+var room2controller = require("Room2Controller");
 
 var maxHarvester = 0;
 var maxBuilders = 2;
