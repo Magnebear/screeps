@@ -137,7 +137,7 @@ module.exports.loop = function () {
 		console.log("Attacking!");
 		tower.attack(closestHostile);
 	}
-	var tower = Game.getObjectById("59a48e720033416e2fa8ea27");
+	var tower = Game.getObjectById("59a9bd8b58bf8523b6247f27");
 	var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
 	console.log("Hostile:",closestHostile);
 	if(closestHostile) {
