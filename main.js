@@ -51,7 +51,7 @@ module.exports.loop = function () {
 		var externalHarvesters1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester1');
 		var externalHarvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester2');
 
-		console.log('elapsed:', Game.cpu.getUsed() - startCpu;);
+		console.log('elapsed:', Game.cpu.getUsed() - startCpu);
 	
         console.log('-------------------------------')
         console.log('Builders: ' + builders.length);
