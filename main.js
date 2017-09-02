@@ -151,7 +151,8 @@ module.exports.loop = function () {
 
 	
     for(var name in Game.creeps) {
-		switch(Game.creeps[name].memory.role) {
+        var creep = Game.creeps[name].memory.role;
+		switch(Game.creeps[name]) {
 				case "harvester":
 					roleHarvester.run(creep);
 					break;
