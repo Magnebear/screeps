@@ -126,25 +126,9 @@ module.exports.loop = function () {
             {align: 'left', opacity: 0.8});
     }
     
-	//towerController.run('59a48e720033416e2fa8ea27');
-	//towerController.run('59a48e720033416e2fa8ea27');
+	towerController.run(Game.getObjectById('59a9bd8b58bf8523b6247f27'));
+	towerController.run(Game.getObjectById('59a48e720033416e2fa8ea27'));
 	
-	var tower = Game.getObjectById("59a48e720033416e2fa8ea27");
-
-	var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-	console.log("Hostile:",closestHostile);
-	if(closestHostile) {
-		console.log("Attacking!");
-		tower.attack(closestHostile);
-	}
-	var tower = Game.getObjectById("59a9bd8b58bf8523b6247f27");
-	var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-	console.log("Hostile:",closestHostile);
-	if(closestHostile) {
-		console.log("Attacking!");
-		tower.attack(closestHostile);
-	}
-
 	linkController.run("59a9d6c7901b9f6272a9c69a", "59a9ca4e83bd410897a24445");
 
 	
