@@ -3,6 +3,8 @@ var towerControll = {
 		var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
 		if(closestHostile) {
 			tower.attack(closestHostile);
+		} else {
+			console.log("No hostiles");
 		}
 		var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
 			filter: (structure) =>
