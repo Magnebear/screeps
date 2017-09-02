@@ -10,7 +10,7 @@ var towerControll = {
 			console.log("No hostiles");
 		}
 		var closestDamagedStructure = twr.pos.findClosestByRange(FIND_STRUCTURES, {
-			filter: (structure) =>twr
+			filter: (structure) =>
 			(structure.hits < 2000) && 
 			(structure.structureType != STRUCTURE_EXTENSION)
 		});
