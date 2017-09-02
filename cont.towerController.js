@@ -1,6 +1,7 @@
 var towerControll = {
     run: function(tower) {
 		twr = Game.getObjectById(tower);
+		console.log(twr);
 		var closestHostile = twr.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
 
 		if(closestHostile) {
