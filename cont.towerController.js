@@ -1,18 +1,20 @@
 var towerControll = {
     run: function(tower) {
-		var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+		twr = Game.getObjectById(tower);
+		var closestHostile = twr.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+
 		if(closestHostile) {
-			console.log(tower.attack(closestHostile));
+			console.log(twr.attack(closestHostile));
 		} else {
 			console.log("No hostiles");
 		}
 		var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
-			filter: (structure) =>
+			filter: (structure) =>twr
 			(structure.hits < 2000) && 
 			(structure.structureType != STRUCTURE_EXTENSION)
 		});
 		if(closestDamagedStructure) {
-			tower.repair(closestDamagedStructure);
+			twr.repair(closestDamagedStructure);
 		}
 	}
 };
