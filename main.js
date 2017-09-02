@@ -20,8 +20,8 @@ var maxMegaMiners1 = 1
 var maxMegaMiners2 = 1
 var maxTransporters = 3;
 var maxRepair = 1;
-var maxExternalHarvesters = 4;
-
+var maxExternalHarvesters1 = 4;
+var maxExternalHarvesters2 = 4;
 
 module.exports.loop = function () {
 
@@ -41,6 +41,8 @@ module.exports.loop = function () {
 	var repairs = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair');
 	var claimers = _.filter(Game.creeps, (creep) => creep.memory.role == 'claimer');
 	var externalHarvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester');
+	var externalHarvesters1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester1');
+	var externalHarvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester2');
 
 
     if (Memory.clock < 25){
@@ -103,12 +105,20 @@ module.exports.loop = function () {
     } else if (builders.length < maxBuilders) {
         var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'builder'});
         console.log('Spawning new builder: ' + newName);
-    } else if (externalHarvesters.length < maxExternalHarvesters) {
+    } else if (externalHarvesters.length < maxExternalHarvesters1) {
         var newName = Game.spawns['Spawn1'].createCreep(externalHarvesterCreep, undefined, 
 			{role: 'externalHarvester',
 			targetSource:"59830062b097071b4adc42d6",
 			targetContainer:"59a9d6c7901b9f6272a9c69a",
 			flag:"externalSource01"
+		});
+        console.log('Spawning new externalHarvester: ' + newName);
+    } else if (externalHarvesters.length < maxExternalHarvesters2) {
+        var newName = Game.spawns['Spawn1'].createCreep(externalHarvesterCreep, undefined, 
+			{role: 'externalHarvester',
+			targetSource:"59830055b097071b4adc4193",
+			targetContainer:"59a833729347b91c822b50ba",
+			flag:"externalSource02"
 		});
         console.log('Spawning new externalHarvester: ' + newName);
     }
@@ -162,6 +172,13 @@ module.exports.loop = function () {
 				case "externalHarvester":
 					roleExternalHarvester.run(creep);
 					break;
+				case "externalHarvester1":
+					roleExternalHarvester.run(creep);
+					break;
+				case "externalHarvester2":
+					roleExternalHarvester.run(creep);
+					break;
+	
 		}
     }
 }
