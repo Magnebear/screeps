@@ -42,7 +42,11 @@ var roleTransporter = {
 				if(creep.withdraw(c, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 				   creep.travelTo(c);
 				}
-			} 	
+			} else if(bC.store.[RESOURCE_ENERGY] > 1000) {
+				if(creep.withdraw(bC, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+				   creep.travelTo(bC);
+				}
+			}
 			if(creep.carry.energy == creep.carryCapacity){
 				creep.memory.delivering = true;
 			}
