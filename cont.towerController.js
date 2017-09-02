@@ -5,7 +5,8 @@ var towerControll = {
 		var closestHostile = twr.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
 		console.log(FIND_HOSTILE_CREEPS);
 		if(closestHostile) {
-			console.log(twr.attack(closestHostile));
+			console.log("Attacking!");
+			twr.attack(closestHostile);
 		} else {
 			console.log("No hostiles");
 		}
