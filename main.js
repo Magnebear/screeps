@@ -123,13 +123,16 @@ module.exports.loop = function () {
 				flag:"externalSource02"
 			});
 			console.log('Spawning new externalHarvester2: ' + newName);
-		}	
+		}
+		
+		//Backu harvester spawning
+		if(harvesters.length == 0){
+		Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {role: 'harvester'});
+		}
 	}	
     
     
-    if(harvesters.length == 0){
-		Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {role: 'harvester'});
-    }
+
 	
     if(Game.spawns['Spawn1'].spawning) { 
         var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
