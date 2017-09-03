@@ -66,7 +66,7 @@ var roleTransporter = {
 					}
 				}
 			} else {
-				var c1 = creep.memory.container
+				var c1 = Game.getObjectById(creep.memory.container);
 				if(creep.withdraw(c1, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 					   creep.travelTo(c1);
 				}			
