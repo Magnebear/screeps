@@ -1,12 +1,9 @@
 var Traveler = require('Traveler');
 
 var roleBuilder = {
-	
-	var c = Game.getObjectById("59a833729347b91c822b50ba")
 
-    /** @param {Creep} creep **/
     run: function(creep) {
-
+		var c = Game.getObjectById("59a833729347b91c822b50ba");
 	    if(creep.memory.building && creep.carry.energy == 0) {
             creep.memory.building = false;
             creep.say('harvest');
