@@ -13,10 +13,9 @@ var room2Controller = {
 			
 			
 
-			Game.spawns["Spawn2"].room.find(FIND_MY_CREEPS);
+			var room2creeps = Game.spawns["Spawn2"].room.find(FIND_MY_CREEPS);
 			
-			console.log(Game.spawns["Spawn2"].room.find(FIND_MY_CREEPS))
-
+			console.log(room2creeps[0]);
 		
 			console.log('elapsed:', Game.cpu.getUsed() - startCpu);
 		
