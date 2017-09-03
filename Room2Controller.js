@@ -17,7 +17,7 @@ var room2Controller = {
 			
 			var transporters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter2');
 
-			console.log(tansporters2);
+			console.log(transporters2);
 			
 			console.log('elapsed:', Game.cpu.getUsed() - startCpu);
 
