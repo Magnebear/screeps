@@ -79,9 +79,13 @@ module.exports.loop = function () {
 		var externalHarvesterCreep = [WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE]
 		var externalBuilderCreep = [WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE]
 		
-		console.log(Game.creeps[Memory.megaMiner1Name].ticksToLive);
+		if(Game.creeps[Memory.megaMiner1Name]){
+			var ttl = Game.creeps[Memory.megaMiner1Name].ticksToLive;
+		} else {
+			var ttl = 100
+		}
 		
-		if(megaMiners1.length < maxMegaMiners1 || Game.creeps[Memory.megaMiner1Name].ticksToLive < 50) {
+		if(megaMiners1.length < maxMegaMiners1 || ttl) {
 			var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, 
 				{role: 'megaMiner1',
 				srcID:'59830055b097071b4adc418f',
