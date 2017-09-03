@@ -86,7 +86,7 @@ module.exports.loop = function () {
 		}
 		
 		console.log(ttl);
-		if(megaMiners1.length < maxMegaMiners1 || ttl) {
+		if(megaMiners1.length < maxMegaMiners1 || ttl < 50) {
 			var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, 
 				{role: 'megaMiner1',
 				srcID:'59830055b097071b4adc418f',
