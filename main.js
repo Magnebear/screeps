@@ -18,13 +18,13 @@ var linkController = require("LinkController");
 var room2controller = require("Room2Controller");
 
 var maxHarvester = 4;
-var maxBuilders = 2;
-var maxExternalBuilders = 1;
+var maxBuilders = 0;
+var maxExternalBuilders = 0;
 var maxUpgraders = 10;
-var maxMegaMiners1 = 1
-var maxMegaMiners2 = 1
+var maxMegaMiners1 = 2;
+var maxMegaMiners2 = 1;
 var maxTransporters = 3;
-var maxRepair = 1;
+var maxRepair = 2;
 var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 4;
 
@@ -152,8 +152,6 @@ module.exports.loop = function () {
             {align: 'left', opacity: 0.8});
     }
     
-//const startCpu = Game.cpu.getUsed();
-//console.log(' elapsed:', Game.cpu.getUsed() - startCpu);
 
 	towerController.run(Game.getObjectById('59a9bd8b58bf8523b6247f27'));
 	towerController.run(Game.getObjectById('59aa6fc87073420285cddfe8'));
