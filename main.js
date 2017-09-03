@@ -17,6 +17,7 @@ var room2Controller = require("Room2Controller");
 
 var maxHarvester = 4;
 var maxBuilders = 0;
+var maxBuilders2 = 0;
 var maxExternalBuilders = 1;
 var maxUpgraders = 10;
 var maxMegaMiners1 = 1;
@@ -194,6 +195,7 @@ module.exports.loop = function () {
 					roleUpgrader.run(creep);
 					break;
 				case "builder":
+				case "builder2":
 					roleBuilder.run(creep);
 					break;
 				case "externalBuilder":

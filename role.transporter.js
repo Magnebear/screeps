@@ -17,7 +17,6 @@ var roleTransporter = {
 			creep.say("Room 1")
 		} else {
 			creep.say("Room 2")
-
 		}
 		
 		
@@ -59,7 +58,6 @@ var roleTransporter = {
                 creep.memory.delivering = false;
             }
         } else {
-			console.log(room2selector)
 			if(room2selector == false){
 				if (l.energy > 0){
 					if(creep.withdraw(l, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {

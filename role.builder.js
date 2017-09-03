@@ -3,7 +3,13 @@ var Traveler = require('Traveler');
 var roleBuilder = {
 
     run: function(creep) {
-		var c = Game.getObjectById("59a833729347b91c822b50ba");
+		if(creep.memory.container){
+			var c = Game.getObjectById(creep.memory.container);
+		} else {
+			var c = Game.getObjectById("59a833729347b91c822b50ba");
+		}
+		
+		
 	    if(creep.memory.building && creep.carry.energy == 0) {
             creep.memory.building = false;
             creep.say('harvest');
@@ -20,7 +26,7 @@ var roleBuilder = {
                     creep.travelTo(targets[0]);
                 }
             } else {
-                 creep.travelTo(Game.flags.BuilderHolding);
+                 creep.travelTo(Game.flags[creep.memory.idelFlag]);
             }
 	    } else {
             if(bC.store[RESOURCE_ENERGY] > 50){
