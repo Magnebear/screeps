@@ -1,5 +1,7 @@
 var room2Controller = {
     run: function() {
+		var startCpu = Game.cpu.getUsed();
+		
 		if(Game.time%5 == 0){
 			var tock = true;
 		} else {
@@ -9,7 +11,7 @@ var room2Controller = {
 		if(tock){
 			console.log("Room 2 controller running @ ", Game.time);
 			
-			var startCpu = Game.cpu.getUsed();
+			
 
 			console.log(Game.spawns["Spawn2"].room.find(FIND_MY_CREEPS));
 		

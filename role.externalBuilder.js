@@ -2,7 +2,7 @@ var Traveler = require('Traveler');
 
 var roleExternalBuilder = {
     run: function(creep) {
-    	var buildTarget = Game.getObjectById("59abc531ced44a55c468a0d3");
+    	var buildTarget = Game.getObjectById("59abcdbcced44a55c468a239");
     	var targetRoomFlag = Game.flags[creep.memory.claimTarget01];
     	var source = Game.getObjectById("59830062b097071b4adc42da");
     	

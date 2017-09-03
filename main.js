@@ -21,6 +21,9 @@ var maxExternalBuilders = 1;
 var maxUpgraders = 10;
 var maxMegaMiners1 = 1;
 var maxMegaMiners2 = 1;
+var maxMegaMiners3 = 1;
+
+
 var maxTransporters = 3;
 var maxRepair = 2;
 var maxExternalHarvesters1 = 4;
@@ -43,11 +46,16 @@ module.exports.loop = function () {
 		var externalBuilders = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalBuilder');
 		var megaMiners1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'megaMiner1');
 		var megaMiners2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'megaMiner2');
+		var megaMiners3 = _.filter(Game.creeps, (creep) => creep.memory.role == 'megaMiner3');
 		var transporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter');
 		var repairs = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair');
 		var claimers = _.filter(Game.creeps, (creep) => creep.memory.role == 'claimer');
 		var externalHarvesters1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester1');
 		var externalHarvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester2');		
+	
+	
+	
+	
 	
         console.log('-------------------------------')
         console.log('Builders: ' + builders.length);
@@ -103,6 +111,13 @@ module.exports.loop = function () {
 				{role: 'megaMiner2',
 				srcID:'59830055b097071b4adc4190',
 				contID:'59a833729347b91c822b50ba'
+			});
+			console.log('Spawning new MegaMiner2: ' + newName);
+		} else if(megaMiners3.length < 1) {
+			var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, 
+				{role: 'megaMiner3',
+				srcID:'59830062b097071b4adc42da',
+				contID:'59abd2e6c2a9b84dc15448bb'
 			});
 			console.log('Spawning new MegaMiner2: ' + newName);
 		} else if (harvesters.length < maxHarvester) {
