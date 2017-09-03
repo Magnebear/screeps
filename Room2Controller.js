@@ -16,7 +16,7 @@ var room2Controller = {
 			Game.spawns["Spawn2"].room.find(FIND_MY_CREEPS);
 			
 			for(var name in Game.spawns["Spawn2"].room.find(FIND_MY_CREEPS)){
-				console.log(name.name, " : ", Game.creeps[name.name].memory.role);
+				console.log(name.memory.name)
 				
 			}
 			
