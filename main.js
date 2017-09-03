@@ -64,12 +64,13 @@ module.exports.loop = function () {
 		console.log('externalHarvesters2: ' + externalHarvesters2.length);
 		console.log('-------------------------------')
         
+		Game.Memory.megaMiner1Name = "Victoria";
 		creepControll();
 		Memory.clock = 0;
 		
     }
 
-	Game.Memory.megaMiner1Name = "Victoria";
+	
     function creepControll(){
 		var defaultCreep = [WORK,WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE];
 		var upgradeCreep = [WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE];
