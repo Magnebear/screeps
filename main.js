@@ -119,7 +119,7 @@ module.exports.loop = function () {
 				srcID:'59830062b097071b4adc42da',
 				contID:'59abd2e6c2a9b84dc15448bb'
 			});
-			console.log('Spawning new MegaMiner2: ' + newName);
+			console.log('Spawning new MegaMiner3: ' + newName);
 		} else if (harvesters.length < maxHarvester) {
 			var newName = Game.spawns['Spawn1'].createCreep(defaultCreep2, undefined, {role: 'harvester'});
 			console.log('Spawning new harvester: ' + newName);
@@ -131,7 +131,7 @@ module.exports.loop = function () {
 			console.log('Spawning new Claimer: ' + newName);
 		} else if (repairs.length < maxRepair) {
 			var newName = Game.spawns['Spawn1'].createCreep(repairCreep, undefined, {role: 'repair'});
-			console.log('Spawning new builder: ' + newName);
+			console.log('Spawning new repair: ' + newName);
 		} else if (builders.length < maxBuilders) {
 			var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'builder'});
 			console.log('Spawning new builder: ' + newName);
