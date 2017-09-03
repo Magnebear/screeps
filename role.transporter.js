@@ -16,11 +16,14 @@ var roleTransporter = {
                     && structure.energy < structure.energyCapacity;
                 }
             });
-            targets.sort();
+			var startCpu = Game.cpu.getUsed()
+			
+			var closestTarget = creep.pos.findClosestByRange(targets)
+			console.log("Used Cpu: ", Game.cpu.getUsed()-startCpu);
             //console.log(targets);
             if(targets.length > 0) {
-                    if(creep.transfer(creep.pos.findClosestByRange(targets), RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                        creep.travelTo(creep.pos.findClosestByRange(targets));
+                    if(creep.transfer(closestTarget, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                        creep.travelTo(closestTarget);
                     }
             } else if(c.store[RESOURCE_ENERGY] > 750 || l.energy > 0 || c2.store[RESOURCE_ENERGY] > 750 ){
 				//Transfer to big storage...
