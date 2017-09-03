@@ -36,7 +36,7 @@ module.exports.loop = function () {
         }
     }
 
-    if (Memory.clock < 3){
+    if (Memory.clock < 5){
         Memory.clock++;
     } else {
 		var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
@@ -63,7 +63,7 @@ module.exports.loop = function () {
 		console.log('externalHarvesters1: ' + externalHarvesters1.length);
 		console.log('externalHarvesters2: ' + externalHarvesters2.length);
 		console.log('-------------------------------')
-        Memory.megaMiner1Name = "Victoria";
+
 		creepControll();
 		Memory.clock = 0;
 		
@@ -78,7 +78,9 @@ module.exports.loop = function () {
 		var repairCreep = [WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE]
 		var externalHarvesterCreep = [WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE]
 		var externalBuilderCreep = [WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE]
-
+		
+		console.log(Game.creeps[Memory.megaMiner1Name].ticksToLive < 50);
+		
 		if(megaMiners1.length < maxMegaMiners1 || Game.creeps[Memory.megaMiner1Name].ticksToLive < 50) {
 			var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, 
 				{role: 'megaMiner1',
