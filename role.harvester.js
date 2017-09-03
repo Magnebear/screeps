@@ -4,7 +4,7 @@ var roleHarvester = {
     /** @param {Creep} creep **/
     run: function(creep) {
         if(creep.memory.harvesting){
-            var source = Game.getObjectById("59830062b097071b4adc42da");
+            var source = Game.getObjectById("59830062b097071b4adc42d9");
             if(!source){
                 creep.travelTo(Game.flags.claimTarget01);
             } else if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
