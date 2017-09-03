@@ -63,7 +63,7 @@ module.exports.loop = function () {
 		console.log('externalHarvesters1: ' + externalHarvesters1.length);
 		console.log('externalHarvesters2: ' + externalHarvesters2.length);
 		console.log('-------------------------------')
-        
+        Memory.megaMiner1Name = "Victoria";
 		creepControll();
 		Memory.clock = 0;
 		
