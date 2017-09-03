@@ -13,7 +13,17 @@ var room2Controller = {
 			
 			
 
-			console.log(Game.spawns["Spawn2"].room.find(FIND_MY_CREEPS));
+			Game.spawns["Spawn2"].room.find(FIND_MY_CREEPS);
+			
+			for(var name in Game.spawns["Spawn2"].room.find(FIND_MY_CREEPS)){
+				console.log(name, " : "Game.creeps[name].memory.role);
+				
+			}
+			
+		
+		
+		
+		
 		
 			console.log('elapsed:', Game.cpu.getUsed() - startCpu);
 		

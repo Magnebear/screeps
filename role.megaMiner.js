@@ -6,8 +6,9 @@ var roleMegaMiner = {
         var container = Game.getObjectById(creep.memory.contID);
 		if(container.store[RESOURCE_ENERGY] < 2000){
 			if(creep.harvest(Game.getObjectById(creep.memory.srcID)) == ERR_NOT_IN_RANGE) {
-				creep.travelTo(container);
+				
 			}
+			creep.travelTo(container);
 		}
 		if(container.hits < container.hitsMax){
             creep.repair(container);
