@@ -7,7 +7,7 @@ var room2Controller = {
 		}
 		
 		if(tock){
-				console.log("Room 2 controller running!");
+				console.log("Room 2 controller running @ ", Game.time);
 		}
 	}
 };
