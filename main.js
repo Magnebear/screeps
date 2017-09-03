@@ -198,7 +198,7 @@ module.exports.loop = function () {
 				case "megaMiner1":
 					roleMegaMiner.run(creep);
 					break;
-				case "megaMiner2":
+				case "megaMiner2" || "megaMiner3":
 					roleMegaMiner.run(creep);
 					break;
 				case "transporter":
