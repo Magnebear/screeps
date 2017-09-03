@@ -42,15 +42,15 @@ var roleTransporter = {
 				if(creep.withdraw(l, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 				   creep.travelTo(l);
 				}
-			} else if(c.store[RESOURCE_ENERGY] > 400){
+			} else if(c.store[RESOURCE_ENERGY] > 100){
 				if(creep.withdraw(c, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 				   creep.travelTo(c);
 				}
-			} else if(c2.store[RESOURCE_ENERGY] > 400) {
+			} else if(c2.store[RESOURCE_ENERGY] > 100) {
 				if(creep.withdraw(c2, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 				   creep.travelTo(c2);
 				}
-			} else if(bC.store[RESOURCE_ENERGY] > 1000) {
+			} else if(bC.store[RESOURCE_ENERGY] > 0) {
 				if(creep.withdraw(bC, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 				   creep.travelTo(bC);
 				}
