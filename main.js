@@ -74,6 +74,8 @@ module.exports.loop = function () {
 		var upgradeCreep = [WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE];
 		var megaMiner = [WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE];
 		var transporterCreep = [CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE]
+		var transporterCreep2 = [CARRY,CARRY,CARRY,CARRY,MOVE,MOVE]
+
 		var repairCreep = [WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE]
 		var externalHarvesterCreep = [WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE]
 		
@@ -87,7 +89,7 @@ module.exports.loop = function () {
 			});
 				console.log('Spawning new MegaMiner1: ' + newName);
 		} else if (transporters.length < maxTransporters) {
-			var newName = Game.spawns['Spawn1'].createCreep(transporterCreep, undefined, {role: 'transporter'});
+			var newName = Game.spawns['Spawn1'].createCreep(transporterCreep2, undefined, {role: 'transporter'});
 			console.log('Spawning new transporter: ' + newName);
 		} else if(megaMiners2.length < 1) {
 			var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, 
