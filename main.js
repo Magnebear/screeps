@@ -69,6 +69,7 @@ module.exports.loop = function () {
 		
     }
 
+	Game.memory.megaMiner1Name = "Victoria";
     function creepControll(){
 		var defaultCreep = [WORK,WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE];
 		var upgradeCreep = [WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE];
