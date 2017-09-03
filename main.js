@@ -12,7 +12,7 @@ var roleClaimer = require('role.claimer');
 var roleExternalHarvester = require('role.externalHarvester');
 var roleExternalBuilder = require('role.externalBuilder');
 
-var towerController = require("cont.towerController");
+var towerController = require("TowerController");
 var linkController = require("LinkController");
 
 var room2controller = require("Room2Controller");
