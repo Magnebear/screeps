@@ -11,7 +11,8 @@ var roleTransporter = {
 		
 		
 		var room2selector = creep.memory.room2selector;
-		if((room2selector === true)){
+		
+		if(!(room2selector === true)){
 			room2selector = false;
 		}
 		
