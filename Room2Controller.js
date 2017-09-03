@@ -24,7 +24,7 @@ var room2Controller = {
 			console.log('elapsed:', Game.cpu.getUsed() - startCpu);
 
 			if (transporters2.length < maxTransporters2) {
-			var newName = Game.spawns['Spawn1'].createCreep(transporterCreep, undefined, 
+			//var newName = Game.spawns['Spawn2'].createCreep(transporterCreep, undefined, 
 				{role: 'transporter2',
 				room2selector: true,
 				container: "59abd2e6c2a9b84dc15448bb"
