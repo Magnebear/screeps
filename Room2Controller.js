@@ -12,11 +12,11 @@ var room2Controller = {
 			console.log("Room 2 controller running @ ", Game.time);
 			
 			
-
-			var room2creeps = Game.spawns["Spawn2"].room.find(FIND_MY_CREEPS);
 			
-			console.log(room2creeps[0].memory.role);
-		
+			var room2creeps = Game.spawns["Spawn2"].room.find(FIND_MY_CREEPS);
+			for(var i = 0; i < room2creeps; i++){
+				console.log(room2creeps[i].memory.name, " : ",room2creeps[i].memory.role);
+			}
 			console.log('elapsed:', Game.cpu.getUsed() - startCpu);
 		
 		
