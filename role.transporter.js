@@ -8,7 +8,8 @@ var roleTransporter = {
         var bC = Game.getObjectById("59a7c22c82c55314c9f9a863");
 		
 		if(creep.memory.delivering == true){
-            var targets = creep.room.find(FIND_STRUCTURES, {
+            var startCpu = Game.cpu.getUsed()
+			var targets = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_EXTENSION ||
                     structure.structureType == STRUCTURE_SPAWN ||
@@ -16,11 +17,10 @@ var roleTransporter = {
                     && structure.energy < structure.energyCapacity;
                 }
             });
-			var startCpu = Game.cpu.getUsed()
 			
-			var closestTarget = creep.pos.findClosestByRange(targets)
 			console.log("Used Cpu: ", Game.cpu.getUsed()-startCpu);
-            //console.log(targets);
+			var closestTarget = creep.pos.findClosestByRange(targets)
+			
             if(targets.length > 0) {
                     if(creep.transfer(closestTarget, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.travelTo(closestTarget);
