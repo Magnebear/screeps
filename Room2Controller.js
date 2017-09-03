@@ -9,8 +9,10 @@ var room2Controller = {
 		if(tock){
 				console.log("Room 2 controller running @ ", Game.time);
 		}
-		
+		    const startCpu = Game.cpu.getUsed();
+
 		Game.spawns["Spawn2"].room.find(FIND_MY_CREEPS);
+		    console.log('elapsed:', Game.cpu.getUsed() - startCpu;);
 	}
 };
 
