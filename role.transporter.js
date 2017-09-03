@@ -11,7 +11,7 @@ var roleTransporter = {
 		
 		
 		var room2selector = creep.memory.room2selector;
-		if(1(room2selector === true)){
+		if((room2selector === true)){
 			room2selector = false;
 		}
 		
@@ -54,7 +54,7 @@ var roleTransporter = {
                 creep.memory.delivering = false;
             }
         } else {
-			if(room2selector == (undefined || false)){
+			if(room2selector == false){
 				if (l.energy > 0){
 					if(creep.withdraw(l, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 					   creep.travelTo(l);
