@@ -16,9 +16,12 @@ var roleExternalBuilder = {
         }
     	
         if(creep.memory.building) {
-			if(creep.build(buildTarget) == ERR_NOT_IN_RANGE) {
-				creep.travelTo(buildTarget);
-			}
+			var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+            if(targets.length > 0) {
+                if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
+                    creep.travelTo(targets[0]);
+                }
+            }
         } else {
 			if(creep.withdraw(c, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 			   creep.travelTo(c);
