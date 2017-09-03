@@ -86,7 +86,9 @@ module.exports.loop = function () {
 				contID:'59a5d22932ef987c0f96bf3b'
 			});
 				console.log('Spawning new MegaMiner1: ' + newName);
-				Memory.megaMiner1Name = newName;
+				if(newName != (-1 || -3 || -4 || -6 || -10 || -14)){
+					Memory.megaMiner1Name = newName;
+				}
 		} else if (transporters.length < maxTransporters) {
 			var newName = Game.spawns['Spawn1'].createCreep(transporterCreep, undefined, {role: 'transporter'});
 			console.log('Spawning new transporter: ' + newName);
