@@ -14,6 +14,10 @@ var roleTransporter = {
 		
 		if(!(room2selector === true)){
 			room2selector = false;
+			creep.say("Room 1")
+		} else {
+			creep.say("Room 2")
+
 		}
 		
 		
