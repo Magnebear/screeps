@@ -79,7 +79,7 @@ module.exports.loop = function () {
 		var externalHarvesterCreep = [WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE]
 		var externalBuilderCreep = [WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE]
 		
-		console.log(Game.creeps[Memory.megaMiner1Name].ticksToLive < 50);
+		console.log(Game.creeps[Memory.megaMiner1Name].ticksToLive);
 		
 		if(megaMiners1.length < maxMegaMiners1 || Game.creeps[Memory.megaMiner1Name].ticksToLive < 50) {
 			var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, 
