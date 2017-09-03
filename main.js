@@ -197,11 +197,7 @@ module.exports.loop = function () {
 					roleExternalBuilder.run(creep);
 					break;
 				case "megaMiner1":
-					roleMegaMiner.run(creep);
-					break;
 				case "megaMiner2":
-					roleMegaMiner.run(creep);
-					break;
 				case "megaMiner3":
 					roleMegaMiner.run(creep);
 					break;
@@ -215,11 +211,7 @@ module.exports.loop = function () {
 					roleClaimer.run(creep);
 					break;
 				case "externalHarvester":
-					roleExternalHarvester.run(creep);
-					break;
 				case "externalHarvester1":
-					roleExternalHarvester.run(creep);
-					break;
 				case "externalHarvester2":
 					roleExternalHarvester.run(creep);
 					break;
