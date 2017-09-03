@@ -35,14 +35,14 @@ var roleTransporter = {
 					}
 			} else if(c.store[RESOURCE_ENERGY] > 750 || l.energy > 0 || c2.store[RESOURCE_ENERGY] > 750 ){
 				//Transfer to big storage...
-				if(room2selector == (undefined || false)){
+				if(room2selector == false){
 					if(creep.transfer(bC, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 							creep.travelTo(bC);
 					}
 				}
 			} else {
 				//Idle
-				if(room2selector == (undefined || false)){
+				if(room2selector == false){
 					creep.travelTo(Game.flags.transportHolding);
 				} else {
 					creep.travelTo(Game.flags.room2TransportHolding);
