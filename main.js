@@ -20,8 +20,8 @@ var room2controller = require("Room2Controller");
 var maxHarvester = 4;
 var maxBuilders = 0;
 var maxExternalBuilders = 0;
-var maxUpgraders = 10;
-var maxMegaMiners1 = 2;
+var maxUpgraders = 5;
+var maxMegaMiners1 = 1;
 var maxMegaMiners2 = 1;
 var maxTransporters = 3;
 var maxRepair = 2;
@@ -74,22 +74,20 @@ module.exports.loop = function () {
 		var upgradeCreep = [WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE];
 		var megaMiner = [WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE];
 		var transporterCreep = [CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE]
-		var transporterCreep2 = [CARRY,CARRY,CARRY,CARRY,MOVE,MOVE]
-
 		var repairCreep = [WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE]
 		var externalHarvesterCreep = [WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE]
-		
 		var externalBuilderCreep = [WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE]
-			
-		if(megaMiners1.length < 1) {
+
+		if(megaMiners1.length < maxMegaMiners1 || Game.creeps[Game.memory.megaMiner1Name].ticksToLive > 50) {
 			var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, 
 				{role: 'megaMiner1',
 				srcID:'59830055b097071b4adc418f',
 				contID:'59a5d22932ef987c0f96bf3b'
 			});
 				console.log('Spawning new MegaMiner1: ' + newName);
+				Game.memory.megaMiner1Name = newName;
 		} else if (transporters.length < maxTransporters) {
-			var newName = Game.spawns['Spawn1'].createCreep(transporterCreep2, undefined, {role: 'transporter'});
+			var newName = Game.spawns['Spawn1'].createCreep(transporterCreep, undefined, {role: 'transporter'});
 			console.log('Spawning new transporter: ' + newName);
 		} else if(megaMiners2.length < 1) {
 			var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, 
