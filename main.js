@@ -79,6 +79,7 @@ module.exports.loop = function () {
 		var defaultCreep2 = [WORK,WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE];
 		var upgradeCreep = [WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE];
 		var megaMiner = [WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE];
+		var megaMinerAlt = [WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE];
 		var miniMegaMiner =[WORK,WORK,CARRY,MOVE];
 		var transporterCreep = [CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE]
 		var repairCreep = [WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE]
@@ -116,7 +117,7 @@ module.exports.loop = function () {
 			});
 			console.log('Spawning new MegaMiner2: ' + newName);
 		} else if(megaMiners3.length < 1) {
-			var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, 
+			var newName = Game.spawns['Spawn2'].createCreep(megaMinerAlt, undefined, 
 				{role: 'megaMiner3',
 				srcID:'59830062b097071b4adc42da',
 				contID:'59abd2e6c2a9b84dc15448bb'
