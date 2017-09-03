@@ -7,7 +7,14 @@ var roleTransporter = {
 		var l = Game.getObjectById("59a9ca4e83bd410897a24445");
         var bC = Game.getObjectById("59a7c22c82c55314c9f9a863");
 		
+		
+		
+		
 		var room2selector = creep.memory.room2selector;
+		if(1(room2selector === true)){
+			room2selector = false;
+		}
+		
 		
 		if(creep.memory.delivering == true){
             
