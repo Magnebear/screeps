@@ -4,7 +4,7 @@ var roleExternalBuilder = {
     run: function(creep) {
     	var buildTarget = Game.getObjectById("59abcdbcced44a55c468a239");
     	var targetRoomFlag = Game.flags[creep.memory.claimTarget01];
-    	var source = Game.getObjectById("59830062b097071b4adc42da");
+    	var c = Game.getObjectById("59abd2e6c2a9b84dc15448bb");
     	
         if(creep.memory.building && creep.carry.energy == 0) {
             creep.memory.building = false;
@@ -16,16 +16,12 @@ var roleExternalBuilder = {
         }
     	
         if(creep.memory.building) {
-            if(!buildTarget) {
-                creep.travelTo(Game.flags.BuilderHolding);
-            } else {
-                if(creep.build(buildTarget) == ERR_NOT_IN_RANGE) {
-                    creep.travelTo(buildTarget);
-                }
-            }
+			if(creep.build(buildTarget) == ERR_NOT_IN_RANGE) {
+				creep.travelTo(buildTarget);
+			}
         } else {
-			if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
-				creep.travelTo(source);
+			if(creep.withdraw(c, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+			   creep.travelTo(c);
 			}
 		}
 	}
