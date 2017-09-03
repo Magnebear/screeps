@@ -206,7 +206,8 @@ module.exports.loop = function () {
 				case "externalHarvester2":
 					roleExternalHarvester.run(creep);
 					break;
-
-					}
+		}
     }
+	
+	room2Controller.run();
 }
