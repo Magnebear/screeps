@@ -14,11 +14,13 @@ var room2Controller = {
 			
 			
 			var room2creeps = Game.spawns["Spawn2"].room.find(FIND_MY_CREEPS);
-			for(var i = 0; i < room2creeps.length; i++){
-				console.log(room2creeps[i].name, " : ",room2creeps[i].memory.role);
-			}
+			
+			var transporters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter2');
+
+			console.log(tansporter2);
+			
 			console.log('elapsed:', Game.cpu.getUsed() - startCpu);
-		
+
 		
 		
 		}

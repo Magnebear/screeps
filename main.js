@@ -105,7 +105,10 @@ module.exports.loop = function () {
 					Memory.megaMiner1Name = newName;
 				}
 		} else if (transporters.length < maxTransporters) {
-			var newName = Game.spawns['Spawn1'].createCreep(transporterCreep, undefined, {role: 'transporter'});
+			var newName = Game.spawns['Spawn1'].createCreep(transporterCreep, undefined, 
+				{role: 'transporter',
+				room2selector: false
+			});
 			console.log('Spawning new transporter: ' + newName);
 		} else if(megaMiners2.length < 1) {
 			var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, 
@@ -203,6 +206,7 @@ module.exports.loop = function () {
 					roleMegaMiner.run(creep);
 					break;
 				case "transporter":
+				case "transporter2":
 					roleTransporter.run(creep);
 					break;
 				case "repair":
