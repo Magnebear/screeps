@@ -19,11 +19,6 @@ var room2Controller = {
 				console.log(creep.name)
 				
 			}
-			
-		
-		
-		
-		a
 		
 			console.log('elapsed:', Game.cpu.getUsed() - startCpu);
 		
