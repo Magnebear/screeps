@@ -2,9 +2,9 @@ var Traveler = require('Traveler');
 
 var roleExternalBuilder = {
     run: function(creep) {
-    	var buildTarget = Game.getObjectById("59aabfdf2654204ec7172ee1");
+    	var buildTarget = Game.getObjectById("59abc531ced44a55c468a0d3");
     	var targetRoomFlag = Game.flags[creep.memory.claimTarget01];
-    	var bC = Game.getObjectById("59a7c22c82c55314c9f9a863");
+    	var source = Game.getObjectById("59830062b097071b4adc42da");
     	
         if(creep.memory.building && creep.carry.energy == 0) {
             creep.memory.building = false;
@@ -24,9 +24,8 @@ var roleExternalBuilder = {
                 }
             }
         } else {
-            if(bC.store[RESOURCE_ENERGY] > 50){
-    			if(creep.withdraw(bC, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-    				creep.travelTo(bC);
+    			if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
+    				creep.travelTo(source);
     			}
             }
         }
