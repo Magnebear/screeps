@@ -3,9 +3,17 @@ var Traveler = require('Traveler');
 var roleHarvester = {
     /** @param {Creep} creep **/
     run: function(creep) {
+		
+		typeof creep.memory.sourceId
+		
+		var source = Game.getObjectById("59830062b097071b4adc42d9");
+		var c = Game.getObjectById("59ac2dc842200e583074dad8");
+		
+		
+		
+		
         if(creep.memory.harvesting){
-            var source = Game.getObjectById("59830062b097071b4adc42d9");
-            var c = Game.getObjectById("59ac2dc842200e583074dad8");
+            
             if(!source){
                 creep.travelTo(Game.flags.claimTarget01);
             }else if(creep.harvest(source) == ERR_NOT_IN_RANGE) {

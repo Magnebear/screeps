@@ -154,7 +154,6 @@ module.exports.loop = function () {
 			});
 			console.log('Spawning new externalHarvester2: ' + newName);
 		}
-		
 		//Backup harvester spawning
 		if(Game.creeps.length < 2){
 			Game.spawns['Spawn1'].createCreep([CARRY,CARRY,CARRY,CARRY,MOVE,MOVE], undefined, {role: 'transporter',room2selector: false
@@ -162,7 +161,11 @@ module.exports.loop = function () {
 		}
 		
         if (harvesters.length < maxHarvester) {
-			var newName = Game.spawns['Spawn2'].createCreep(defaultCreep2, undefined, {role: 'harvester'});
+			var newName = Game.spawns['Spawn2'].createCreep(defaultCreep2, undefined, 
+			{role: 'harvester',
+			containerId: "59ac2dc842200e583074dad8",
+			sourceId: "59830062b097071b4adc42d9"
+		});
 			console.log('Spawning new harvester: ' + newName);
 		} else if(megaMiners3.length < 1) {
 			var newName = Game.spawns['Spawn2'].createCreep(megaMinerAlt, undefined, 
