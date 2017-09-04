@@ -1,47 +1,34 @@
 var Traveler = require('Traveler');
 
-var roleBuilder = {
+var roleUpgrader = {
 
+    /** @param {Creep} creep **/
     run: function(creep) {
-		if(creep.memory.container){
-			var c = Game.getObjectById(creep.memory.container);
-		} else {
-			var c = Game.getObjectById("59a833729347b91c822b50ba");
-		}
-		
-		
-	    if(creep.memory.building && creep.carry.energy == 0) {
-            creep.memory.building = false;
-            creep.say('harvest');
+        var c = Game.getObjectById("59a833729347b91c822b50ba")
+        if(creep.memory.upgrading && creep.carry.energy == 0) {
+            creep.memory.upgrading = false;
+            creep.say('Collecting');
 	    }
-	    if(!creep.memory.building && creep.carry.energy == creep.carryCapacity) {
-	        creep.memory.building = true;
-	        creep.say('build');
+	    if(!creep.memory.upgrading && creep.carry.energy == creep.carryCapacity) {
+	        creep.memory.upgrading = true;
+	        creep.say('Uppgrading');
 	    }
-       
-	    if(creep.memory.building) {
-	        var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
-            if(targets.length > 0) {
-                if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
-                    creep.travelTo(targets[0]);
-                }
-            } else {
-                 creep.travelTo(Game.flags[creep.memory.idelFlag]);
+
+	    if(creep.memory.upgrading) {
+			creep.travelTo(Game.flags.upgradeFlag);
+            if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
+          
             }
-	    } else {
-            if(bC.store[RESOURCE_ENERGY] > 50){
-				if(creep.withdraw(bC, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-					creep.travelTo(bC);
-				}
-            } else {
-				if(c.store[RESOURCE_ENERGY] > 59){
-					if(creep.withdraw(c, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-						creep.travelTo(c);
-					}
-				}
-			}
-	    }
+        }
+        else if(c.store[RESOURCE_ENERGY] > 100) {
+            if(creep.withdraw(c, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+               creep.travelTo(c);
+            }
+        } else {
+            creep.travelTo(Game.flags.upgradeHolding);
+
+        }
 	}
 };
 
-module.exports = roleBuilder;
+module.exports = roleUpgrader;

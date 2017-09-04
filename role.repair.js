@@ -17,7 +17,12 @@ var roleRepair = {
                 creep.memory.repairTarget = _.sample(repairTargets);
             } else {
                 //Idle state
-                creep.travelTo(Game.flags.repairHolding)
+                if(creep.memory.role = "repair"){
+                    creep.travelTo(Game.flags.repairHolding);    
+                } else {
+                    creep.travelTo(Game.flags.repair2Holding);    
+                }
+                
             }
         } else if (creep.carry.energy < 5) {
             var roomContainers = Game.rooms[creep.room.name].find(FIND_STRUCTURES, {
