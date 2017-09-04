@@ -16,10 +16,10 @@ var linkController = require("LinkController");
 var room2Controller = require("Room2Controller");
 
 var maxHarvester = 4;
-var maxBuilders = 1;
+var maxBuilders = 3;
 var maxBuilders2 = 0;
 var maxExternalBuilders = 2;
-var maxUpgraders = 10;
+var maxUpgraders = 7;
 var maxMegaMiners1 = 1;
 var maxMegaMiners2 = 1;
 var maxMegaMiners3 = 1;
