@@ -4,13 +4,10 @@ var roleHarvester = {
     /** @param {Creep} creep **/
     run: function(creep) {
 		
-		typeof creep.memory.sourceId
+		console.log(typeof creep.memory.sourceId)
 		
 		var source = Game.getObjectById("59830062b097071b4adc42d9");
 		var c = Game.getObjectById("59ac2dc842200e583074dad8");
-		
-		
-		
 		
         if(creep.memory.harvesting){
             
