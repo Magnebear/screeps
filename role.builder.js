@@ -7,11 +7,11 @@ var roleUpgrader = {
         var c = Game.getObjectById("59a833729347b91c822b50ba")
         if(creep.memory.upgrading && creep.carry.energy == 0) {
             creep.memory.upgrading = false;
-            creep.say('Collecting');
+            creep.say("Collecting!");
 	    }
 	    if(!creep.memory.upgrading && creep.carry.energy == creep.carryCapacity) {
 	        creep.memory.upgrading = true;
-	        creep.say('Uppgrading');
+	        creep.say("Uppgrading!");
 	    }
 
 	    if(creep.memory.upgrading) {

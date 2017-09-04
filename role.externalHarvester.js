@@ -24,7 +24,7 @@ var roleExternalHarvester = {
 			
 			if(creep.carry.energy==0){
 				creep.memory.harvesting = true;
-				creep.say("Harvesting!!")
+				creep.say("Harvesting!")
 
 			}
 		}
