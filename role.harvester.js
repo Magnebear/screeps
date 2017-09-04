@@ -5,11 +5,13 @@ var roleHarvester = {
     run: function(creep) {
         if(creep.memory.harvesting){
             var source = Game.getObjectById("59830062b097071b4adc42d9");
+            var c = Game.getObjectById("59ac2dc842200e583074dad8");
             if(!source){
                 creep.travelTo(Game.flags.claimTarget01);
-            } else if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
+            }else if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
                 creep.travelTo(source);
             }
+            creep.withdraw(c, RESOURCE_ENERGY)
             if(creep.carry.energy==creep.carryCapacity){
                 creep.memory.harvesting = false;
             }
