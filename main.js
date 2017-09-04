@@ -85,14 +85,8 @@ module.exports.loop = function () {
 		var externalHarvesterCreep = [WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE]
 		var externalBuilderCreep = [WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE]
 		
-		
-		if(Game.creeps[Memory.megaMiner1Name].spawning){
-			var ttl = 1;
-		} else {
-			var ttl = 
-		}
-		console.log(ttl);
-		
+	
+	
 		if((megaMiners1.length < maxMegaMiners1 || Game.creeps[Memory.megaMiner1Name].ticksToLive < 50) && !Game.creeps[Memory.megaMiner1Name].spawning) {
 			var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, 
 				{role: 'megaMiner1',
@@ -101,6 +95,7 @@ module.exports.loop = function () {
 			});
 				console.log('Spawning new MegaMiner1: ' + newName);
 				if(newName != (-1 || -3 || -4 || -6 || -10 || -14)){
+					console.log()
 					Memory.megaMiner1Name = newName;
 				}
 		} else if (!Game.creeps[Memory.megaMiner1Name].spawning){
