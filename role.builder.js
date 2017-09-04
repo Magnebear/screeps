@@ -29,18 +29,12 @@ var roleBuilder = {
                  creep.travelTo(Game.flags[creep.memory.idelFlag]);
             }
 	    } else {
-            if(bC.store[RESOURCE_ENERGY] > 50){
-				if(creep.withdraw(bC, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-					creep.travelTo(bC);
-				}
-            } else {
-				if(c.store[RESOURCE_ENERGY] > 59){
-					if(creep.withdraw(c, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-						creep.travelTo(c);
-					}
+			if(c.store[RESOURCE_ENERGY] > 59){
+				if(creep.withdraw(c, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+					creep.travelTo(c);
 				}
 			}
-	    }
+		}
 	}
 };
 
