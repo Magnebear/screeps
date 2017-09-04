@@ -6,21 +6,17 @@ var roleHarvester = {
 		
 		if (typeof creep.memory.sourceId == "string" && typeof creep.memory.contianerId == "string"){
 			var source = Game.getObjectById(creep.memory.sourceId);
-			var source = Game.getObjectById(creep.memory.contianerId);
+			var container = Game.getObjectById(creep.memory.contianerId);
 		} else {
 			var source = Game.getObjectById("59830062b097071b4adc42d9");
-			var c = Game.getObjectById("59ac2dc842200e583074dad8");
+			var container = Game.getObjectById("59ac2dc842200e583074dad8");
 		}
 		
-		
         if(creep.memory.harvesting){
-            
-            if(!source){
-                creep.travelTo(Game.flags.claimTarget01);
-            }else if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
+			if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
                 creep.travelTo(source);
             }
-            creep.withdraw(c, RESOURCE_ENERGY)
+            creep.withdraw(container, RESOURCE_ENERGY)
             if(creep.carry.energy==creep.carryCapacity){
                 creep.memory.harvesting = false;
             }
