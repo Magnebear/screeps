@@ -4,9 +4,9 @@ var roleBuilder = {
 
     run: function(creep) {
 		if(creep.memory.container){
-			var c = Game.getObjectById(creep.memory.container);
+			var container = Game.getObjectById(creep.memory.container);
 		} else {
-			var c = Game.getObjectById("59a833729347b91c822b50ba");
+			var container = Game.getObjectById("59a833729347b91c822b50ba");
 		}
 		
 		
@@ -29,9 +29,9 @@ var roleBuilder = {
                  creep.travelTo(Game.flags[creep.memory.idelFlag]);
             }
 	    } else {
-			if(c.store[RESOURCE_ENERGY] > 59){
-				if(creep.withdraw(c, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-					creep.travelTo(c);
+			if(container.store[RESOURCE_ENERGY] > 59){
+				if(creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+					creep.travelTo(container);
 				}
 			}
 		}
