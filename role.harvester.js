@@ -18,8 +18,9 @@ var roleHarvester = {
         } else {
             if(creep.carry.energy==0){
                 creep.memory.harvesting = true;
+				creep.say("Harvesting!");
             }
-	        var target = Game.getObjectById("59830062b097071b4adc42db");
+	        var target = creep.room.controller;
             if(creep.upgradeController(target) == ERR_NOT_IN_RANGE) {
                     creep.travelTo(target);
             }
