@@ -1,7 +1,7 @@
 var room2Controller = {
     run: function() {
 		var maxTransporters2 = 2;
-		var maxRepair2 = 2;
+		var maxRepair2 = 1;
 		
 		var startCpu = Game.cpu.getUsed();
 		

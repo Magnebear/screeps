@@ -47,15 +47,11 @@ module.exports.loop = function () {
 		var megaMiners2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'megaMiner2');
 		var megaMiners3 = _.filter(Game.creeps, (creep) => creep.memory.role == 'megaMiner3');
 		var megaMiners4 = _.filter(Game.creeps, (creep) => creep.memory.role == 'megaMiner4');
-
 		var transporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter');
 		var repairs1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair' && creep.room.name == "E42S26");
 		var claimers = _.filter(Game.creeps, (creep) => creep.memory.role == 'claimer');
 		var externalHarvesters1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester1');
 		var externalHarvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester2');		
-	
-	
-	
 	
 	
         console.log('-------------------------------')
@@ -89,14 +85,15 @@ module.exports.loop = function () {
 		var externalHarvesterCreep = [WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE]
 		var externalBuilderCreep = [WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE]
 		
-		if(Game.creeps[Memory.megaMiner1Name]){
-			var ttl = Game.creeps[Memory.megaMiner1Name].ticksToLive;
-		} else {
-			var ttl = 100
-		}
 		
+		if(Game.creeps[Memory.megaMiner1Name].spawning){
+			var ttl = 1;
+		} else {
+			var ttl = 
+		}
 		console.log(ttl);
-		if(megaMiners1.length < maxMegaMiners1 || ttl < 50) {
+		
+		if((megaMiners1.length < maxMegaMiners1 || Game.creeps[Memory.megaMiner1Name].ticksToLive < 50) && !Game.creeps[Memory.megaMiner1Name].spawning) {
 			var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, 
 				{role: 'megaMiner1',
 				srcID:'59830055b097071b4adc418f',
@@ -106,6 +103,8 @@ module.exports.loop = function () {
 				if(newName != (-1 || -3 || -4 || -6 || -10 || -14)){
 					Memory.megaMiner1Name = newName;
 				}
+		} else if (!Game.creeps[Memory.megaMiner1Name].spawning){
+			//Stop rest of spawn checks
 		} else if (transporters.length < maxTransporters) {
 			var newName = Game.spawns['Spawn1'].createCreep(transporterCreep, undefined, 
 				{role: 'transporter',
