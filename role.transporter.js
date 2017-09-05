@@ -69,7 +69,7 @@ var roleTransporter = {
 					if(creep.withdraw(c, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 					   creep.travelTo(c);
 					}
-				} else if(c2.store[RESOURCE_ENERGY] > 10) {
+				} else if(c2.store[RESOURCE_ENERGY] > 200) {
 					if(creep.withdraw(c2, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 					   creep.travelTo(c2);
 					}
