@@ -23,6 +23,7 @@ var roleBuilder = {
                 if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
                     creep.travelTo(targets[0]);
                 }
+                
             } else {
                  creep.travelTo(Game.flags[creep.memory.idelFlag]);
             }
@@ -31,7 +32,7 @@ var roleBuilder = {
 				if(creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 					creep.travelTo(container);
 				}
-			}
+		    }
 		}
 	}
 };

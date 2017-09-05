@@ -8,8 +8,9 @@ var roleMegaMiner = {
 			if(creep.harvest(Game.getObjectById(creep.memory.srcID)) == ERR_NOT_IN_RANGE) {
 				
 			}
-			creep.travelTo(container);
+			
 		}
+		creep.travelTo(container);
 		if(container.hits < container.hitsMax){
             creep.repair(container);
         }
