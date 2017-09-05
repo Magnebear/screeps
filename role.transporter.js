@@ -2,9 +2,6 @@ var Traveler = require('Traveler');
 
 var roleTransporter = {
     run: function(creep) {
-		var c = Game.getObjectById("59a5d22932ef987c0f96bf3b");
-		var c2 = Game.getObjectById("59a833729347b91c822b50ba");
-		var l = Game.getObjectById("59a9ca4e83bd410897a24445");
         var bC = creep.room.storage;
 		
 		
@@ -19,15 +16,25 @@ var roleTransporter = {
 		
 		if(creep.memory.delivering == true){
             
-			var targets = creep.room.find(FIND_STRUCTURES, {
+			var towers = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_EXTENSION ||
-                    structure.structureType == STRUCTURE_SPAWN ||
-                    structure.structureType == STRUCTURE_TOWER)
-                    && structure.energy < structure.energyCapacity;
+                    return structure.structureType == STRUCTURE_TOWER &&
+					structure.energy < structure.energyCapacity;
                 }
             });
-
+			
+			if (towers.length > 0) {
+				var targets = towers;
+			} else {	
+				var targets = creep.room.find(FIND_STRUCTURES, {
+					filter: (structure) => {
+						return (structure.structureType == STRUCTURE_EXTENSION ||
+						structure.structureType == STRUCTURE_SPAWN) &&
+						structure.energy < structure.energyCapacity;
+					}
+				});
+			}
+			
 			var closestTarget = creep.pos.findClosestByRange(targets)
 			
 			if(targets.length > 0) {
@@ -47,12 +54,13 @@ var roleTransporter = {
 					creep.travelTo(Game.flags.room2TransportHolding);
 				}
 			}
-			
-			
+
             if(creep.carry.energy == 0){
                 creep.memory.delivering = false;
             }
         } else {
+
+			
 			if(room2selector == false){
 				if (l.energy > 0){
 					if(creep.withdraw(l, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
