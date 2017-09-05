@@ -219,9 +219,7 @@ module.exports.loop = function () {
 				case "megaMiner4":
 					roleMegaMiner.run(creep);
 					break;
-				case "transporter":
-				case "transporter2":
-					roleTransporter.run(creep);
+
 					break;
 				case "repair":
 					roleRepair.run(creep);
@@ -234,6 +232,9 @@ module.exports.loop = function () {
 				case "externalHarvester2":
 					roleExternalHarvester.run(creep);
 					break;
+				case "transporter":
+				case "transporter2":
+					roleTransporter.run(creep);
 		}
     }
 	
