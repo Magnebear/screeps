@@ -5,7 +5,7 @@ var roleTransporter = {
 		var c = Game.getObjectById("59a5d22932ef987c0f96bf3b");
 		var c2 = Game.getObjectById("59a833729347b91c822b50ba");
 		var l = Game.getObjectById("59a9ca4e83bd410897a24445");
-        var bC = Game.getObjectById("59a7c22c82c55314c9f9a863");
+        var bC = creep.room.storage;
 		
 		
 		
