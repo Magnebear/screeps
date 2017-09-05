@@ -31,15 +31,13 @@ var roleTransporter = {
 			var closestTarget = creep.pos.findClosestByRange(targets)
 			
 			if(targets.length > 0) {
-					if(creep.transfer(closestTarget, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-						creep.travelTo(closestTarget);
-					}
-			} else {
+				if(creep.transfer(closestTarget, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+					creep.travelTo(closestTarget);
+				}
+			} else if (room2selector == false || c.store[RESOURCE_ENERGY] > 500){
 				//Transfer to storage if no targets
-				if(room2selector == false || c.store[RESOURCE_ENERGY] > 500){
-					if(creep.transfer(bC, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-							creep.travelTo(bC);
-					}
+				if(creep.transfer(bC, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+						creep.travelTo(bC);
 				}
 			} else {
 				//Idle
