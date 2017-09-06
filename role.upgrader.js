@@ -25,9 +25,9 @@ var roleUpgrader = {
             if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
           
             }
-        } else if(container.store[RESOURCE_ENERGY] > 1000) {
-            if(creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-               creep.travelTo(container);
+        } else if(creep.room.storage.store[RESOURCE_ENERGY] > 50000) {
+            if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+               creep.travelTo(creep.room.storage);
             }
         } else {
 			//Idle

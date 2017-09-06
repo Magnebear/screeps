@@ -28,11 +28,17 @@ var roleBuilder = {
                  creep.travelTo(Game.flags[creep.memory.idelFlag]);
             }
 	    } else {
-			if(container.store[RESOURCE_ENERGY] > 59){
-				if(creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-					creep.travelTo(container);
-				}
-		    }
+	        if(creep.room.storage.store[RESOURCE_ENERGY] > 200){
+				if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+					creep.travelTo(creep.room.storage);
+				}	        
+	        } else {
+    			if(container.store[RESOURCE_ENERGY] > 59){
+    				if(creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+    					creep.travelTo(container);
+    				}
+    		    }
+	        }
 		}
 	}
 };

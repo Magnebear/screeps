@@ -8,9 +8,16 @@ var roleTransporter = {
 		var l = Game.getObjectById("59a9ca4e83bd410897a24445");		
 		var room2selector = creep.memory.room2selector;
 		
+		
+		if(creep.memory.container){
+		    var c1 = Game.getObjectById(creep.memory.container);
+		} else {
+			var c1 = c;
+		}		
+
 		if(!(room2selector === true)){
 			room2selector = false;
-		}
+		} 
 		
 		
 		if(creep.memory.delivering == true){
@@ -28,7 +35,8 @@ var roleTransporter = {
 				var targets = creep.room.find(FIND_STRUCTURES, {
 					filter: (structure) => {
 						return (structure.structureType == STRUCTURE_EXTENSION ||
-						structure.structureType == STRUCTURE_SPAWN) &&
+						structure.structureType == STRUCTURE_SPAWN ||
+						structure.structureType == STRUCTURE_LAB) &&
 						structure.energy < structure.energyCapacity;
 					}
 				});
@@ -40,7 +48,7 @@ var roleTransporter = {
 				if(creep.transfer(closestTarget, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 					creep.travelTo(closestTarget);
 				}
-			} else if (room2selector == false || c.store[RESOURCE_ENERGY] > 500){
+			} else if ((room2selector == false && c1.store[RESOURCE_ENERGY] > 500)   || c.store[RESOURCE_ENERGY] > 500){
 				//Transfer to storage if no targets
 				if(creep.transfer(bC, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 						creep.travelTo(bC);
@@ -79,9 +87,13 @@ var roleTransporter = {
 					}
 				}
 			} else {
-				var c1 = Game.getObjectById(creep.memory.container);
+				
 				if(creep.withdraw(c1, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 					   creep.travelTo(c1);
+				} else if(c1.store[RESOURCE_ENERGY] == 0) {
+    				 if(creep.withdraw(bC, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+    					   creep.travelTo(bC);
+    				}  
 				}			
 			}
 			if(creep.carry.energy == creep.carryCapacity){

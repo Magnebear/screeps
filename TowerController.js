@@ -4,11 +4,11 @@ var towerControll = {
 		if(closestHostile) {
 			tower.attack(closestHostile);
 		} else {
-			var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
+			var closestDamagedStructure = tower.room.find(FIND_STRUCTURES, {
 				filter: (structure) =>
 				(structure.hits < 2000) && 
 				(structure.structureType != STRUCTURE_EXTENSION)
-			});
+			})[0];
 			if(closestDamagedStructure) {
 				tower.repair(closestDamagedStructure);
 			}

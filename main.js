@@ -16,14 +16,14 @@ var linkController = require("LinkController");
 var room2Controller = require("Room2Controller");
 
 var maxHarvester = 4;
-var maxBuilders = 4;
+var maxBuilders = 1;
 var maxBuilders2 = 0;
-var maxExternalBuilders = 2;
-var maxUpgraders = 5;
+var maxExternalBuilders =0;
+var maxUpgraders = 6;
 var maxMegaMiners1 = 1;
 var maxMegaMiners2 = 1;
 var maxMegaMiners3 = 1;
-var maxTransporters = 3;
+var maxTransporters = 4;
 var maxRepair = 2;
 var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 4;
@@ -76,7 +76,7 @@ module.exports.loop = function () {
     function creepControll(){
 		var defaultCreep = [WORK,WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE];
 		var defaultCreep2 = [WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE];
-		var upgradeCreep = [WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE];
+		var upgradeCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY];
 		var megaMiner = [WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE];
 		var megaMinerAlt = [WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE];
 		var miniMegaMiner =[WORK,WORK,CARRY,MOVE];
@@ -110,7 +110,7 @@ module.exports.loop = function () {
 			var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, 
 				{role: 'megaMiner2',
 				srcID:'59830055b097071b4adc4190',
-				contID:'59a833729347b91c822b50ba'
+				contID:'59aea243daa30c78a13596a1'
 			});
 			console.log('Spawning new MegaMiner2: ' + newName);
 		} else if(upgraders.length < maxUpgraders) {
@@ -143,7 +143,7 @@ module.exports.loop = function () {
 			var newName = Game.spawns['Spawn1'].createCreep(externalHarvesterCreep, undefined, 
 				{role: 'externalHarvester2',
 				targetSource:"59830055b097071b4adc4193",
-				targetContainer:"59a833729347b91c822b50ba",
+				targetContainer:"59aea243daa30c78a13596a1",
 				flag:"externalSource02"
 			});
 			console.log('Spawning new externalHarvester2: ' + newName);
@@ -196,6 +196,9 @@ module.exports.loop = function () {
 	towerController.run(Game.getObjectById('59ac591cd00bbd1ef4dbf699'));
 
 	linkController.run("59a9d6c7901b9f6272a9c69a", "59a9ca4e83bd410897a24445");
+	linkController.run("59aea243daa30c78a13596a1", "59a9ca4e83bd410897a24445");
+	
+	
 	
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
