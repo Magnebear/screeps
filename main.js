@@ -143,15 +143,11 @@ module.exports.loop = function () {
 				flag:"externalSource02"
 			});
 			console.log('Spawning new externalHarvester2: ' + newName);
-		} else if (externalHarvesters5.length < maxExternalHarvesters5) {
-			var newName = Game.spawns['Spawn1'].createCreep(externalHarvesterCreep, undefined, 
-				{role: 'externalHarvester5',
-				targetSource:"598342fa641acf0573578ea5",
-				targetContainer:"59aea243daa30c78a13596a1",
-				shortText: "Mine lemergium in room 1"
-			});
-			console.log('Spawning new externalHarvester2: ' + newName);
 		}
+		
+		
+		
+		
 		//Backup harvester spawning
 		if(Game.creeps.length < 2){
 			Game.spawns['Spawn1'].createCreep([CARRY,CARRY,CARRY,CARRY,MOVE,MOVE], undefined, {role: 'transporter',room2selector: false
