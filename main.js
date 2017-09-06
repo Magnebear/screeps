@@ -22,10 +22,12 @@ var maxUpgraders = 6;
 var maxMegaMiners1 = 1;
 var maxMegaMiners2 = 1;
 var maxMegaMiners3 = 1;
+var maxMegaMiners4 = 1;
+var maxMegaMiners5 = 1;
 var maxTransporters = 4;
 var maxRepair = 2;
-var maxExternalHarvesters1 = 4;
-var maxExternalHarvesters2 = 4;
+var maxExternalHarvesters1 = 3;
+var maxExternalHarvesters2 = 5;
 
 module.exports.loop = function () {
     for(var name in Memory.creeps) {
@@ -46,6 +48,7 @@ module.exports.loop = function () {
 		var megaMiners2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'megaMiner2');
 		var megaMiners3 = _.filter(Game.creeps, (creep) => creep.memory.role == 'megaMiner3');
 		var megaMiners4 = _.filter(Game.creeps, (creep) => creep.memory.role == 'megaMiner4');
+		var megaMiners5 = _.filter(Game.creeps, (creep) => creep.memory.role == 'megaMiner5');
 		var transporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter');
 		var repairs1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair' && creep.room.name == "E42S26");
 		var claimers = _.filter(Game.creeps, (creep) => creep.memory.role == 'claimer');
@@ -138,6 +141,14 @@ module.exports.loop = function () {
 				targetSource:"59830055b097071b4adc4193",
 				targetContainer:"59aea243daa30c78a13596a1",
 				flag:"externalSource02"
+			});
+			console.log('Spawning new externalHarvester2: ' + newName);
+		} else if (externalHarvesters5.length < maxExternalHarvesters5) {
+			var newName = Game.spawns['Spawn1'].createCreep(externalHarvesterCreep, undefined, 
+				{role: 'externalHarvester5',
+				targetSource:"598342fa641acf0573578ea5",
+				targetContainer:"59aea243daa30c78a13596a1",
+				shortText: "Mine lemergium in room 1"
 			});
 			console.log('Spawning new externalHarvester2: ' + newName);
 		}

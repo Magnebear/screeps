@@ -56,7 +56,13 @@ var roleTransporter = {
 			} else {
 				//Idle
 				if(room2selector == false){
-					creep.travelTo(Game.flags.transportHolding);
+					if (l.energy > 0){
+						if(creep.withdraw(l, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+						   creep.travelTo(l);
+						}
+					} else {
+						creep.travelTo(Game.flags.transportHolding);
+					}
 				} else {
 					creep.travelTo(Game.flags.room2TransportHolding);
 				}
