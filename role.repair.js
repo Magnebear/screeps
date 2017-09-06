@@ -37,6 +37,7 @@ var roleRepair = {
             if(creep.repair(t) == ERR_NOT_IN_RANGE) {
                    creep.travelTo(t);
             }
+			console.log(t)
             if(t.hits==t.hitsMax){
                 creep.memory.repairTarget = null;
 				creep.say("Repp complete!");
