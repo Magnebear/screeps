@@ -13,6 +13,7 @@ var roleRepair = {
                     && structure.hits < (structure.hitsMax/2)
                 }
             });
+			console.log(repairTargets)
             if(repairTargets.length > 0){
                 creep.memory.repairTarget = _.sample(repairTargets).id;
             } else {
