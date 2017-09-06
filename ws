@@ -16,5 +16,6 @@
         <File name="TowerController.js" />
         <File name="Traveler.js" />
         <File name="ws" />
+        <File name="role.superTransporter.js" />
     </Project>
 </NotepadPlus>

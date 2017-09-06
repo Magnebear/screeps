@@ -132,9 +132,9 @@ module.exports.loop = function () {
 			var newName = Game.spawns['Spawn2'].createCreep(megaMineralMinerCreep, undefined, 
 				{role: 'megaMiner5',
 				srcID:'598342fa641acf0573578ea5',
-				contID:'59ac2dc842200e583074dad8'
+				contID:'59b059c06e986e7f983deca7'
 			});
-			console.log('Spawning new MegaMiner4: ' + newName);
+			console.log('Spawning new MegaMiner5: ' + newName);
 		} else if (externalHarvesters1.length < maxExternalHarvesters1) {
 			var newName = Game.spawns['Spawn1'].createCreep(externalHarvesterCreep, undefined, 
 				{role: 'externalHarvester1',
