@@ -3,10 +3,12 @@ var Traveler = require('Traveler');
 var roleTransporter = {
     run: function(creep) {
         var bC = creep.room.storage;
+		var room2selector = creep.memory.room2selector;
+		
 		var c = Game.getObjectById("59a5d22932ef987c0f96bf3b");
 		var c2 = Game.getObjectById("59a833729347b91c822b50ba");
 		var l = Game.getObjectById("59a9ca4e83bd410897a24445");		
-		var room2selector = creep.memory.room2selector;
+		
 		
 		
 		if(creep.memory.container){

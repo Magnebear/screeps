@@ -7,7 +7,7 @@ var roleMegaMiner = {
         var source = Game.getObjectById(creep.memory.srcID);
         if(creep.memory.role == "megaMiner2"){
             
-            if (source.energy < 750){
+            if (Game.getObjectById("59aea243daa30c78a13596a1").energy < 750){
 				creep.harvest(Game.getObjectById("59aea243daa30c78a13596a1"));
             }
 			if (creep.carry.energy > 40) {
