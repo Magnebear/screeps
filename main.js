@@ -127,6 +127,13 @@ module.exports.loop = function () {
 		} else if (builders.length < maxBuilders) {
 			var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'builder'});
 			console.log('Spawning new builder: ' + newName);
+		} else if(megaMiners5.length < maxMegaMiners5) {
+			var newName = Game.spawns['Spawn2'].createCreep(megaMineralMinerCreep, undefined, 
+				{role: 'megaMiner5',
+				srcID:'598342fa641acf0573578ea5',
+				contID:'59ac2dc842200e583074dad8'
+			});
+			console.log('Spawning new MegaMiner4: ' + newName);
 		} else if (externalHarvesters1.length < maxExternalHarvesters1) {
 			var newName = Game.spawns['Spawn1'].createCreep(externalHarvesterCreep, undefined, 
 				{role: 'externalHarvester1',
