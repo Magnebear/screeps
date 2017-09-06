@@ -16,9 +16,8 @@ var linkController = require("LinkController");
 var room2Controller = require("Room2Controller");
 
 var maxHarvester = 4;
-var maxBuilders = 1;
+var maxBuilders = 4;
 var maxBuilders2 = 0;
-var maxExternalBuilders =0;
 var maxUpgraders = 6;
 var maxMegaMiners1 = 1;
 var maxMegaMiners2 = 1;
@@ -125,12 +124,6 @@ module.exports.loop = function () {
 		} else if (builders.length < maxBuilders) {
 			var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'builder'});
 			console.log('Spawning new builder: ' + newName);
-		} else if (externalBuilders.length < maxExternalBuilders) {
-			var newName = Game.spawns['Spawn1'].createCreep(externalBuilderCreep, undefined, 
-				{role: 'externalBuilder',
-				
-			});
-			console.log('Spawning new externalBuilder: ' + newName);
 		} else if (externalHarvesters1.length < maxExternalHarvesters1) {
 			var newName = Game.spawns['Spawn1'].createCreep(externalHarvesterCreep, undefined, 
 				{role: 'externalHarvester1',

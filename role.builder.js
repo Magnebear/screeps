@@ -28,7 +28,7 @@ var roleBuilder = {
                  creep.travelTo(Game.flags[creep.memory.idelFlag]);
             }
 	    } else {
-	        if(creep.room.storage.store[RESOURCE_ENERGY] > 200){
+	        if(creep.room.storage.store[RESOURCE_ENERGY] > 10000){
 				if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 					creep.travelTo(creep.room.storage);
 				}	        

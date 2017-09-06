@@ -14,7 +14,7 @@ var roleRepair = {
                 }
             });
             if(repairTargets.length > 0){
-                creep.memory.repairTarget = _.sample(repairTargets);
+                creep.memory.repairTarget = _.sample(repairTargets.id);
             } else {
                 //Idle state
                 if(creep.memory.role = "repair"){
