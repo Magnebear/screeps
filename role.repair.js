@@ -2,7 +2,6 @@ var Traveler = require('Traveler');
 
 var roleRepair = {
     run: function(creep) {
-		console.log(creep.memory.repairTarget)
         if(creep.memory.repairTarget==null || !creep.memory.repairTarget) {
             var repairTargets = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
@@ -39,11 +38,12 @@ var roleRepair = {
             if(creep.repair(t) == ERR_NOT_IN_RANGE) {
                    creep.travelTo(t);
             }
-			console.log(t)
-            if(t.hits==t.hitsMax){
+			if (t == null){
+				creep.memory.repairTarget = null;
+			} else if(t.hits == t.hitsMax){
                 creep.memory.repairTarget = null;
 				creep.say("Repp complete!");
-            }
+            }	
         }
     }
 };
