@@ -2,6 +2,7 @@ var Traveler = require('Traveler');
 
 var roleRepair = {
     run: function(creep) {
+		conosole.log(creep.memory.repairTarget)
         if(creep.memory.repairTarget==null || !creep.memory.repairTarget) {
             var repairTargets = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
