@@ -25,7 +25,7 @@ var maxRepair = 2;
 var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 5;
 
-function MegaMiner(name, creepBody sourceID, containerID, spawn){
+function MegaMiner(name, creepBody, sourceID, containerID, spawn){
 	var newName = Game.spawns[spawn].createCreep(creepBody, name, 
 		{role: 'megaMiner',
 		srcID:sourceID,
