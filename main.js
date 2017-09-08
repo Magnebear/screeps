@@ -14,8 +14,6 @@ var roleSuperTransporter = require('role.superTransporter');
 var towerController = require("TowerController");
 var linkController = require("LinkController");
 var room2Controller = require("Room2Controller");
-var creepConstructors = require("CreepConstructors");
-
 
 var maxHarvester = 4;
 var maxBuilders = 1;
@@ -92,12 +90,7 @@ module.exports.loop = function () {
     	var superTransporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
 		if(Game.creeps["megaMiner1"] == undefined) {
-			// var newName = Game.spawns['Spawn1'].createCreep(megaMiner, "megaMiner1", 
-				// {role: 'megaMiner',
-				// srcID:'59830055b097071b4adc418f',
-				// contID:'59a5d22932ef987c0f96bf3b'
-			// });
-			console.log(creepConstructors.MegaMiner("megaMiner1", megaMiner, "59830055b097071b4adc418f", "59a5d22932ef987c0f96bf3b", "Spawn1"));
+			var newName = roleMegaMiner.create("megaMiner1", megaMiner, "59830055b097071b4adc418f", "59a5d22932ef987c0f96bf3b", "Spawn1"));
 			console.log('Spawning new MegaMiner1: ' + newName);
 		} else if (transporters.length < maxTransporters) {
 			var newName = Game.spawns['Spawn1'].createCreep(transporterCreep, undefined, 
