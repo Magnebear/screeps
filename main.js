@@ -18,11 +18,11 @@ var room2Controller = require("Room2Controller");
 var maxHarvester = 4;
 var maxBuilders = 1;
 var maxBuilders2 = 0;
-var maxUpgraders = 6;
+var maxUpgraders = 8;
 var maxTransporters = 4;
 var maxSuperTransporters = 1;
 var maxRepair = 2;
-var maxExternalHarvesters1 = 3;
+var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 5;
 
 module.exports.loop = function () {
@@ -80,7 +80,8 @@ module.exports.loop = function () {
 		var megaMiner = [WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE];
 		var megaMinerAlt = [WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE];
 		var megaMineralMinerCreep =[MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK];
-
+		
+		var claimerCreep = [CLAIM,CLAIM,MOVE,MOVE];
 		var miniMegaMiner =[WORK,WORK,CARRY,MOVE];
 		var transporterCreep = [CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE]
 		var repairCreep = [WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE]
@@ -156,8 +157,20 @@ module.exports.loop = function () {
 				flag:"HoldingArea"
 			});
 			console.log('Spawning new externalHarvester2: ' + newName);
+		} else if (Game.creeps["claimer1"] == undefined){
+			//Spawn new claimer 1
+			var newName = Game.spawns['Spawn1'].createCreep(claimerCreep, claimer1, 
+				{role: "claimer",
+				targetController: "59830055b097071b4adc4192",
+				targetFlag:"claim2"
+			});
 		}
-			
+		
+
+		
+		
+		
+		
 		//Backup harvester spawning
 		if(Game.creeps.length < 2){
 			Game.spawns['Spawn1'].createCreep([CARRY,CARRY,CARRY,CARRY,MOVE,MOVE], undefined, {role: 'transporter',room2selector: false
