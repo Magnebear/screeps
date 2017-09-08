@@ -15,3 +15,5 @@ var creepConstructors = {
 
 
 }
+
+module.exports(creepConstructors);
