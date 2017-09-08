@@ -89,19 +89,13 @@ module.exports.loop = function () {
 		var externalBuilderCreep = [WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE]
     	var superTransporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
-		if(megaMiners1.length < 1) {
-			var newName = Game.spawns['Spawn1'].createCreep(megaMiner, undefined, 
-				{role: 'megaMiner1',
+		if(Game.creeps["megaMiner1"] == undefined) {
+			var newName = Game.spawns['Spawn1'].createCreep(megaMiner, "megaMiner1", 
+				{role: 'megaMiner',
 				srcID:'59830055b097071b4adc418f',
 				contID:'59a5d22932ef987c0f96bf3b'
 			});
-				console.log('Spawning new MegaMiner1: ' + newName);
-				if(newName != (-1 || -3 || -4 || -6 || -10 || -14)){
-					console.log()
-					Memory.megaMiner1Name = newName;
-				}
-		} else if (Game.creeps[Memory.megaMiner1Name].spawning){
-			//Stop rest of spawn checks
+			console.log('Spawning new MegaMiner1: ' + newName);
 		} else if (transporters.length < maxTransporters) {
 			var newName = Game.spawns['Spawn1'].createCreep(transporterCreep, undefined, 
 				{role: 'transporter',
@@ -242,6 +236,7 @@ module.exports.loop = function () {
 				case "externalBuilder":
 					roleExternalBuilder.run(creep);
 					break;
+				case "megaMiner":	
 				case "megaMiner1":
 				case "megaMiner2":
 				case "megaMiner3":
