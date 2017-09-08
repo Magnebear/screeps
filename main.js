@@ -157,14 +157,6 @@ module.exports.loop = function () {
 				flag:"HoldingArea"
 			});
 			console.log('Spawning new externalHarvester2: ' + newName);
-		} else if (Game.creeps["claimer1"] == undefined){
-			//Spawn new claimer 1
-			var newName = Game.spawns['Spawn1'].createCreep(claimerCreep, claimer1, 
-				{role: "claimer",
-				targetController: "59830055b097071b4adc4192",
-				targetFlag:"claim1"
-			});
-			console.log("Spawning new claimer 1");
 		}
 		
 
