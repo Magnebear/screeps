@@ -25,8 +25,8 @@ var maxRepair = 2;
 var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 5;
 
-function MegaMiner(name, sourceID, containerID, spawn){
-	var newName = Game.spawns[spawn].createCreep(megaMiner, name, 
+function MegaMiner(name, creepBody sourceID, containerID, spawn){
+	var newName = Game.spawns[spawn].createCreep(creepBody, name, 
 		{role: 'megaMiner',
 		srcID:sourceID,
 		contID:containerID
@@ -105,7 +105,7 @@ module.exports.loop = function () {
 				// srcID:'59830055b097071b4adc418f',
 				// contID:'59a5d22932ef987c0f96bf3b'
 			// });
-			console.log(new MegaMiner("megaMiner1", "59830055b097071b4adc418f", "59a5d22932ef987c0f96bf3b", "Spawn1"));
+			console.log(new MegaMiner("megaMiner1", megaMiner, "59830055b097071b4adc418f", "59a5d22932ef987c0f96bf3b", "Spawn1"));
 			console.log('Spawning new MegaMiner1: ' + newName);
 		} else if (transporters.length < maxTransporters) {
 			var newName = Game.spawns['Spawn1'].createCreep(transporterCreep, undefined, 
