@@ -50,9 +50,17 @@ var roleTransporter = {
 				if(creep.transfer(closestTarget, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 					creep.travelTo(closestTarget);
 				}
-			} else if ((room2selector == false && c1.store[RESOURCE_ENERGY] > 500)   || c.store[RESOURCE_ENERGY] > 500){
+			} else if ((room2selector == false && c1.store[RESOURCE_ENERGY] > 200)   || c.store[RESOURCE_ENERGY] > 200){
 				//Transfer to storage if no targets
-				if(creep.transfer(bC, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+				if(creep.room.terminal){
+				    if(creep.room.terminal.store[RESOURCE_ENERGY] < 20000){
+                        if(creep.transfer(creep.room.terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+						    creep.travelTo(creep.room.terminal);
+				        }				        
+				    } else if (creep.transfer(bC, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+						creep.travelTo(bC);
+				    }
+				} else if (creep.transfer(bC, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 						creep.travelTo(bC);
 				}
 			} else {

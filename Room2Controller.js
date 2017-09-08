@@ -2,7 +2,7 @@ var room2Controller = {
     run: function() {
 		var maxTransporters2 = 2;
 		var maxRepair2 = 1;
-		
+		var maxBuilders2 = 1;
 		var startCpu = Game.cpu.getUsed();
 		
 		if(Game.time%5 == 0){
@@ -20,7 +20,7 @@ var room2Controller = {
 			
 			var transporters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter2');
 			var repair2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair2');
-
+            var builders2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder2');
 			console.log(transporters2.length);
 			
 			console.log('elapsed:', Game.cpu.getUsed() - startCpu);
@@ -35,6 +35,9 @@ var room2Controller = {
 		    } else if(repair2.length < maxRepair2) {
                 var newName = Game.spawns['Spawn2'].createCreep([WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], undefined, {role: 'repair2'});
     			console.log('Spawning new repair: ' + newName);		        
+		    } else if(builders2.length < maxBuilders2) {
+                var newName = Game.spawns['Spawn2'].createCreep([WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], undefined, {role: 'builder2'});
+    			console.log('Spawning new builder: ' + newName);		        
 		    }
 		    
 		}

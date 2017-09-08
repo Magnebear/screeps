@@ -9,6 +9,7 @@ var roleRepair = require('role.repair');
 var roleClaimer = require('role.claimer');
 var roleExternalHarvester = require('role.externalHarvester');
 var roleExternalBuilder = require('role.externalBuilder');
+var roleSuperTransporter = require('role.superTransporter');
 
 var towerController = require("TowerController");
 var linkController = require("LinkController");
@@ -16,7 +17,7 @@ var linkController = require("LinkController");
 var room2Controller = require("Room2Controller");
 
 var maxHarvester = 4;
-var maxBuilders = 4;
+var maxBuilders = 1;
 var maxBuilders2 = 0;
 var maxUpgraders = 6;
 var maxMegaMiners1 = 1;
@@ -25,6 +26,8 @@ var maxMegaMiners3 = 1;
 var maxMegaMiners4 = 1;
 var maxMegaMiners5 = 1;
 var maxTransporters = 4;
+var maxSuperTransporters = 1;
+
 var maxRepair = 2;
 var maxExternalHarvesters1 = 3;
 var maxExternalHarvesters2 = 5;
@@ -54,7 +57,7 @@ module.exports.loop = function () {
 		var claimers = _.filter(Game.creeps, (creep) => creep.memory.role == 'claimer');
 		var externalHarvesters1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester1');
 		var externalHarvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester2');		
-	
+    	var superTransporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'superTransporter');
 	
         console.log('-------------------------------')
         console.log('Builders: ' + builders.length);
@@ -63,31 +66,36 @@ module.exports.loop = function () {
         console.log('Harvesters: ' + harvesters.length);
         console.log('MegaMiners1: ' + megaMiners1.length);
 		console.log('MegaMiners2: ' + megaMiners2.length);
+		console.log('MegaMiners3: ' + megaMiners3.length);
+		console.log('MegaMiners4: ' + megaMiners4.length);
+		console.log('MegaMiners5: ' + megaMiners5.length);
         console.log('transporters: ' + transporters.length);
+        console.log('Supertransporters: ' + superTransporters.length);
         console.log('repair: ' + repairs1.length);
 		console.log('externalHarvesters1: ' + externalHarvesters1.length);
 		console.log('externalHarvesters2: ' + externalHarvesters2.length);
 		console.log('-------------------------------')
-
+        
 		creepControll();
 		Memory.clock = 0;
 		
     }
-
+    
 	
     function creepControll(){
 		var defaultCreep = [WORK,WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE];
 		var defaultCreep2 = [WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE];
-		var upgradeCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY];
+		var upgradeCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY];
 		var megaMiner = [WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE];
 		var megaMinerAlt = [WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE];
-		var megaMineralMinerCreep =[MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK];
+		var megaMineralMinerCreep =[MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK];
 
 		var miniMegaMiner =[WORK,WORK,CARRY,MOVE];
 		var transporterCreep = [CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE]
 		var repairCreep = [WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE]
 		var externalHarvesterCreep = [WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE]
 		var externalBuilderCreep = [WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE]
+    	var superTransporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
 	    // || Game.creeps[Memory.megaMiner1Name].ticksToLive < 50) && !Game.creeps[Memory.megaMiner1Name].spawning
 		if(megaMiners1.length < maxMegaMiners1) {
@@ -128,8 +136,8 @@ module.exports.loop = function () {
 		} else if (builders.length < maxBuilders) {
 			var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'builder'});
 			console.log('Spawning new builder: ' + newName);
-		} else if(megaMiners5.length < maxMegaMiners5) {
-			var newName = Game.spawns['Spawn2'].createCreep(megaMineralMinerCreep, undefined, 
+		} else if(megaMiners5.length < 1) {
+			var newName = Game.spawns['Spawn1'].createCreep(megaMineralMinerCreep, undefined, 
 				{role: 'megaMiner5',
 				srcID:'598342fa641acf0573578ea5',
 				contID:'59b059c06e986e7f983deca7'
@@ -149,6 +157,13 @@ module.exports.loop = function () {
 				targetSource:"59830055b097071b4adc4193",
 				targetContainer:"59aea243daa30c78a13596a1",
 				flag:"externalSource02"
+			});
+			console.log('Spawning new externalHarvester2: ' + newName);
+		} else if (superTransporters.length < maxSuperTransporters) {
+			var newName = Game.spawns['Spawn1'].createCreep(superTransporterCreep, undefined, 
+				{role: 'superTransporter',
+				containerId:"59aea243daa30c78a13596a1",
+				flag:"HoldingArea"
 			});
 			console.log('Spawning new externalHarvester2: ' + newName);
 		}
@@ -228,6 +243,7 @@ module.exports.loop = function () {
 				case "megaMiner2":
 				case "megaMiner3":
 				case "megaMiner4":
+				case "megaMiner5":
 					roleMegaMiner.run(creep);
 					break;
 
@@ -243,9 +259,13 @@ module.exports.loop = function () {
 				case "externalHarvester2":
 					roleExternalHarvester.run(creep);
 					break;
+				case "superTransporter":
+				    roleSuperTransporter.run(creep)
+				    break;
 				case "transporter":
 				case "transporter2":
 					roleTransporter.run(creep);
+					
 		}
     }
 	
