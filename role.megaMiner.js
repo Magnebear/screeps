@@ -1,6 +1,5 @@
 var Traveler = require('Traveler');
-
-var roleMegaMiner = {
+module.exports  = {
     /** @param {Creep} creep **/
     run: function(creep) {
         var container = Game.getObjectById(creep.memory.contID);
@@ -34,6 +33,4 @@ var roleMegaMiner = {
 		return newName;
 	}
 
-};
-
-module.exports = roleMegaMiner;
+}
