@@ -2,10 +2,6 @@ var Traveler = require('Traveler');
 
 var roleMegaMiner = {
     /** @param {Creep} creep **/
-	create: function (name, creepBody, sourceID, containerID, spawn){
-		var newName = Game.spawns[spawn].createCreep(creepBody, name, {role: 'megaMiner', srcID:sourceID, contID:containerID});
-		return newName;
-	}
     run: function(creep) {
         var container = Game.getObjectById(creep.memory.contID);
         var source = Game.getObjectById(creep.memory.srcID);
@@ -33,6 +29,10 @@ var roleMegaMiner = {
             }
         }
     }
+	create: function (name, creepBody, sourceID, containerID, spawn){
+		var newName = Game.spawns[spawn].createCreep(creepBody, name, {role: 'megaMiner', srcID:sourceID, contID:containerID});
+		return newName;
+	}
 
 };
 
