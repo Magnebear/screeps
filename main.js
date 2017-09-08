@@ -90,7 +90,7 @@ module.exports.loop = function () {
     	var superTransporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
 		if(Game.creeps["megaMiner1"] == undefined) {
-			var newName = roleMegaMiner.create("megaMiner1", megaMiner, "59830055b097071b4adc418f", "59a5d22932ef987c0f96bf3b", "Spawn1"));
+			var newName = roleMegaMiner.create("megaMiner1", megaMiner, "59830055b097071b4adc418f", "59a5d22932ef987c0f96bf3b", "Spawn1");
 			console.log('Spawning new MegaMiner1: ' + newName);
 		} else if (transporters.length < maxTransporters) {
 			var newName = Game.spawns['Spawn1'].createCreep(transporterCreep, undefined, 
