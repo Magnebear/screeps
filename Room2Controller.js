@@ -41,15 +41,7 @@ var room2Controller = {
 		    } else if(builders2.length < maxBuilders2) {
                 var newName = Game.spawns['Spawn2'].createCreep([WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], undefined, {role: 'builder2'});
     			console.log('Spawning new builder: ' + newName);		        
-		    } else if (Game.creeps["claimer1"] == undefined){
-				//Spawn new claimer 1
-				var newName = Game.spawns['Spawn1'].createCreep(claimerCreep, "claimer1", 
-					{role: "claimer",
-					targetController: "59830055b097071b4adc4192",
-					targetFlag:"claim1"
-				});
-				console.log("Spawning new claimer 1");
-			}
+		    } 
 		    
 		}
 	}

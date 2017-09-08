@@ -159,8 +159,24 @@ module.exports.loop = function () {
 			console.log('Spawning new externalHarvester2: ' + newName);
 		}
 		
-
-		
+		if (Game.creeps["claimer1"] == undefined){
+				//Spawn new claimer 1
+				var newName = Game.spawns['Spawn1'].createCreep(claimerCreep, "claimer1", 
+					{role: "claimer",
+					targetController: "59830055b097071b4adc4192",
+					targetFlag:"claim1"
+				});
+				console.log("Spawning new claimer 1");
+		}
+		if (Game.creeps["claimer2"] == undefined){
+				//Spawn new claimer 2
+				var newName = Game.spawns['Spawn1'].createCreep(claimerCreep, "claimer2", 
+					{role: "claimer",
+					targetController: "59830055b097071b4adc4192",
+					targetFlag:"claim2"
+				});
+				console.log("Spawning new claimer 2");
+		}
 		
 		
 		
