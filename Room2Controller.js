@@ -5,6 +5,9 @@ var room2Controller = {
 		var maxBuilders2 = 1;
 		var startCpu = Game.cpu.getUsed();
 		
+		var claimerCreep = [CLAIM,CLAIM,MOVE,MOVE];
+
+		
 		if(Game.time%5 == 0){
 			var tock = true;
 		} else {
