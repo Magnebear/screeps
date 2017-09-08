@@ -164,7 +164,7 @@ module.exports.loop = function () {
 				targetController: "59830055b097071b4adc4192",
 				targetFlag:"claim1"
 			});
-			console.log("Spawning new claimer 1)
+			console.log("Spawning new claimer 1");
 		}
 		
 
