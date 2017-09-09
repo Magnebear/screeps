@@ -18,7 +18,7 @@ var room2Controller = require("Room2Controller");
 var maxHarvester = 4;
 var maxBuilders = 1;
 var maxBuilders2 = 0;
-var maxUpgraders = 8;
+var maxUpgraders = 5;
 var maxTransporters = 4;
 var maxSuperTransporters = 1;
 var maxRepair = 2;
@@ -212,7 +212,8 @@ module.exports.loop = function () {
 	towerController.run(Game.getObjectById('59a9bd8b58bf8523b6247f27'));
 	towerController.run(Game.getObjectById('59aa6fc87073420285cddfe8'));
 	towerController.run(Game.getObjectById('59ac591cd00bbd1ef4dbf699'));
-
+    towerController.run(Game.getObjectById('59b15159f2a0fc1679a26f52'));
+    
 	linkController.run("59a9d6c7901b9f6272a9c69a", "59a9ca4e83bd410897a24445");
 	linkController.run("59aea243daa30c78a13596a1", "59a9ca4e83bd410897a24445");
 	
