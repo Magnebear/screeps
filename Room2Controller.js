@@ -37,7 +37,7 @@ var room2Controller = {
     			console.log('Spawning new transporter2: ' + newName);
 		    } else if(repair2.length < maxRepair2) {
                 var newName = Game.spawns['Spawn2'].createCreep([WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], undefined, {role: 'repair2'});
-    			console.log('Spawning new repair: ' + newName);		        
+    			console.log('Spawning new repair2: ' + newName);		        
 		    } else if(builders2.length < maxBuilders2) {
                 var newName = Game.spawns['Spawn2'].createCreep([WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], undefined, {role: 'builder2'});
     			console.log('Spawning new builder: ' + newName);		        
