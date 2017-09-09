@@ -107,8 +107,8 @@ module.exports.loop = function () {
 		} else if (builders.length < maxBuilders) {
 			var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'builder'});
 			console.log('Spawning new builder: ' + newName);
-		} else if(megaMiners5.length < 1) {
-			var newName = Game.spawns['Spawn1'].createCreep(megaMineralMinerCreep, undefined, 
+		} else if(Game.creeps["megaMiner5"] == undefined) {
+			var newName = Game.spawns['Spawn1'].createCreep(megaMineralMinerCreep, "megaMiner5", 
 				{role: 'megaMiner5',
 				srcID:'598342fa641acf0573578ea5',
 				contID:'59b059c06e986e7f983deca7'
