@@ -18,7 +18,6 @@ module.exports  = {
             creep.harvest(source);
             
         } else {
-			console.log(creep.name, creep.memory.role);
             if(container.store[RESOURCE_ENERGY] < 2000){
     			if(creep.harvest(Game.getObjectById(creep.memory.srcID)) == ERR_NOT_IN_RANGE) {
     			}
