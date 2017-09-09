@@ -4,7 +4,7 @@ module.exports  = {
     run: function(creep) {
         var container = Game.getObjectById(creep.memory.contID);
         var source = Game.getObjectById(creep.memory.srcID);
-        if(creep.memory.role == "megaMiner2"){
+        if(creep.name == "megaMiner2"){
             
             if (Game.getObjectById("59aea243daa30c78a13596a1").energy < 750){
 				creep.harvest(Game.getObjectById("59830055b097071b4adc4190"));
@@ -13,7 +13,7 @@ module.exports  = {
                 creep.transfer(Game.getObjectById("59aea243daa30c78a13596a1"), RESOURCE_ENERGY)
             }
             creep.travelTo(source);
-        } else if (creep.memory.role == "megaMiner5") {
+        } else if (creep.name == "megaMiner5") {
             creep.travelTo(container);
             creep.harvest(source);
             
