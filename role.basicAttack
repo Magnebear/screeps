@@ -34,7 +34,7 @@ module.exports  = {
 		}
     },
 	create: function (name, flag, spawn){
-		return Game.spawns[spawn].createCreep(creepBody, name, {role: 'basicAttack', targetFlag:flag});
+		return Game.spawns[spawn].createCreep(body, name, {role: 'basicAttack', targetFlag:flag});
 	}
 
 }
