@@ -32,7 +32,7 @@ module.exports  = {
 				creep.memory.targetId = target.id;
 			}
 		} else {
-			creep.travelTo(Game.flags.target0);
+			creep.moveTo(Game.flags.target0);
 		}			
 	},
 	create: function (name, flag, spawn){
