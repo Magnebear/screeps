@@ -27,7 +27,7 @@ var maxRepair = 2;
 var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 5;
 
-var maxBasicAttackers = 3;
+var maxBasicAttackers = 2;
 
 module.exports.loop = function () {
     for(var name in Memory.creeps) {
