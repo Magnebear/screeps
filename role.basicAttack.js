@@ -35,7 +35,7 @@ module.exports  = {
 		} else {
 			creep.travelTo(Game.flags[creep.memory.targetFlag]);
 		}
-		//creep.travelTo(Game.flags.target0);
+		creep.travelTo(Game.flags.target0);		
 	},
 	create: function (name, flag, spawn){
 		return Game.spawns[spawn].createCreep(body, name, {role: 'basicAttack', targetFlag:flag});
