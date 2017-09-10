@@ -27,7 +27,7 @@ module.exports  = {
 			}
 			if(target){
 				if(creep.attack(target) == ERR_NOT_IN_RANGE){
-					creep.travelTo(target);
+					creep.moveTo(target);
 				} 
 				creep.memory.targetId = target.id;
 			}
