@@ -4,7 +4,8 @@ var body = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,ATTACK,ATTACK,ATTA
 module.exports  = {
     /** @param {Creep} creep **/
     run: function(creep) {
-
+		
+		var target = undefined;
 		//Get target by priority
 		var closestExtension = creep.pos.findClosestByRange(FIND_HOSTILE_STRUCTURES, {
 			filter: (structure) =>
@@ -15,22 +16,23 @@ module.exports  = {
 		var closestStructure = creep.pos.findClosestByRange(FIND_HOSTILE_STRUCTURES);
 		
 		if(closestExtension){
-			if(creep.attack(closestExtension) == ERR_NOT_IN_RANGE){
-				creep.travelTo(closestExtension);
-			}
+			target = closestExtension;
 		} else if(closestHostile) {
-			if(creep.attack(closestHostile) == ERR_NOT_IN_RANGE){
-				creep.travelTo(closestHostile);
-			}
+			target = closestHostile;
 		} else if(closestStructure) {
-			if(creep.attack(closestStructure) == ERR_NOT_IN_RANGE){
-				creep.travelTo(closestStructure);
-			}
+			target = closestStructure;
 		} else {
-			
+			target = false;
 		}
-		creep.travelTo(Game.flags[creep.memory.targetFlag]);
-    },
+		
+		if(target){
+			if(creep.attack(target) == ERR_NOT_IN_RANGE){
+				creep.travelTo(target);
+			} 
+		} else {
+			creep.travelTo(Game.flags[creep.memory.targetFlag]);
+		}
+	},
 	create: function (name, flag, spawn){
 		return Game.spawns[spawn].createCreep(body, name, {role: 'basicAttack', targetFlag:flag});
 	}
