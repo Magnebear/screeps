@@ -1,7 +1,7 @@
 //Test !
 "use strict";
 const REPORT_CPU_THRESHOLD = 800;
-const DEFAULT_MAXOPS = 20000;
+const DEFAULT_MAXOPS = 60000;
 const DEFAULT_STUCK_VALUE = 5;
 class Traveler {
     constructor() {
