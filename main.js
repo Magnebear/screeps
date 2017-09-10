@@ -27,7 +27,7 @@ var maxRepair = 2;
 var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 5;
 
-var maxBasicAttackers = 2;
+var maxBasicAttackers = 1;
 
 module.exports.loop = function () {
     for(var name in Memory.creeps) {
@@ -257,8 +257,10 @@ module.exports.loop = function () {
 				case "transporter":
 				case "transporter2":
 					roleTransporter.run(creep);
+					break;
 				case "basicAttack":
 					roleBasicAttack.run(creep);
+					break;
 		}
     }
 }
