@@ -2,12 +2,10 @@ var Traveler = require('Traveler');
 
 var roleUpgrader = {
     run: function(creep) {
-		if (typeof creep.memory.contianerId == "string" && typeof creep.memory.idleFlag == "string" && typeof creep.memory.upgradeFlag == "string"){
-			var container = Game.getObjectById(creep.memory.contianerId);
+		if (typeof typeof creep.memory.idleFlag == "string" && typeof creep.memory.upgradeFlag == "string"){
 			var idleFlag = creep.memory.idleFlag;
 			var upgradeFlag = Game.flags.upgradeFlag
 		} else {
-			var container = Game.getObjectById("59a833729347b91c822b50ba");
 			var idleFlag = Game.flags.upgradeHolding;
 			var upgradeFlag = Game.flags.upgradeFlag;
 		}	
@@ -22,9 +20,7 @@ var roleUpgrader = {
 
 	    if(creep.memory.upgrading) {
 			creep.travelTo(upgradeFlag);
-            if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
-          
-            }
+            creep.upgradeController(creep.room.controller)
         } else if(creep.room.storage.store[RESOURCE_ENERGY] > 50000) {
             if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                creep.travelTo(creep.room.storage);
