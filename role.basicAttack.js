@@ -27,6 +27,7 @@ module.exports  = {
 		}
 		
 		if(target){
+			console.log(target)
 			if(creep.attack(target) == ERR_NOT_IN_RANGE){
 				creep.travelTo(target);
 			} 
