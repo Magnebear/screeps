@@ -13,9 +13,7 @@ module.exports  = {
 		var closestHostile = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
 		var closestStructure = creep.pos.findClosestByRange(FIND_HOSTILE_STRUCTURES);
 		
-		if(creep.memory.target){
-			target = Game.getObjectById(creep.memory.targetId);
-		} else if(closestExtension){
+		if(closestExtension){
 			target = closestExtension;
 		} else if(closestHostile) {
 			target = closestHostile;
