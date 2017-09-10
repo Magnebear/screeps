@@ -32,6 +32,7 @@ module.exports  = {
 				creep.travelTo(target);
 			} 
 			creep.memory.targetId = target.id;
+			creep.travelTo(Game.flags[creep.memory.targetFlag]);
 		} else {
 			creep.travelTo(Game.flags[creep.memory.targetFlag]);
 		}
