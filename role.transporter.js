@@ -8,8 +8,9 @@ var roleTransporter = {
 		var c = Game.getObjectById("59a5d22932ef987c0f96bf3b");
 		var c2 = Game.getObjectById("59a833729347b91c822b50ba");
 		var l = Game.getObjectById("59a9ca4e83bd410897a24445");		
-		
-		
+		if (creep.memoroom2selector) {
+			l = Game.getObjectById("59b15c08a6e4ec01b7ef900c");		
+		}
 		
 		if(creep.memory.container){
 		    var c1 = Game.getObjectById(creep.memory.container);
@@ -65,16 +66,12 @@ var roleTransporter = {
 				}
 			} else {
 				//Idle
-				if(room2selector == false){
-					if (l.energy > 0){
-						if(creep.withdraw(l, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-						   creep.travelTo(l);
-						}
-					} else {
-						creep.travelTo(Game.flags.transportHolding);
+				if (l.energy > 0){
+					if(creep.withdraw(l, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+					   creep.travelTo(l);
 					}
 				} else {
-					creep.travelTo(Game.flags.room2TransportHolding);
+					creep.travelTo(Game.flags.transportHolding);
 				}
 			}
 
