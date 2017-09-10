@@ -27,8 +27,9 @@ module.exports  = {
 				creep.travelTo(closestStructure);
 			}
 		} else {
-			creep.travelTo(Game.flags[creep.memory.targetFlag]);
+			
 		}
+		creep.travelTo(Game.flags[creep.memory.targetFlag]);
     },
 	create: function (name, flag, spawn){
 		return Game.spawns[spawn].createCreep(body, name, {role: 'basicAttack', targetFlag:flag});
