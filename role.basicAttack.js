@@ -12,8 +12,8 @@ module.exports  = {
 			structure.structureType == STRUCTURE_EXTENSION
 		});
 		var closestHostile = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-
 		var closestStructure = creep.pos.findClosestByRange(FIND_HOSTILE_STRUCTURES);
+		
 		if(creep.memory.target){
 			target = Game.getObjectById(creep.memory.targetId);
 		} else if(closestExtension){
@@ -32,11 +32,10 @@ module.exports  = {
 			//	creep.travelTo(target);
 			//} 
 			//creep.memory.targetId = target.id;
-			creep.travelTo(Game.flags[creep.memory.targetFlag]);
 		} else {
 			creep.travelTo(Game.flags[creep.memory.targetFlag]);
 		}
-		creep.travelTo(Game.flags[creep.memory.targetFlag]);
+		creep.travelTo(Game.flags.target0);
 	},
 	create: function (name, flag, spawn){
 		return Game.spawns[spawn].createCreep(body, name, {role: 'basicAttack', targetFlag:flag});
