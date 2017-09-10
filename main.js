@@ -216,6 +216,8 @@ module.exports.loop = function () {
 	linkController.run("59a9d6c7901b9f6272a9c69a", "59a9ca4e83bd410897a24445");
 	linkController.run("59aea243daa30c78a13596a1", "59a9ca4e83bd410897a24445");
 	
+	room2Controller.run();
+	
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
 		switch(Game.creeps[name].memory.role) {
@@ -251,8 +253,9 @@ module.exports.loop = function () {
 				    break;
 				case "transporter":
 				case "transporter2":
-					roleTransporter.run(creep);		
+					roleTransporter.run(creep);
+				case "basicAttack":
+					roleBasicAttack.run(creep);
 		}
     }
-	room2Controller.run();
 }
