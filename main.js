@@ -11,6 +11,8 @@ var roleExternalHarvester = require('role.externalHarvester');
 var roleExternalBuilder = require('role.externalBuilder');
 var roleSuperTransporter = require('role.superTransporter');
 
+var roleBasicAttack = require('role.basicAttack');
+
 var towerController = require("TowerController");
 var linkController = require("LinkController");
 var room2Controller = require("Room2Controller");
@@ -24,6 +26,8 @@ var maxSuperTransporters = 1;
 var maxRepair = 2;
 var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 5;
+
+var maxBasicAttackers = 3;
 
 module.exports.loop = function () {
     for(var name in Memory.creeps) {
@@ -46,6 +50,8 @@ module.exports.loop = function () {
 		var externalHarvesters1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester1');
 		var externalHarvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester2');		
     	var superTransporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'superTransporter');
+		var basicAttackers = _.filter(Game.creeps, (creep) => creep.memory.role == 'basicAttack');
+	
 	
         console.log('-------------------------------')
         console.log('Builders: ' + builders.length);
@@ -187,7 +193,10 @@ module.exports.loop = function () {
 				contID:'59ac2dc842200e583074dad8'
 			});
 			console.log('Spawning new MegaMiner4: ' + newName);
-		} 
+		} else if(basicAttackers.length < maxBasicAttackers) {
+			var newName = roleBasicAttack.create(undefined, "target0", "Spawn1");
+			console.log('Spawning new attacker: ' + newName);
+		}
 	}	
 	
     if(Game.spawns['Spawn1'].spawning) { 
