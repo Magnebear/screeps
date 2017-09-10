@@ -144,8 +144,8 @@ module.exports.loop = function () {
 			});
 			console.log('Spawning new externalHarvester2: ' + newName);
 		}
-		
-		if (Game.creeps["claimer1"] == undefined && Game.creeps.claimer1.room.controller.reservation.ticksToEnd < 1500){
+		// && Game.creeps.claimer1.room.controller.reservation.ticksToEnd < 1500
+		if (Game.creeps["claimer1"] == undefined){
 				//Spawn new claimer 1
 				var newName = Game.spawns['Spawn1'].createCreep(claimerCreep, "claimer1", 
 					{role: "claimer",
@@ -154,7 +154,7 @@ module.exports.loop = function () {
 				});
 				console.log("Spawning new claimer 1");
 		}
-		if (Game.creeps["claimer2"] == undefined && Game.creeps.claimer2.room.controller.reservation.ticksToEnd < 1500){
+		if (Game.creeps["claimer2"] == undefined){
 				//Spawn new claimer 2
 				var newName = Game.spawns['Spawn1'].createCreep(claimerCreep, "claimer2", 
 					{role: "claimer",
