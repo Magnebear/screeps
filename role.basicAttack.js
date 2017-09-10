@@ -31,7 +31,7 @@ module.exports  = {
 			if(creep.attack(target) == ERR_NOT_IN_RANGE){
 				creep.travelTo(target);
 			} 
-			creep.memory.targetId = target.ID;
+			creep.memory.targetId = target.id;
 		} else {
 			creep.travelTo(Game.flags[creep.memory.targetFlag]);
 		}
