@@ -27,15 +27,16 @@ module.exports  = {
 		}
 		
 		if(target){
-			console.log(target)
-			if(creep.attack(target) == ERR_NOT_IN_RANGE){
-				creep.travelTo(target);
-			} 
-			creep.memory.targetId = target.id;
+			//console.log(target)
+			//if(creep.attack(target) == ERR_NOT_IN_RANGE){
+			//	creep.travelTo(target);
+			//} 
+			//creep.memory.targetId = target.id;
 			creep.travelTo(Game.flags[creep.memory.targetFlag]);
 		} else {
 			creep.travelTo(Game.flags[creep.memory.targetFlag]);
 		}
+		creep.travelTo(Game.flags[creep.memory.targetFlag]);
 	},
 	create: function (name, flag, spawn){
 		return Game.spawns[spawn].createCreep(body, name, {role: 'basicAttack', targetFlag:flag});
