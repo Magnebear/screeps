@@ -9,9 +9,9 @@ var roleExternalHarvester = {
 
 		if(creep.memory.harvesting){
 			if(source == null){
-				creep.travelTo(flag);
+				creep.travelTo(flag, {allowHostile:true});
 			} else if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
-				creep.travelTo(source);
+				creep.travelTo(source, {allowHostile:true});
 			}
 			if (creep.carry.energy == creep.carryCapacity) {
 				creep.say("Emptying!")
@@ -19,7 +19,7 @@ var roleExternalHarvester = {
 			}
 		} else {
 			if(creep.transfer(destContainer, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-				creep.travelTo(destContainer);
+				creep.travelTo(destContainer, {allowHostile:true});
 			}
 			
 			if(creep.carry.energy==0){
