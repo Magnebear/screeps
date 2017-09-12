@@ -31,8 +31,7 @@ var room2Controller = {
 			if (transporters2.length < maxTransporters2) {
     			var newName = Game.spawns['Spawn2'].createCreep([CARRY,CARRY,CARRY,CARRY,MOVE,MOVE], undefined, 
     				{role: 'transporter2',
-    				room2selector: true,
-    				container: "59abd2e6c2a9b84dc15448bb"
+    				room2selector: true
     			});
     			console.log('Spawning new transporter2: ' + newName);
 		    } else if(repair2.length < maxRepair2) {

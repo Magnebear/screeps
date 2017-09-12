@@ -17,7 +17,7 @@ var roleRepair = {
             if(repairTargets.length > 0){
                 creep.memory.repairTarget = _.sample(repairTargets);
             } else {
-				var repairTargets = creep.room.find(FIND__MY_STRUCTURES, {
+				var repairTargets = creep.room.find(FIND_MY_STRUCTURES, {
 						filter: (structure) => {
 							return(structure.structureType == STRUCTURE_WALL ||
 							structure.structureType == STRUCTURE_RAMPART) &&

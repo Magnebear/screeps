@@ -26,8 +26,9 @@ var maxSuperTransporters = 1;
 var maxRepair = 2;
 var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 5;
-
-var maxBasicAttackers = 1;
+var maxExternalHarvesters3 = 0;
+var maxExternalHarvesters4 = 0;
+var maxBasicAttackers = 0;
 
 module.exports.loop = function () {
     for(var name in Memory.creeps) {
@@ -49,6 +50,9 @@ module.exports.loop = function () {
 		var claimers = _.filter(Game.creeps, (creep) => creep.memory.role == 'claimer');
 		var externalHarvesters1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester1');
 		var externalHarvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester2');		
+		var externalHarvesters3 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester3');
+		var externalHarvesters4 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester4');		
+		
     	var superTransporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'superTransporter');
 		var basicAttackers = _.filter(Game.creeps, (creep) => creep.memory.role == 'basicAttack');
 	
@@ -63,6 +67,8 @@ module.exports.loop = function () {
         console.log('repair: ' + repairs1.length);
 		console.log('externalHarvesters1: ' + externalHarvesters1.length);
 		console.log('externalHarvesters2: ' + externalHarvesters2.length);
+		console.log('externalHarvesters3: ' + externalHarvesters3.length);
+		console.log('externalHarvesters4: ' + externalHarvesters4.length);
 		console.log('-------------------------------')
         
 		creepControll();
@@ -136,6 +142,22 @@ module.exports.loop = function () {
 				flag:"externalSource02"
 			});
 			console.log('Spawning new externalHarvester2: ' + newName);
+		} else if (externalHarvesters3.length < maxExternalHarvesters4) {
+			var newName = Game.spawns['Spawn2'].createCreep(externalHarvesterCreep, undefined, 
+				{role: 'externalHarvester3',
+				targetSource:"59830063b097071b4adc42dd",
+				targetContainer:"59adf5d36a4b6643c42b3abc",
+				flag:"externalSource3"
+			});
+			console.log('Spawning new externalHarvester2: ' + newName);
+		} else if (externalHarvesters4.length < maxExternalHarvesters4) {
+			var newName = Game.spawns['Spawn2'].createCreep(externalHarvesterCreep, undefined, 
+				{role: 'externalHarvester4',
+				targetSource:"59830063b097071b4adc42de",
+				targetContainer:"59adf5d36a4b6643c42b3abc",
+				flag:"externalSource4"
+			});
+			console.log('Spawning new externalHarvester4: ' + newName);
 		} else if (superTransporters.length < maxSuperTransporters) {
 			var newName = Game.spawns['Spawn1'].createCreep(superTransporterCreep, undefined, 
 				{role: 'superTransporter',
@@ -183,7 +205,7 @@ module.exports.loop = function () {
 			var newName = Game.spawns['Spawn2'].createCreep(megaMinerAlt, "megaMiner3", 
 				{role: 'megaMiner',
 				srcID:'59830062b097071b4adc42da',
-				contID:'59abd2e6c2a9b84dc15448bb'
+				contID:'59b79f83e835542779c49fbc'
 			});
 			console.log('Spawning new MegaMiner3: ' + newName);
 		} else if(Game.creeps["megaMiner4"] == undefined) {
@@ -219,8 +241,7 @@ module.exports.loop = function () {
 
 	linkController.run("59b15a5a59a2a537e2656960", "59b15c08a6e4ec01b7ef900c");
 	
-	room2Controller.run();
-	
+
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
 		switch(Game.creeps[name].memory.role) {
@@ -249,6 +270,8 @@ module.exports.loop = function () {
 				case "externalHarvester":
 				case "externalHarvester1":
 				case "externalHarvester2":
+				case "externalHarvester3":
+				case "externalHarvester4":				    
 					roleExternalHarvester.run(creep);
 					break;
 				case "superTransporter":
@@ -263,4 +286,6 @@ module.exports.loop = function () {
 					break;
 		}
     }
+    room2Controller.run();
+	
 }
