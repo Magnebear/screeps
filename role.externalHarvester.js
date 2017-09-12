@@ -6,7 +6,6 @@ var roleExternalHarvester = {
 	var source = Game.getObjectById(creep.memory.targetSource);
 	var destContainer = Game.getObjectById(creep.memory.targetContainer);
 	var flag = Game.flags[creep.memory.flag];
-	console.log(creep.harvest(source))
 		if(creep.memory.harvesting){
 			if(source == null){
 				creep.travelTo(flag, {allowHostile:true});
