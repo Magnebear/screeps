@@ -10,7 +10,7 @@ var roleClaimer = require('role.claimer');
 var roleExternalHarvester = require('role.externalHarvester');
 var roleExternalBuilder = require('role.externalBuilder');
 var roleSuperTransporter = require('role.superTransporter');
-
+var roleTakeover = require('role.takeover');
 var roleBasicAttack = require('role.basicAttack');
 
 var towerController = require("TowerController");
@@ -284,7 +284,11 @@ module.exports.loop = function () {
 				case "basicAttack":
 					roleBasicAttack.run(creep);
 					break;
-		}
+				case "takeover":
+					roleTakeover.run(creep);
+					break;
+
+				}
     }
     room2Controller.run();
 	
