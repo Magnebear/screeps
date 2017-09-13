@@ -37,10 +37,11 @@ var roleRepair = {
 					}
 				}
             }
-        } else if (creep.carry.energy < 5) {
-			if(creep.room.storage.store[RESOURCE_ENERGY] > 10000){
-				if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-					   creep.travelTo(creep.room.storage);
+			if (creep.carry.energy < 5) {
+				if(creep.room.storage.store[RESOURCE_ENERGY] > 10000){
+					if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+						   creep.travelTo(creep.room.storage);
+					}
 				}
 			}
         } else {
