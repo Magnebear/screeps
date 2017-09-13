@@ -52,7 +52,7 @@ var roleRepair = {
             }
 			if (t == null){
 				creep.memory.repairTarget = null;
-			} else if(t.hits == t.hitsMax || t.hits > maxHits){
+			} else if(t.hits == t.hitsMax){
                 creep.memory.repairTarget = null;
 				creep.say("Repp complete!");
             }	
