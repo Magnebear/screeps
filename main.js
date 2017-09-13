@@ -79,7 +79,7 @@ module.exports.loop = function () {
 		}
 //		roles.sort();
 		for(var role in roles) {
-			console.log(role,": ",roles[role])
+			console.log(role,": \t",roles[role])
 		}
 	
         console.log('-------------------------------')
