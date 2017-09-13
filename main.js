@@ -63,26 +63,7 @@ module.exports.loop = function () {
     if (Memory.clock < 5){
         Memory.clock++;
     } else {
-		var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-		var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-		var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
-		var externalBuilders = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalBuilder');
-		var transporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter');
-		var repairs1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair' && creep.room.name == "E42S26");
-		var claimers = _.filter(Game.creeps, (creep) => creep.memory.role == 'claimer');
-		var externalHarvesters1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester1');
-		var externalHarvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester2');		
-		var externalHarvesters3 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester3');
-		var externalHarvesters4 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester4');		
-		
-    	var superTransporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'superTransporter');
-		var basicAttackers = _.filter(Game.creeps, (creep) => creep.memory.role == 'basicAttack');
-		
-		//R2
-		var transporters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter2');
-		var repair2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair2');
-		var builders2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder2');
-		
+				
 		var roles = {}
 
 		
@@ -166,7 +147,26 @@ module.exports.loop = function () {
 }
 
 function creepControll(){
-
+	var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+	var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+	var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
+	var externalBuilders = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalBuilder');
+	var transporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter');
+	var repairs1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair' && creep.room.name == "E42S26");
+	var claimers = _.filter(Game.creeps, (creep) => creep.memory.role == 'claimer');
+	var externalHarvesters1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester1');
+	var externalHarvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester2');		
+	var externalHarvesters3 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester3');
+	var externalHarvesters4 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester4');		
+	
+	var superTransporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'superTransporter');
+	var basicAttackers = _.filter(Game.creeps, (creep) => creep.memory.role == 'basicAttack');
+	
+	//R2
+	var transporters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter2');
+	var repair2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair2');
+	var builders2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder2');
+	
 	//--------------------ROOM 1---------------------
 	if(Game.creeps["megaMiner1"] == undefined) {
 		var newName = roleMegaMiner.create("megaMiner1", megaMiner, "59830055b097071b4adc418f", "59a5d22932ef987c0f96bf3b", "Spawn1");
