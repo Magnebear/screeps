@@ -71,7 +71,7 @@ module.exports.loop = function () {
 		var roles = {}
 		for(var name in Game.creeps) {
 			if(roles[Game.creeps[name].memory.role]){
-				roles[Game.creeps[name].memory.role] ++
+				roles[Game.creeps[name].memory.role] = roles[Game.creeps[name].memory.role] + 1
 			} else {
 				roles[Game.creeps[name].memory.role] = 0
 			}
