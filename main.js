@@ -74,7 +74,7 @@ module.exports.loop = function () {
 		}
 		
 		for(var role in roles) {
-			console.log(role.value)
+			console.log(role,": ",roles[role])
 		}
 	
         console.log('-------------------------------')
