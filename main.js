@@ -77,7 +77,7 @@ module.exports.loop = function () {
 				roles[Game.creeps[name].memory.role] = 1
 			}
 		}
-		roles.sort();
+//		roles.sort();
 		for(var role in roles) {
 			console.log(role,": ",roles[role])
 		}
