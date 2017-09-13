@@ -69,6 +69,7 @@ module.exports.loop = function () {
 		var builders2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder2');
 		
 		var roles = {}
+
 		for(var name in Game.creeps) {
 			if(roles[Game.creeps[name].memory.role]){
 				roles[Game.creeps[name].memory.role] ++
@@ -76,7 +77,7 @@ module.exports.loop = function () {
 				roles[Game.creeps[name].memory.role] = 1
 			}
 		}
-		
+		roles.sort();
 		for(var role in roles) {
 			console.log(role,": ",roles[role])
 		}
