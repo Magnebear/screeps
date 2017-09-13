@@ -24,7 +24,6 @@ var roleRepair = {
 							(structure.hits < maxHits)
 						}
 				});
-				console.log(repairTargets)
 				if(repairTargets.length > 0){
 					if(creep.repair(repairTargets[0]) == ERR_NOT_IN_RANGE) {
 						creep.travelTo(repairTargets[0]);
