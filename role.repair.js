@@ -23,7 +23,8 @@ var roleRepair = {
 							structure.structureType == STRUCTURE_RAMPART) &&
 							(structure.hits < maxHits)
 						}
-				});			
+				});
+				console.log(repairTargets)
 				if(repairTargets.length > 0){
 					if(creep.repair(repairTargets[0]) == ERR_NOT_IN_RANGE) {
 						creep.travelTo(repairTargets[0]);
@@ -38,12 +39,11 @@ var roleRepair = {
 				}
             }
         } else if (creep.carry.energy < 5) {
-            var roomContainers = Game.rooms[creep.room.name].find(FIND_STRUCTURES, {
-                filter: (structure) => { return ((structure.structureType == STRUCTURE_CONTAINER) && (structure.store[RESOURCE_ENERGY] > 0)) }
-            });
-            if(creep.withdraw(roomContainers[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                   creep.travelTo(roomContainers[0]);
-            }
+			if(creep.room.storage.store[RESOURCE_ENERGY] > 10000){
+				if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+					   creep.travelTo(creep.room.storage);
+				}
+			}
         } else {
             var t= Game.getObjectById(creep.memory.repairTarget.id);
             creep.say("Repping!")
