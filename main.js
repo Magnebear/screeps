@@ -24,13 +24,14 @@ var maxSuperTransporters = 1;
 var maxRepair = 2;
 var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 5;
-var maxExternalHarvesters3 = 3;
-var maxExternalHarvesters4 = 3;
+
 var maxBasicAttackers = 0;
 
 var maxTransporters2 = 4;
 var maxRepair2 = 1;
 var maxBuilders2 = 1;
+var maxExternalHarvesters3 = 3;
+var maxExternalHarvesters4 = 3;
 
 // var startCpu = Game.cpu.getUsed();
 // console.log('elapsed:', Game.cpu.getUsed() - startCpu);
@@ -146,7 +147,7 @@ module.exports.loop = function () {
 				flag:"externalSource02"
 			});
 			console.log('Spawning new externalHarvester2: ' + newName);
-		} else if(Game.creeps["megaMiner5"] == undefined) {
+		} else if(Game.creeps["megaMiner5"] == undefined && (Game.getObjectById("598342fa641acf0573578ea5").mineralAmount != 0)) {
 			var newName = Game.spawns['Spawn1'].createCreep(megaMineralMinerCreep, "megaMiner5", 
 				{role: 'megaMiner',
 				srcID:'598342fa641acf0573578ea5',
