@@ -71,7 +71,7 @@ module.exports.loop = function () {
 		for(var name in Game.creeps) {
 			(roles[Game.creeps[name].memory.role])++
 		}
-		console.log(roles)
+		console.log(Object.keys(roles));
 	
         console.log('-------------------------------')
         console.log('Builders: ' + builders.length);
