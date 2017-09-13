@@ -225,7 +225,7 @@ function creepControll(){
 			containerId:"59aea243daa30c78a13596a1",
 			flag:"HoldingArea"
 		});
-		console.log('Spawning new externalHarvester2: ' + newName);
+		console.log('Spawning new superTransporter: ' + newName);
 	} else if (Game.creeps["claimer1"] == undefined && Game.flags.claim1.room.controller.reservation.ticksToEnd < 1000){
 			//Spawn new claimer 1
 			var newName = Game.spawns['Spawn1'].createCreep(claimerCreep, "claimer1", 
