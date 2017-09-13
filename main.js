@@ -67,7 +67,11 @@ module.exports.loop = function () {
 		var transporters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter2');
 		var repair2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair2');
 		var builders2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder2');
-
+		var roles = {}
+		for(var name in Game.creeps) {
+			roles[Game.creeps[name].memory.role] += 1
+		}
+		console.log(roles)
 	
         console.log('-------------------------------')
         console.log('Builders: ' + builders.length);
