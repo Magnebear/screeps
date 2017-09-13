@@ -25,8 +25,8 @@ var roleRepair = {
 						}
 				});
 				if(repairTargets.length > 0){
-					if(creep.repair(repairTargets[0]) == ERR_NOT_IN_RANGE) {
-						creep.travelTo(repairTargets[0]);
+					if(creep.repair(creep.pos.findClosesByRange(repairTargets)) == ERR_NOT_IN_RANGE) {
+						creep.travelTo(creep.pos.findClosesByRange(repairTargets));
 					}
 				} else {					
 					//Idle state
