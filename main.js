@@ -70,7 +70,7 @@ module.exports.loop = function () {
 		
 		var roles = {}
 		for(var name in Game.creeps) {
-				roles[Game.creeps[name].memory.role] ++
+				roles[Game.creeps[name].memory.role] = roles[Game.creeps[name].memory.role] ++
 		}
 		
 		for(var role in roles) {
