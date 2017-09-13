@@ -17,7 +17,7 @@ var towerController = require("TowerController");
 var linkController = require("LinkController");
 var room2Controller = require("Room2Controller");
 
-var maxHarvester = 4;
+var maxHarvester = 8;
 var maxBuilders = 1;
 var maxBuilders2 = 0;
 var maxUpgraders = 5;
@@ -26,8 +26,8 @@ var maxSuperTransporters = 1;
 var maxRepair = 2;
 var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 5;
-var maxExternalHarvesters3 = 0;
-var maxExternalHarvesters4 = 0;
+var maxExternalHarvesters3 = 3;
+var maxExternalHarvesters4 = 3;
 var maxBasicAttackers = 0;
 
 module.exports.loop = function () {
@@ -185,6 +185,15 @@ module.exports.loop = function () {
 				});
 				console.log("Spawning new claimer 2");
 		}
+		if (Game.creeps["claimer3"] == undefined){
+				//Spawn new claimer 2
+				var newName = Game.spawns['Spawn2'].createCreep(claimerCreep, "claimer3", 
+					{role: "claimer",
+					targetController: "59830063b097071b4adc42df",
+					targetFlag:"claim3"
+				});
+				console.log("Spawning new claimer 3");
+		}
 		
 		
 		
@@ -216,7 +225,7 @@ module.exports.loop = function () {
 			});
 			console.log('Spawning new MegaMiner4: ' + newName);
 		} else if(basicAttackers.length < maxBasicAttackers) {
-			var newName = roleBasicAttack.create(undefined, "target0", "Spawn1");
+			var newName = roleBasicAttack.create(undefined, "t2", "Spawn2");
 			console.log('Spawning new attacker: ' + newName);
 		}
 	}	
