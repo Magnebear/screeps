@@ -1,5 +1,5 @@
 var Traveler = require('Traveler');
-
+const maxHits = 10000;
 var roleRepair = {
     run: function(creep) {
         if(creep.memory.repairTarget==null || !creep.memory.repairTarget) {
@@ -17,11 +17,11 @@ var roleRepair = {
             if(repairTargets.length > 0){
                 creep.memory.repairTarget = _.sample(repairTargets);
             } else {
-				var repairTargets = creep.room.find(FIND_MY_STRUCTURES, {
+				var repairTargets = creep.room.find(FIND_STRUCTURES, {
 						filter: (structure) => {
 							return(structure.structureType == STRUCTURE_WALL ||
 							structure.structureType == STRUCTURE_RAMPART) &&
-							(structure.hits < 10000)
+							(structure.hits < maxHits)
 						}
 				});			
 				if(repairTargets.length > 0){
@@ -52,7 +52,7 @@ var roleRepair = {
             }
 			if (t == null){
 				creep.memory.repairTarget = null;
-			} else if(t.hits == t.hitsMax){
+			} else if(t.hits == t.hitsMax || t.hits > maxHits){
                 creep.memory.repairTarget = null;
 				creep.say("Repp complete!");
             }	
