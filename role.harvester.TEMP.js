@@ -1,3 +1,5 @@
+var Traveler = require('Traveler');
+
 var roleHarvesterTEMP = {
 
     /** @param {Creep} creep **/
@@ -5,7 +7,7 @@ var roleHarvesterTEMP = {
 	    if(creep.carry.energy < creep.carryCapacity) {
             var sources = creep.room.find(FIND_SOURCES);
             if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#ffaa00'}});
+                creep.travelTo(sources[1], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         }
         else {
@@ -18,13 +20,13 @@ var roleHarvesterTEMP = {
             if(targets.length > 0) {
                 creep.memory.upgrading = false;
                 if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
+                    creep.travelTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                 }
             } else {
                 creep.memory.upgrading = true;
                 if(creep.memory.upgrading) {
                     if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(creep.room.controller, {visualizePathStyle: {stroke: '#ffffff'}});
+                        creep.travelTo(creep.room.controller, {visualizePathStyle: {stroke: '#ffffff'}});
                     }
                 }
             }
