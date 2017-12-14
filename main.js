@@ -40,7 +40,12 @@ var superTransporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CA
 
 var maxHarvester = 2;
 var maxBuilders = 2;
-var maxUpgraders = 2;
+var maxUpgraders = 4;
+
+
+
+
+
 var maxTransporters = 4;
 var maxSuperTransporters = 1;
 var maxRepair = 2;
@@ -117,8 +122,7 @@ module.exports.loop = function () {
 				roleHarvesterTEMP.run(creep);				
 				break;
 			case "upgrader":
-				roleBuilderTEMP.run(creep);
-				//roleUpgraderTEMP.run(creep);
+				//roleBuilderTEMP.run(creep);
 				break;
 			case "builder":
 				roleBuilderTEMP.run(creep);
