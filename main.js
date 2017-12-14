@@ -88,7 +88,7 @@ module.exports.loop = function () {
         console.log('-------------------------------')
 		
 		
-		//Controlls creeps spawning(currently disabled)
+		//Controlls creeps spawning
 		creepControll();
 		
 		Memory.clock = 0;
@@ -194,10 +194,10 @@ function creepControll(){
 	var builders2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder2');
 	
 	if (harvesters.length < maxHarvester) {
-		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK], undefined, {role: 'builder'});
+		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK], undefined, {role: 'harvesters'});
 		console.log('Spawning new harvesters: ' + newName);
 	} else if (upgrader.length < maxUpgraders) {
-		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK], undefined, {role: 'builder'});
+		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK], undefined, {role: 'upgrader'});
 		console.log('Spawning new upgrader: ' + newName);
 	} else if (builders.length < maxBuilders) {
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK], undefined, {role: 'builder'});
