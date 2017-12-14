@@ -114,8 +114,7 @@ module.exports.loop = function () {
 			
 			//TEMP cases for transittion
 			case "harvester":
-				//roleHarvesterTEMP.run(creep);
-				roleBuilderTEMP.run(creep);
+				roleHarvesterTEMP.run(creep);				
 				break;
 			case "upgrader":
 				roleBuilderTEMP.run(creep);
