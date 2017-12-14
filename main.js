@@ -89,7 +89,7 @@ module.exports.loop = function () {
 		
 		
 		//Controlls creeps spawning(currently disabled)
-		//creepControll();
+		creepControll();
 		
 		Memory.clock = 0;
     }
