@@ -72,7 +72,7 @@ module.exports.loop = function () {
         }
     }
 	
-	var sources = Game.spawns["spawn1"].room;
+	var sources = Game.spawns["Spawn1"].room;
 	
 	console.log(sources);
 	
