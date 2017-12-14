@@ -71,14 +71,17 @@ module.exports.loop = function () {
             console.log('Clearing non-existing creep memory:', name);
         }
     }
+	
+	var sources = game.spawns["spawn1"].room;
+	
+	console.log(sources);
+	
+	
 
     if (Memory.clock < 5){
         Memory.clock++;
-    } else {
-				
+    } else {		
 		var roles = {}
-
-		
 		console.log('-------------------------------')		
 		for(var name in Game.creeps) {
 			if(roles[Game.creeps[name].memory.role]){
@@ -91,7 +94,6 @@ module.exports.loop = function () {
 			console.log(role,":\t\t",roles[role])
 		}	
         console.log('-------------------------------')
-		
 		
 		//Controlls creeps spawning
 		creepControll();
