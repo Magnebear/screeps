@@ -1,5 +1,12 @@
 var Traveler = require('Traveler');
 
+//TEMP
+var roleHarvesterTEMP = require('role.harvester.TEMP');
+var roleUpgraderTEMP = require('role.upgrader.TEMP');
+var roleBuilderTEMP = require('role.builder.TEMP');
+
+
+
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
@@ -79,14 +86,17 @@ module.exports.loop = function () {
 			console.log(role,":\t\t",roles[role])
 		}	
         console.log('-------------------------------')
-
-		creepControll();
+		
+		
+		//Controlls creeps spawning(currently disabled)
+		//creepControll();
+		
 		Memory.clock = 0;
     }
     
 
-    
-	towerController.run(Game.getObjectById('59a9bd8b58bf8523b6247f27'));
+    //Hardcoded link and towwer controls
+	/* towerController.run(Game.getObjectById('59a9bd8b58bf8523b6247f27'));
 	towerController.run(Game.getObjectById('59aa6fc87073420285cddfe8'));
 	
 	towerController.run(Game.getObjectById('59ac591cd00bbd1ef4dbf699'));
@@ -96,10 +106,25 @@ module.exports.loop = function () {
 	linkController.run("59aea243daa30c78a13596a1", "59a9ca4e83bd410897a24445");
 
 	linkController.run("59b15a5a59a2a537e2656960", "59b15c08a6e4ec01b7ef900c");
-
-    for(var name in Game.creeps) {
+ */
+    
+	for(var name in Game.creeps) {
         var creep = Game.creeps[name];
 		switch(Game.creeps[name].memory.role) {
+			
+			//TEMP cases for transittion
+			case "harvester":
+				roleHarvesterTEMP.run(creep);
+				break;
+			case "upgrader":
+				roleUpgraderTEMP.run(creep);
+				break;
+			case "builder":
+				roleBuilderTEMP.run(creep);
+				break;
+			
+			
+			
 			case "harvester":
 				roleHarvester.run(creep);
 				break;
@@ -167,7 +192,7 @@ function creepControll(){
 	var repair2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair2');
 	var builders2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder2');
 	
-	//--------------------ROOM 1---------------------
+/* 	//--------------------ROOM 1--------------------
 	if(Game.creeps["megaMiner1"] == undefined) {
 		var newName = roleMegaMiner.create("megaMiner1", megaMiner, "59830055b097071b4adc418f", "59a5d22932ef987c0f96bf3b", "Spawn1");
 		console.log('Spawning new MegaMiner1: ' + newName);
@@ -246,9 +271,9 @@ function creepControll(){
 		var newName = roleBasicAttack.create(undefined, "target0", "Spawn1");
 		console.log('Spawning new attacker: ' + newName);
 	}
-
+ */
 	
-	//--------------------ROOM 2---------------------
+/* 	//--------------------ROOM 2--------------------
 	if (harvesters.length < maxHarvester) {
 		var newName = Game.spawns['Spawn2'].createCreep(defaultCreep2, undefined, 
 			{role: 'harvester',
@@ -305,5 +330,5 @@ function creepControll(){
 			flag:"externalSource4"
 		});
 		console.log('Spawning new externalHarvester4: ' + newName);
-	}  
+	} */  
 }
