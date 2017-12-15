@@ -159,18 +159,18 @@ module.exports.loop = function () {
 	//
 	
 	
-	for(var rooms in externalMiningRooms) {
+	for(var room in externalMiningRooms) {
 		//Controll the external mining activities for a specific target room
 		
 		
 		//Check if creeps are alive
-		if(Game.creeps[Game.memory.rooms.exoMiner1]){
+		if(Game.creeps[Game.memory[room].exoMiner1]){
 			console.log("Exominer1 Alive");
 		} else {
 			console.log("Exominer1 dead");
 		}
 		
-		if(Game.creeps[Game.memory.rooms.exoMiner2]){
+		if(Game.creeps[Game.memory[room].exoMiner2]){
 			console.log("Exominer2 Alive");
 		} else {
 			console.log("Exominer2 dead");
