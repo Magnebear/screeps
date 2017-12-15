@@ -179,27 +179,35 @@ function creepControll(){
 	if (harvesters.length < maxHarvester) {
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,MOVE,CARRY,CARRY,WORK], undefined, {role: 'harvester'});
 		console.log('Spawning new harvesters: ' + newName);
+		
 	} else if(Game.creeps["megaMiner1"] == undefined) {
 		var newName = roleMegaMiner.create("megaMiner1", megaMiner, "59f1a4d582100e1594f3d9c2", "5a328e9fac100464eb4ad0b6", "Spawn1");
 		console.log('Spawning new MegaMiner1: ' + newName);
+		
 	} else if (transporters.length < maxTransporters) {
 		var newName = Game.spawns['Spawn1'].createCreep(transporterCreep, undefined, {role: 'transporter'});
 		console.log('Spawning new transporter: ' + newName);
+		
 	}else if (upgraders.length < maxUpgraders) {
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK], undefined, {role: 'upgrader'});
 		console.log('Spawning new upgrader: ' + newName);
+		
 	} else if (builders.length < maxBuilders) {
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,CARRY], undefined, {role: 'builder'});
 		console.log('Spawning new builder: ' + newName);
+		
 	} else if (repairs.length < maxRepair) {
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,CARRY,WORK], undefined, {role: 'repair'});
 		console.log('Spawning new repair: ' + newName);
+		
 	} else if(Game.creeps["megaMiner2"] == undefined) {
 		var newName = roleMegaMiner.create("megaMiner2", megaMiner, "59f1a4d582100e1594f3d9c1", "5a328e9fac100464eb4ad0b6", "Spawn1");
 		console.log('Spawning new MegaMiner2: ' + newName);
+		
 	} else if(basicAttackers.length < maxBasicAttackers) {
 		var newName = roleBasicAttack.create(undefined, "target0", "Spawn1");
 		console.log('Spawning new attacker: ' + newName);
+		
 	}
 	
 	

@@ -22,7 +22,7 @@ var roleUpgrader = {
 	    if(creep.memory.upgrading) {
 			creep.travelTo(upgradeFlag);
             creep.upgradeController(creep.room.controller)
-        } else if (containers.length > 1){ 
+        } else if (containers.length > 0){ 
 			if(creep.withdraw(containers[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                creep.travelTo(containers[0]);
             }
