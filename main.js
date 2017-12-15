@@ -168,6 +168,7 @@ module.exports.loop = function () {
 		//Controll the external mining activities for a specific target room
 		console.log(typeof exoRoom)
 		console.log(exoRoom.name)
+		
 		if(Game.creeps[exoRoom.name+"exoMiner1"] == undefined){
 			console.log("create new "+exoRoom.name+"exoMiner1")
 			//var newName = Game.spawns['Spawn1'].createCreep(exoMinerCreep, exoRoom.name+"exoMiner1", {role: 'upgrader'});
@@ -184,16 +185,7 @@ module.exports.loop = function () {
 			console.log("create new "+exoRoom.name+"exoMule1")
 			
 		}
-
-		
-		
-		
-	}
-	
-	
-	
-	
-	
+	}	
 }
 
 function creepControll(){
