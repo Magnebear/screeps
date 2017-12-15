@@ -17,6 +17,8 @@ var roleExternalBuilder = require('role.externalBuilder');
 var roleSuperTransporter = require('role.superTransporter');
 var roleTakeover = require('role.takeover');
 var roleBasicAttack = require('role.basicAttack');
+var roleExoMiner = require('role.exoMiner');
+var roleExoMule = require('role.exoMule');
 
 var towerController = require("TowerController");
 var linkController = require("LinkController");
@@ -162,20 +164,19 @@ module.exports.loop = function () {
 	//
 	
 	
-	for(var room in externalMiningRooms) {
+	for(var exoRoom in externalMiningRooms) {
 		//Controll the external mining activities for a specific target room
-		console.log(room.name)
-		
-		
-		
-		if(Game.creeps[room.name+"exoMiner1"] == undefined){
-			console.log("create new "+room.name+"exoMiner1")
+		console.log(exoRoom.name)
+		var sources = exoRoom.find(FIND_SOURCES);
+		console.log(sources)
+		if(Game.creeps[exoRoom.name+"exoMiner1"] == undefined){
+			console.log("create new "+exoRoom.name+"exoMiner1")
 			
-		}else if(Game.creeps[room.name+"exoMiner2"] == undefined){
-			console.log("create new "+room.name+"exoMiner2")
+		}else if(Game.creeps[exoRoom.name+"exoMiner2"] == undefined){
+			console.log("create new "+exoRoom.name+"exoMiner2")
 			
 		}else if(Game.creeps[room.name+"exoMule1"] == undefined){
-			console.log("create new "+room.name+"exoMule1")
+			console.log("create new "+exoRoom.name+"exoMule1")
 			
 		}
 
