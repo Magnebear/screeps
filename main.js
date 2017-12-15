@@ -66,22 +66,10 @@ module.exports.loop = function () {
         }
     }
 	
-	
 	var sources = Game.spawns["Spawn1"].room.find(FIND_SOURCES);
-	
-	console.log(sources);
-	
 	for(var source in sources) {
 		//if.source
-		
-		
 	}
-
-	
-	
-	
-	
-	
 	
     if (Memory.clock < 5){
         Memory.clock++;
