@@ -178,7 +178,7 @@ function creepControll(){
 	var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
 	var externalBuilders = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalBuilder');
 	var transporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter');
-	var repairs1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair' && creep.room.name == "E42S26");
+	var repairs = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair');
 	var claimers = _.filter(Game.creeps, (creep) => creep.memory.role == 'claimer');
 	var externalHarvesters1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester1');
 	var externalHarvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester2');		
@@ -202,7 +202,7 @@ function creepControll(){
 	} else if (builders.length < maxBuilders) {
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK], undefined, {role: 'builder'});
 		console.log('Spawning new builder: ' + newName);
-	} else if (repair.length < maxRepair) {
+	} else if (repairs.length < maxRepair) {
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,CARRY,WORK], undefined, {role: 'repair'});
 		console.log('Spawning new repair: ' + newName);
 	}
