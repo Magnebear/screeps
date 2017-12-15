@@ -166,23 +166,25 @@ module.exports.loop = function () {
 	
 	for(var exoRoom in externalMiningRooms) {
 		//Controll the external mining activities for a specific target room
-		console.log(typeof exoRoom)
-		console.log(exoRoom.name)
 		
-		if(Game.creeps[exoRoom.name+"exoMiner1"] == undefined){
-			console.log("create new "+exoRoom.name+"exoMiner1")
-			//var newName = Game.spawns['Spawn1'].createCreep(exoMinerCreep, exoRoom.name+"exoMiner1", {role: 'upgrader'});
-			
+		if(Game.creeps[exoRoom+"exoMiner1"] == undefined){
+			console.log("create new "+exoRoom.name+"exoMiner1");
+			//var newName = Game.spawns['Spawn1'].createCreep(exoMinerCreep, exoRoom+"exoMiner1", {role: 'exoMiner'});
 		} else {
+			if(Game.rooms[exoRoom] == undefined){
+				console.log("test!")
+			}
+			
+			
 			
 		}
 		
-		if(Game.creeps[exoRoom.name+"exoMiner2"] == undefined){
-			console.log("create new "+exoRoom.name+"exoMiner2")
+		if(Game.creeps[exoRoom+"exoMiner2"] == undefined){
+			console.log("create new "+exoRoom.name+"exoMiner2");
 		}
 			
-		if(Game.creeps[room.name+"exoMule1"] == undefined){
-			console.log("create new "+exoRoom.name+"exoMule1")
+		if(Game.creeps[exoRoom+"exoMule1"] == undefined){
+			console.log("create new "+exoRoom.name+"exoMule1");
 			
 		}
 	}	
