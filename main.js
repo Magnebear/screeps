@@ -45,13 +45,15 @@ var maxTransporters = 3;
 var maxSuperTransporters = 1;
 var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 5;
-var maxBasicAttackers = 0;
+var maxBasicAttackers = 4;
 
 var maxTransporters2 = 4;
 var maxRepair2 = 2;
 var maxBuilders2 = 1;
 var maxExternalHarvesters3 = 3;
 var maxExternalHarvesters4 = 3;
+
+var externalMiningRooms = ["E27N34","E26N33"]
 
 // var startCpu = Game.cpu.getUsed();
 // console.log('elapsed:', Game.cpu.getUsed() - startCpu);
@@ -152,7 +154,25 @@ module.exports.loop = function () {
 				roleTakeover.run(creep);
 				break;
 		}
-    }	
+    }
+	
+	//
+	
+	
+	for(var rooms in externalMiningRooms) {
+		//Controll the external mining activities for a specific target room
+		var exMiner1 = ""
+		var exMiner2 = ""
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
 }
 
 function creepControll(){
@@ -205,7 +225,7 @@ function creepControll(){
 		console.log('Spawning new MegaMiner2: ' + newName);
 		
 	} else if(basicAttackers.length < maxBasicAttackers) {
-		var newName = roleBasicAttack.create(undefined, "target0", "Spawn1");
+		var newName = roleBasicAttack.create(undefined, "target1", "Spawn1");
 		console.log('Spawning new attacker: ' + newName);
 		
 	}
