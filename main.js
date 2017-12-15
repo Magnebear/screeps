@@ -66,7 +66,7 @@ module.exports.loop = function () {
         }
     }
 	
-	var sources = Game.spawns["Spawn1"].room;
+	var sources = Game.spawns["Spawn1"].room.find(FIND_SOURCES);
 	
 	console.log(sources);
 	

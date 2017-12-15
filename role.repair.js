@@ -41,7 +41,6 @@ var roleRepair = {
 				var s = creep.room.find(FIND_STRUCTURES, {
 					filter: (structure) => {return(structure.structureType == STRUCTURE_CONTAINER)}
 				});
-				console.log(s[0])
 				if(creep.withdraw(s[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 						   creep.travelTo(s[0]);
 				}
@@ -71,7 +70,6 @@ var roleRepair = {
 			var s = creep.room.find(FIND_STRUCTURES, {
 				filter: (structure) => {return(structure.structureType == STRUCTURE_CONTAINER)}
 			});
-			console.log(s[0])
 			if(creep.withdraw(s[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 					   creep.travelTo(s[0]);
 			}
