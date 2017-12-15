@@ -21,13 +21,13 @@ var roleHarvesterTEMP = {
             if(targets.length > 0) {
                 creep.memory.upgrading = false;
                 if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.travelTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
+                    creep.travelTo(targets[0]);
                 }
             } else {
                 creep.memory.upgrading = true;
                 if(creep.memory.upgrading) {
                     if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
-                        creep.travelTo(creep.room.controller, {visualizePathStyle: {stroke: '#ffffff'}});
+                        creep.travelTo(creep.room.controller);
                     }
                 }
             }
