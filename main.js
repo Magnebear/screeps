@@ -36,7 +36,7 @@ var externalBuilderCreep = [WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE]
 var superTransporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
 var maxHarvester = 4;
-var maxBuilders = 3;
+var maxBuilders = 1;
 var maxUpgraders = 1;
 var maxRepair = 1;
 
