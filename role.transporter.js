@@ -51,6 +51,8 @@ var roleTransporter = {
 				if(creep.withdraw(containers[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 					   creep.travelTo(containers[0]);
 				}
+			} else {
+				creep.travelTo(Game.flags.holdingArea);
 			}
 			/* else if(creep.room.storage.store[RESOURCE_ENERGY] != 0) {
 				 if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
