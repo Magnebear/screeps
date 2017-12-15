@@ -2,8 +2,6 @@ var Traveler = require('Traveler');
 module.exports  = {
     /** @param {Creep} creep **/
     run: function(creep) {
-		creep.memory.contID = "5a328e9fac100464eb4ad0b6"
-		creep.memory.srcID = "59f1a4d582100e1594f3d9c2"
         var container = Game.getObjectById(creep.memory.contID);
         var source = Game.getObjectById(creep.memory.srcID);
         
