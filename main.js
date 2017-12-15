@@ -162,7 +162,7 @@ module.exports.loop = function () {
 	for(var room in externalMiningRooms) {
 		//Controll the external mining activities for a specific target room
 		console.log(room)
-		Memory.(room.name).exoMiner1 = "test1"
+		Memory[room.name].exoMiner1 = "test1"
 
 		
 		
