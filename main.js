@@ -37,15 +37,15 @@ var superTransporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CA
 
 var maxHarvester = 1;
 var maxBuilders = 3;
-var maxUpgraders = 2;
-var maxRepair = 1;
-var maxTransporters = 4;
+var maxUpgraders = 3;
+var maxRepair = 2;
+var maxTransporters = 3;
 
 
 var maxSuperTransporters = 1;
 var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 5;
-var maxBasicAttackers = 8;
+var maxBasicAttackers = 0;
 
 var maxTransporters2 = 4;
 var maxRepair2 = 2;
