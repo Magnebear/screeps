@@ -58,7 +58,7 @@ var maxBuilders2 = 1;
 var maxExternalHarvesters3 = 3;
 var maxExternalHarvesters4 = 3;
 //"E27N34"
-var externalMiningRooms = ("E26N33")
+var externalMiningRooms = ("E26N33",)
 
 // var startCpu = Game.cpu.getUsed();
 // console.log('elapsed:', Game.cpu.getUsed() - startCpu);
@@ -160,9 +160,6 @@ module.exports.loop = function () {
 				break;
 		}
     }
-	
-	//
-	
 	
 	for(var exoRoom in externalMiningRooms) {
 		//Controll the external mining activities for a specific target room
