@@ -66,12 +66,23 @@ module.exports.loop = function () {
         }
     }
 	
+	
 	var sources = Game.spawns["Spawn1"].room.find(FIND_SOURCES);
 	
 	console.log(sources);
 	
-	
+	for(var source in sources) {
+		if.source
+		
+		
+	}
 
+	
+	
+	
+	
+	
+	
     if (Memory.clock < 5){
         Memory.clock++;
     } else {		
@@ -97,17 +108,9 @@ module.exports.loop = function () {
     
 
     //Hardcoded link and towwer controls
-	/* towerController.run(Game.getObjectById('59a9bd8b58bf8523b6247f27'));
-	towerController.run(Game.getObjectById('59aa6fc87073420285cddfe8'));
-	
-	towerController.run(Game.getObjectById('59ac591cd00bbd1ef4dbf699'));
-    towerController.run(Game.getObjectById('59b15159f2a0fc1679a26f52'));
+	towerController.run(Game.getObjectById('5a337d5ad362a801f184c350'));
     
-	linkController.run("59a9d6c7901b9f6272a9c69a", "59a9ca4e83bd410897a24445");
-	linkController.run("59aea243daa30c78a13596a1", "59a9ca4e83bd410897a24445");
-
-	linkController.run("59b15a5a59a2a537e2656960", "59b15c08a6e4ec01b7ef900c");
- */
+	//linkController.run("59aea243daa30c78a13596a1", "59a9ca4e83bd410897a24445");
     
 	for(var name in Game.creeps) {
         var creep = Game.creeps[name];
