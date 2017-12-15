@@ -24,7 +24,7 @@ var linkController = require("LinkController");
 var defaultCreep = [WORK,WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE];
 var defaultCreep2 = [WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE];
 var upgradeCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY];
-var megaMiner = [WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE];
+var megaMiner = [MOVE,WORK,WORK,WORK,WORK,WORK,WORK,CARRY];
 var megaMinerAlt = [WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE];
 var megaMineralMinerCreep = [MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK];
 var claimerCreep = [CLAIM,CLAIM,MOVE,MOVE];
@@ -195,6 +195,9 @@ function creepControll(){
 	if (harvesters.length < maxHarvester) {
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK,MOVE,MOVE], undefined, {role: 'harvester'});
 		console.log('Spawning new harvesters: ' + newName);
+	} else if(Game.creeps["megaMiner1"] == undefined) {
+		var newName = roleMegaMiner.create("megaMiner1", megaMiner, "5a328e9fac100464eb4ad0b6", "59f1a4d582100e1594f3d9c2", "Spawn1");
+		console.log('Spawning new MegaMiner1: ' + newName);
 	} else if (upgraders.length < maxUpgraders) {
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK], undefined, {role: 'upgrader'});
 		console.log('Spawning new upgrader: ' + newName);
