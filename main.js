@@ -106,9 +106,6 @@ module.exports.loop = function () {
 			case "harvester":
 				roleHarvesterTEMP.run(creep);				
 				break;
-			case "upgrader":
-				roleUpgraderTEMP.run(creep);
-				break;
 			case "builder":
 				roleBuilderTEMP.run(creep);
 				break;
