@@ -2,7 +2,7 @@ var Traveler = require('Traveler');
 
 var roleUpgrader = {
     run: function(creep) {
-		if (typeof typeof creep.memory.idleFlag == "string" && typeof creep.memory.upgradeFlag == "string"){
+		if (typeof creep.memory.idleFlag == "string" && typeof creep.memory.upgradeFlag == "string"){
 			var idleFlag = creep.memory.idleFlag;
 			var upgradeFlag = Game.flags.upgradeFlag
 		} else {
@@ -17,15 +17,16 @@ var roleUpgrader = {
 	        creep.memory.upgrading = true;
 	        creep.say('Uppgrading');
 	    }
-
+		var containers = creep.room.find(FIND_STRUCTURES, {filter: (structure) => {return (structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > 1000 }});
+		
 	    if(creep.memory.upgrading) {
 			creep.travelTo(upgradeFlag);
             creep.upgradeController(creep.room.controller)
-        } else if(creep.room.storage.store[RESOURCE_ENERGY] > 50000) {
-            if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-               creep.travelTo(creep.room.storage);
+        } else if (containers.length > 1){ 
+			if(creep.withdraw(containers[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+               creep.travelTo(containers[0]);
             }
-        } else {
+		} else {
 			//Idle
             creep.travelTo(Game.flags.HoldingArea);
         }
@@ -33,3 +34,10 @@ var roleUpgrader = {
 };
 
 module.exports = roleUpgrader;
+
+
+/* else if(creep.room.storage.store[RESOURCE_ENERGY] > 50000) {
+            if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+               creep.travelTo(creep.room.storage);
+            }
+        } */
