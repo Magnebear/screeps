@@ -35,6 +35,9 @@ var externalHarvesterCreep = [WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,M
 var externalBuilderCreep = [WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE]
 var superTransporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
+var exoMinerCreep = [MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK]
+var exoMuleCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
+
 var maxHarvester = 1;
 var maxBuilders = 3;
 var maxUpgraders = 4;
@@ -52,8 +55,8 @@ var maxRepair2 = 2;
 var maxBuilders2 = 1;
 var maxExternalHarvesters3 = 3;
 var maxExternalHarvesters4 = 3;
-
-var externalMiningRooms = ["E27N34","E26N33"]
+//"E27N34"
+var externalMiningRooms = ["E26N33"]
 
 // var startCpu = Game.cpu.getUsed();
 // console.log('elapsed:', Game.cpu.getUsed() - startCpu);
@@ -161,15 +164,15 @@ module.exports.loop = function () {
 	
 	for(var room in externalMiningRooms) {
 		//Controll the external mining activities for a specific target room
-		console.log(room)
+		console.log(room.name)
 		if(Game.creeps[room.name+"exoMiner1"] == undefined){
-			console.log("create"+room.name+"exoMiner1")
+			console.log("create new "+room.name+"exoMiner1")
 			
 		}else if(Game.creeps[room.name+"exoMiner2"] == undefined){
-			console.log("create"+room.name+"exoMiner2")
+			console.log("create new "+room.name+"exoMiner2")
 			
 		}else if(Game.creeps[room.name+"exoMule1"] == undefined){
-			console.log("create"+room.name+"exoMule1")
+			console.log("create new "+room.name+"exoMule1")
 			
 		}
 
