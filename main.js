@@ -164,7 +164,7 @@ module.exports.loop = function () {
 		
 		
 		//Check if creeps are alive
-		if(Memory.room.exoMiner1){
+		if(typeof Memory.room.exoMiner1){
 			if(Game.creeps[Memory.room.exoMiner1]){
 				console.log("Exominer1 Alive");
 			} else {
@@ -172,7 +172,7 @@ module.exports.loop = function () {
 			}
 		}
 		
-		if(Memory.room.exoMiner2){
+		if(typeof Memory.room.exoMiner2){
 			if(Game.creeps[Memory.room.exoMiner2]){
 				console.log("Exominer2 Alive");
 			} else {
