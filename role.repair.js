@@ -38,11 +38,18 @@ var roleRepair = {
 				}
             }
 			if (creep.carry.energy < 5) {
-				if(creep.room.storage.store[RESOURCE_ENERGY] > 10000){
+				var s = creep.room.find(FIND_STRUCTURES, {
+					filter: (structure) => {return(structure.structureType == STRUCTURE_CONTAINER)}
+				}
+				if(creep.withdraw(s[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+						   creep.travelTo(s[0]);
+				}
+				
+				/* if(creep.room.storage.store[RESOURCE_ENERGY] > 10000){
 					if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 						   creep.travelTo(creep.room.storage);
 					}
-				}
+				} */
 			}
         } else {
             var t= Game.getObjectById(creep.memory.repairTarget.id);

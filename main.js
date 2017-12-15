@@ -5,8 +5,6 @@ var roleHarvesterTEMP = require('role.harvester.TEMP');
 var roleUpgraderTEMP = require('role.upgrader.TEMP');
 var roleBuilderTEMP = require('role.builder.TEMP');
 
-
-
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
@@ -37,18 +35,14 @@ var externalHarvesterCreep = [WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,M
 var externalBuilderCreep = [WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE]
 var superTransporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
-
 var maxHarvester = 2;
 var maxBuilders = 4;
 var maxUpgraders = 4;
-
-
-
-
+var maxRepair = 1;
 
 var maxTransporters = 4;
 var maxSuperTransporters = 1;
-var maxRepair = 2;
+
 var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 5;
 
@@ -208,6 +202,9 @@ function creepControll(){
 	} else if (builders.length < maxBuilders) {
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK], undefined, {role: 'builder'});
 		console.log('Spawning new builder: ' + newName);
+	} else if (repair.length < maxRepair) {
+		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,CARRY,WORK], undefined, {role: 'repair'});
+		console.log('Spawning new repair: ' + newName);
 	}
 	
 /* 	//--------------------ROOM 1--------------------
