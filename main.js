@@ -35,7 +35,7 @@ var externalHarvesterCreep = [WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,M
 var externalBuilderCreep = [WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE]
 var superTransporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
-var maxHarvester = 2;
+var maxHarvester = 1;
 var maxBuilders = 1;
 var maxUpgraders = 1;
 var maxRepair = 1;
@@ -180,7 +180,7 @@ function creepControll(){
 	var builders2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder2');
 	
 	if (harvesters.length < maxHarvester) {
-		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK,MOVE,MOVE], undefined, {role: 'harvester'});
+		var newName = Game.spawns['Spawn1'].createCreep([MOVE,MOVE,CARRY,CARRY,WORK], undefined, {role: 'harvester'});
 		console.log('Spawning new harvesters: ' + newName);
 	} else if(Game.creeps["megaMiner1"] == undefined) {
 		var newName = roleMegaMiner.create("megaMiner1", megaMiner, "59f1a4d582100e1594f3d9c2", "5a328e9fac100464eb4ad0b6", "Spawn1");
@@ -197,6 +197,9 @@ function creepControll(){
 	} else if (repairs.length < maxRepair) {
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,CARRY,WORK], undefined, {role: 'repair'});
 		console.log('Spawning new repair: ' + newName);
+	} else if(Game.creeps["megaMiner2"] == undefined) {
+		var newName = roleMegaMiner.create("megaMiner2", megaMiner, "59f1a4d582100e1594f3d9c1", "5a328e9fac100464eb4ad0b6", "Spawn1");
+		console.log('Spawning new MegaMiner2: ' + newName);
 	} else if(basicAttackers.length < maxBasicAttackers) {
 		var newName = roleBasicAttack.create(undefined, "target0", "Spawn1");
 		console.log('Spawning new attacker: ' + newName);
