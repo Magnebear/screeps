@@ -184,7 +184,7 @@ function creepControll(){
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK,MOVE,MOVE], undefined, {role: 'harvester'});
 		console.log('Spawning new harvesters: ' + newName);
 	} else if(Game.creeps["megaMiner1"] == undefined) {
-		var newName = roleMegaMiner.create("megaMiner1", megaMiner, "5a328e9fac100464eb4ad0b6", "59f1a4d582100e1594f3d9c2", "Spawn1");
+		var newName = roleMegaMiner.create("megaMiner1", megaMiner, "59f1a4d582100e1594f3d9c2", "5a328e9fac100464eb4ad0b6", "Spawn1");
 		console.log('Spawning new MegaMiner1: ' + newName);
 	} else if (upgraders.length < maxUpgraders) {
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK], undefined, {role: 'upgrader'});
