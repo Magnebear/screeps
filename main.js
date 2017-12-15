@@ -96,7 +96,7 @@ module.exports.loop = function () {
     
 
     //Hardcoded link and towwer controls
-	towerController.run(Game.getObjectById('5a337d5ad362a801f184c350'));
+	//towerController.run(Game.getObjectById('5a337d5ad362a801f184c350'));
     
 	//linkController.run("59aea243daa30c78a13596a1", "59a9ca4e83bd410897a24445");
     
