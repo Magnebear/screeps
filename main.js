@@ -193,13 +193,13 @@ function creepControll(){
 	var builders2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder2');
 	
 	if (harvesters.length < maxHarvester) {
-		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK], undefined, {role: 'harvester'});
+		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK,MOVE,MOVE], undefined, {role: 'harvester'});
 		console.log('Spawning new harvesters: ' + newName);
 	} else if (upgraders.length < maxUpgraders) {
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK], undefined, {role: 'upgrader'});
 		console.log('Spawning new upgrader: ' + newName);
 	} else if (builders.length < maxBuilders) {
-		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK], undefined, {role: 'builder'});
+		var newName = Game.spawns['Spawn1'].createCreep([MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,CARRY], undefined, {role: 'builder'});
 		console.log('Spawning new builder: ' + newName);
 	} else if (repairs.length < maxRepair) {
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,CARRY,WORK], undefined, {role: 'repair'});

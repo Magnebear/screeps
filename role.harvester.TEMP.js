@@ -14,10 +14,11 @@ var roleHarvesterTEMP = {
             var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return(
-							structure.structureType == STRUCTURE_TOWER)
+							structure.structureType == STRUCTURE_EXTENSION || structure.structureType == STRUCTURE_SPAWN || structure.structureType == STRUCTURE_TOWER)
 							&& structure.energy < structure.energyCapacity;
                     }
             });
+			targets.appe
             if(targets.length > 0) {
                 creep.memory.upgrading = false;
                 if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
