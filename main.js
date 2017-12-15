@@ -165,6 +165,9 @@ module.exports.loop = function () {
 	for(var room in externalMiningRooms) {
 		//Controll the external mining activities for a specific target room
 		console.log(room.name)
+		
+		
+		
 		if(Game.creeps[room.name+"exoMiner1"] == undefined){
 			console.log("create new "+room.name+"exoMiner1")
 			
