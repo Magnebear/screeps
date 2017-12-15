@@ -72,7 +72,7 @@ module.exports.loop = function () {
 	console.log(sources);
 	
 	for(var source in sources) {
-		if.source
+		//if.source
 		
 		
 	}
