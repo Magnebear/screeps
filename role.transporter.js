@@ -52,6 +52,7 @@ var roleTransporter = {
 					&& structure.energy > 100)
                 }
             });
+			console.log(containers)
 			if (containers.length > 0) {
 				if(creep.withdraw(containers[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 					   creep.travelTo(containers[0]);
