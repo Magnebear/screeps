@@ -28,6 +28,7 @@ var roleTransporter = {
 					creep.travelTo(closestTarget);
 				}
 			} else {
+				creep.travelTo(Game.flags.holdingArea);
 				//Transfer to storage if no targets
 /* 				if(creep.room.terminal){
 				    if(creep.room.terminal.store[RESOURCE_ENERGY] < 20000){
