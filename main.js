@@ -166,16 +166,20 @@ module.exports.loop = function () {
 	
 	for(var exoRoom in externalMiningRooms) {
 		//Controll the external mining activities for a specific target room
+		console.log(typeof exoRoom)
 		console.log(exoRoom.name)
-		var sources = exoRoom.find(FIND_SOURCES);
-		console.log(sources)
 		if(Game.creeps[exoRoom.name+"exoMiner1"] == undefined){
 			console.log("create new "+exoRoom.name+"exoMiner1")
+			var newName = Game.spawns['Spawn1'].createCreep(exoMinerCreep, exoRoom.name+"exoMiner1", {role: 'upgrader'});
 			
-		}else if(Game.creeps[exoRoom.name+"exoMiner2"] == undefined){
+		} else {
+			
+		}
+		
+		if(Game.creeps[exoRoom.name+"exoMiner2"] == undefined){
 			console.log("create new "+exoRoom.name+"exoMiner2")
 			
-		}else if(Game.creeps[room.name+"exoMule1"] == undefined){
+		if(Game.creeps[room.name+"exoMule1"] == undefined){
 			console.log("create new "+exoRoom.name+"exoMule1")
 			
 		}
