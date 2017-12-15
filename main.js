@@ -23,7 +23,7 @@ var linkController = require("LinkController");
 
 var defaultCreep = [WORK,WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE];
 var defaultCreep2 = [WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE];
-var upgradeCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY];
+var upgradeCreep = [MOVE,MOVE,MOVE,MOVE,WORK,WORK,CARRY,CARRY];
 var megaMiner = [MOVE,WORK,WORK,WORK,WORK,WORK,WORK,CARRY];
 var megaMinerAlt = [WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE];
 var megaMineralMinerCreep = [MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK];
@@ -37,7 +37,7 @@ var superTransporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CA
 
 var maxHarvester = 1;
 var maxBuilders = 1;
-var maxUpgraders = 1;
+var maxUpgraders = 3;
 var maxRepair = 1;
 var maxTransporters = 2;
 
@@ -189,7 +189,7 @@ function creepControll(){
 		console.log('Spawning new transporter: ' + newName);
 		
 	}else if (upgraders.length < maxUpgraders) {
-		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK], undefined, {role: 'upgrader'});
+		var newName = Game.spawns['Spawn1'].createCreep(upgradeCreep, undefined, {role: 'upgrader'});
 		console.log('Spawning new upgrader: ' + newName);
 		
 	} else if (builders.length < maxBuilders) {
