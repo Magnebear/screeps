@@ -46,12 +46,7 @@ var roleTransporter = {
                 creep.memory.delivering = false;
             }
         } else {
-			var containers = creep.room.find(FIND_STRUCTURES, {
-                filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_CONTAINER
-					&& structure.energy > 100)
-                }
-            });
+			var containers = creep.room.find(FIND_STRUCTURES, {filter: (structure) => {return (structure.structureType == STRUCTURE_CONTAINER)}});
 			console.log(containers)
 			if (containers.length > 0) {
 				if(creep.withdraw(containers[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
