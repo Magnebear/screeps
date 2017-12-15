@@ -36,7 +36,7 @@ var externalBuilderCreep = [WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE]
 var superTransporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
 var maxHarvester = 2;
-var maxBuilders = 1;
+var maxBuilders = 2;
 var maxUpgraders = 1;
 var maxRepair = 1;
 var maxTransporters = 2;
@@ -192,7 +192,7 @@ function creepControll(){
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,WORK,WORK], undefined, {role: 'upgrader'});
 		console.log('Spawning new upgrader: ' + newName);
 	} else if (builders.length < maxBuilders) {
-		var newName = Game.spawns['Spawn1'].createCreep([MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,CARRY], undefined, {role: 'builder'});
+		var newName = Game.spawns['Spawn1'].createCreep([MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,CARRY], undefined, {role: 'builder'});
 		console.log('Spawning new builder: ' + newName);
 	} else if (repairs.length < maxRepair) {
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,CARRY,WORK], undefined, {role: 'repair'});
