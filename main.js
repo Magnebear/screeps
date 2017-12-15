@@ -112,7 +112,6 @@ module.exports.loop = function () {
 	for(var name in Game.creeps) {
         var creep = Game.creeps[name];
 		switch(Game.creeps[name].memory.role) {
-			
 			//TEMP cases for transittion
 			case "harvester":
 				roleHarvesterTEMP.run(creep);				
@@ -123,9 +122,6 @@ module.exports.loop = function () {
 			case "builder":
 				roleBuilderTEMP.run(creep);
 				break;
-			
-			
-			
 			case "harvester":
 				roleHarvester.run(creep);
 				break;
