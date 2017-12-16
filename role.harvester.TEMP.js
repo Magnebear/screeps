@@ -7,7 +7,7 @@ var roleHarvesterTEMP = {
 	    if(creep.carry.energy < creep.carryCapacity) {
             var target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES);
 			if(target) {
-				creep.moveTo(target);
+				creep.moveTo((43,39));
 				creep.pickup(target);
 			} else {
 				var sources = creep.room.find(FIND_SOURCES);
