@@ -6,7 +6,6 @@ module.exports  = {
 		if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
 				creep.travelTo(source);
 		}
-
     },
 	create: function (name, creepBody, sourceID, spawn){
 		var newName = Game.spawns[spawn].createCreep(creepBody, name, {role: 'dropminer', srcID:sourceID});

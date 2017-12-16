@@ -80,7 +80,7 @@ module.exports.loop = function () {
 	
 	var source = sources[0]
 	if(Game.creeps[source.id+"dropMiner"] == undefined){
-		console.log("create new dropMiner")
+		console.log("create new dropMiner 0")
 		var newName = roleDropMiner.create(source.id+"dropMiner", dropMinerCreep, source.id, "Spawn1");
 		
 		
@@ -88,7 +88,7 @@ module.exports.loop = function () {
 	var source = sources[1]
 	if(Game.creeps[source.id+"dropMiner"] == undefined){
 		var newName = roleDropMiner.create(source.id+"dropMiner", "dropMiner", source.id, "Spawn1");
-		console.log("create new dropMiner")
+		console.log("create new dropMiner 1")
 		
 	}
 	
