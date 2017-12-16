@@ -21,17 +21,10 @@ var roleBuilderTEMP = {
                     creep.travelTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                 }
             }
-	    }
-	    else {
-			var containers = creep.room.find(FIND_STRUCTURES, {filter: (structure) => {return (structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > 1000 }});
-		
-			if (containers.length > 0){ 
-				if(creep.withdraw(containers[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-					creep.travelTo(containers[0]);
-				}
-			} else {
-				//Idle
-				creep.travelTo(Game.flags.HoldingArea);
+	    } else {
+			var sources = creep.room.find(FIND_SOURCES);
+				if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
+					creep.travelTo(sources[0]);
 			}
 		}
 	}
