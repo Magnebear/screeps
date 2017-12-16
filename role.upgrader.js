@@ -24,7 +24,7 @@ var roleUpgrader = {
 			creep.travelTo(upgradeFlag);
             creep.upgradeController(creep.room.controller)
         } else {
-            var targets = creep.room.findClosestByRange(FIND_DROPPED_RESOURCES);
+            var targets = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES);
 			if(targets.length) {
 				creep.moveTo(targets[0]);
 				creep.pickup(targets[0]);
