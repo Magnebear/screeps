@@ -82,10 +82,10 @@ module.exports.loop = function () {
 	var sources = Game.spawns["Spawn1"].room.find(FIND_SOURCES);
 	
 	var source = sources[0]
-	console.log(source)
+	console.log(source.id)
 
-	if(Game.creeps[source+"dropMiner"] == undefined){
-		console.log("create new: "+source+"dropMiner")
+	if(Game.creeps[source.id+"dropMiner"] == undefined){
+		console.log("create new: "+source.id+"dropMiner")
 	} else {
 		console.log("Already exists");
 	}
