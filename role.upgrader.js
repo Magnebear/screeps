@@ -24,10 +24,11 @@ var roleUpgrader = {
 			creep.travelTo(upgradeFlag);
             creep.upgradeController(creep.room.controller)
         } else {
-			var sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.travelTo(sources[0]);
-            }
+            var targets = creep.room.findClosestByRange(FIND_DROPPED_RESOURCES);
+			if(targets.length) {
+				creep.moveTo(targets[0]);
+				creep.pickup(targets[0]);
+			}
 		} 
 		
 		
