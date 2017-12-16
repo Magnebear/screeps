@@ -47,7 +47,7 @@ var exoMuleCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,
 var maxHarvester = 1;
 var maxBuilders = 2;
 var maxUpgraders = 6;
-var maxRepair = 2;
+var maxRepair = 1;
 var maxTransporters = 2;
 
 
@@ -252,17 +252,17 @@ function creepControll(){
 		var newName = Game.spawns['Spawn1'].createCreep(transporterCreep, undefined, {role: 'transporter'});
 		console.log('Spawning new transporter: ' + newName);
 		
+	} else if (repairs.length < maxRepair) {
+		var newName = Game.spawns['Spawn1'].createCreep(repairCreep, undefined, {role: 'repair'});
+		console.log('Spawning new repair: ' + newName);
+		
 	}
 
 /* 	  else if (builders.length < maxBuilders) {
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,MOVE,MOVE,MOVE,WORK,WORK,CARRY,CARRY], undefined, {role: 'builder'});
 		console.log('Spawning new builder: ' + newName);
 		
-	} else if (repairs.length < maxRepair) {
-		var newName = Game.spawns['Spawn1'].createCreep([MOVE,CARRY,CARRY,WORK], undefined, {role: 'repair'});
-		console.log('Spawning new repair: ' + newName);
-		
-	} else if(Game.creeps["megaMiner2"] == undefined) {
+	}  else if(Game.creeps["megaMiner2"] == undefined) {
 		var newName = roleMegaMiner.create("megaMiner2", megaMiner, "59f1a4d582100e1594f3d9c1", "5a33cb149d04b82fad4af560", "Spawn1");
 		console.log('Spawning new MegaMiner2: ' + newName);
 		
