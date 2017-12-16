@@ -22,9 +22,15 @@ var roleBuilderTEMP = {
                 }
             }
 	    } else {
-			var sources = creep.room.find(FIND_SOURCES);
-				if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-					creep.travelTo(sources[0]);
+			var target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES);
+			if(target) {
+				creep.moveTo(target);
+				creep.pickup(target);
+			} else {
+				var sources = creep.room.find(FIND_SOURCES);
+					if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
+						creep.travelTo(sources[0]);
+				}
 			}
 		}
 	}
