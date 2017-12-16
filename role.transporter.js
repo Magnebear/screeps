@@ -47,13 +47,17 @@ var roleTransporter = {
                 creep.memory.delivering = false;
             }
         } else {
+			var target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES);
 			var containers = creep.room.find(FIND_STRUCTURES, {filter: (structure) => {return (structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > 0 }});
-			if (containers.length > 0) {
+			if(target){
+				creep.moveTo(target);
+				creep.pickup(target);
+			} else if (containers.length > 0){
 				if(creep.withdraw(containers[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-					   creep.travelTo(containers[0]);
+				   creep.travelTo(containers[0]);
 				}
 			} else {
-				creep.travelTo(Game.flags.holdingArea);
+					creep.travelTo(Game.flags.holdingArea);
 			}
 			/* else if(creep.room.storage.store[RESOURCE_ENERGY] != 0) {
 				 if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
