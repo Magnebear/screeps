@@ -163,7 +163,7 @@ module.exports.loop = function () {
 		}
     }
 	
-	for(var exoRoom in externalMiningRooms) {
+/* 	for(var exoRoom in externalMiningRooms) {
 		//Controll the external mining activities for a specific target room
 		console.log(exoRoom)
 		
@@ -188,7 +188,8 @@ module.exports.loop = function () {
 			
 		}
 	}	
-}
+ */
+ }
 
 function creepControll(){
 	var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
