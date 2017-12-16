@@ -90,7 +90,10 @@ module.exports.loop = function () {
 		var newName = roleDropMiner.create(source.id+"dropMiner", dropMinerCreep, source.id, "Spawn1");
 		console.log("create new dropMiner 1")
 	}
-	
+	if(Game.creeps[source.id+"dropMiner2"] == undefined){
+		var newName = roleDropMiner.create(source.id+"dropMiner2", dropMinerCreep, source.id, "Spawn1");
+		console.log("create new dropMiner 1-2")
+	}
 	
     if (Memory.clock < 5){
         Memory.clock++;
