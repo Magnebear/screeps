@@ -75,20 +75,22 @@ module.exports.loop = function () {
             console.log('Clearing non-existing creep memory:', name);
         }
     }
-	
-	
-	
-	
+
 	var sources = Game.spawns["Spawn1"].room.find(FIND_SOURCES);
 	
 	var source = sources[0]
-	console.log(source.id)
-
 	if(Game.creeps[source.id+"dropMiner"] == undefined){
-		console.log("create new: "+source.id+"dropMiner")
-	} else {
-		console.log("Already exists");
+		var newName = roleMegaMiner.create(source.id+"dropMiner", dropMiner, source.id, "Spawn1");
+		console.log("create new dropMiner")
+		
 	}
+	var source = sources[1]
+	if(Game.creeps[source.id+"dropMiner"] == undefined){
+		var newName = roleMegaMiner.create(source.id+"dropMiner", dropMiner, source.id, "Spawn1");
+		console.log("create new dropMiner")
+		
+	}
+	
 	
     if (Memory.clock < 5){
         Memory.clock++;
