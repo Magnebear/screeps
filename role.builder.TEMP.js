@@ -20,7 +20,9 @@ var roleBuilderTEMP = {
                 if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
                     creep.travelTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                 }
-            }
+            } else {
+				creep.travelTo(Game.flags.holdingArea);
+			}
 	    } else {
 			var target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES);
 			if(target) {
