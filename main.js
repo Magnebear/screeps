@@ -138,6 +138,9 @@ module.exports.loop = function () {
 			case "upgrader":
 				roleUpgrader.run(creep);
 				break;
+			case "dropMiner":
+				roleDropMiner.run(creep);
+				break;
 			case "builder":
 			case "builder2":
 				roleBuilder.run(creep);
