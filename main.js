@@ -6,6 +6,7 @@ var roleUpgraderTEMP = require('role.upgrader.TEMP');
 var roleBuilderTEMP = require('role.builder.TEMP');
 
 var roleHarvester = require('role.harvester');
+var roleDropMiner = require('role.dropMiner');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 var roleMegaMiner = require('role.megaMiner');
@@ -26,6 +27,7 @@ var linkController = require("LinkController");
 
 
 var defaultCreep = [WORK,CARRY,MOVE,MOVE];
+var dropMinerCreep = [WORK,WORK,MOVE,MOVE];
 var defaultCreep2 = [WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE];
 var upgradeCreep = [MOVE,MOVE,MOVE,WORK,WORK,WORK,CARRY,CARRY,CARRY];
 var megaMiner = [MOVE,WORK,WORK,WORK,WORK,WORK,WORK,CARRY];
@@ -76,7 +78,13 @@ module.exports.loop = function () {
 	
 	var sources = Game.spawns["Spawn1"].room.find(FIND_SOURCES);
 	for(var source in sources) {
-		//if.source
+		console.log(source.name)
+		if(Game.creeps[source.name+"dropMiner"] == undefined){
+			console.log("create new")
+		} else {
+			console.log("Already exists");
+		}
+		
 	}
 	
     if (Memory.clock < 5){
@@ -101,6 +109,7 @@ module.exports.loop = function () {
 		
 		Memory.clock = 0;
     }
+	
     
 
     //Hardcoded link and towwer controls
