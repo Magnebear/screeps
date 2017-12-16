@@ -78,11 +78,11 @@ module.exports.loop = function () {
 
 	var sources = Game.spawns["Spawn1"].room.find(FIND_SOURCES);
 	
-	var source = sources[0]
+/* 	var source = sources[0]
 	if(Game.creeps[source.id+"dropMiner"] == undefined){
 		console.log("create new dropMiner 0")
 		var newName = roleDropMiner.create(source.id+"dropMiner", dropMinerCreep, source.id, "Spawn1");
-	}
+	} */
 
 /* 	var source = sources[1]
 	if(Game.creeps[source.id+"dropMiner"] == undefined){
