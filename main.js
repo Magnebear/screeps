@@ -30,7 +30,7 @@ var defaultCreep = [WORK,CARRY,CARRY,MOVE,MOVE,MOVE];
 var dropMinerCreep = [WORK,WORK,WORK,WORK,MOVE,MOVE];
 var defaultCreep2 = [WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE];
 var upgradeCreep = [MOVE,MOVE,MOVE,MOVE,WORK,WORK,CARRY,CARRY];
-var megaMiner = [MOVE,WORK,WORK,WORK,WORK,WORK,WORK,CARRY];
+var megaMiner = [MOVE,MOVE,WORK,WORK,WORK,WORK,CARRY];
 var megaMinerAlt = [WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE];
 var megaMineralMinerCreep = [MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK];
 var claimerCreep = [CLAIM,CLAIM,MOVE,MOVE];
@@ -87,11 +87,11 @@ module.exports.loop = function () {
 		console.log("create new dropMiner 0-2")
 		var newName = roleDropMiner.create(source.id+"dropMiner2", dropMinerCreep, source.id, "Spawn1");
 	}
-	var source = sources[1]
+/* 	var source = sources[1]
 	if(Game.creeps[source.id+"dropMiner"] == undefined){
 		var newName = roleDropMiner.create(source.id+"dropMiner", dropMinerCreep, source.id, "Spawn1");
 		console.log("create new dropMiner 1")
-	}
+	} */
 	
 	
     if (Memory.clock < 5){
@@ -244,17 +244,17 @@ function creepControll(){
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,MOVE,MOVE,WORK,CARRY,CARRY], undefined, {role: 'builder'});
 		console.log('Spawning new builder: ' + newName);
 		
+	} else if(Game.creeps["megaMiner1"] == undefined) {
+		var newName = roleMegaMiner.create("megaMiner1", megaMiner, "59f1a51182100e1594f3dec1", "5a355446d48b4e699f1b23fb", "Spawn1");
+		console.log('Spawning new MegaMiner1: ' + newName);
+		
 	} else if (transporters.length < maxTransporters) {
 		var newName = Game.spawns['Spawn1'].createCreep(transporterCreep, undefined, {role: 'transporter'});
 		console.log('Spawning new transporter: ' + newName);
 		
 	}
 
-/* 	else if(Game.creeps["megaMiner1"] == undefined) {
-		var newName = roleMegaMiner.create("megaMiner1", megaMiner, "59f1a4d582100e1594f3d9c2", "5a328e9fac100464eb4ad0b6", "Spawn1");
-		console.log('Spawning new MegaMiner1: ' + newName);
-		
-	}  else if (builders.length < maxBuilders) {
+/* 	  else if (builders.length < maxBuilders) {
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,MOVE,MOVE,MOVE,WORK,WORK,CARRY,CARRY], undefined, {role: 'builder'});
 		console.log('Spawning new builder: ' + newName);
 		
