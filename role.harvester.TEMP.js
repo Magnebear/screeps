@@ -5,15 +5,17 @@ var roleHarvesterTEMP = {
     /** @param {Creep} creep **/
     run: function(creep) {
 	    if(creep.carry.energy < creep.carryCapacity) {
-/*             var target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES);
+            var target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES);
 			if(target) {
 				creep.moveTo(targets[0]);
 				creep.pickup(targets[0]);
-			} */
-			var sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
-                creep.travelTo(sources[1]);
-            }
+			} else {
+				var sources = creep.room.find(FIND_SOURCES);
+				if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
+					creep.travelTo(sources[1]);
+				}
+				
+			}
 			
         }
         else {
