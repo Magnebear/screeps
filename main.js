@@ -76,9 +76,12 @@ module.exports.loop = function () {
         }
     }
 	
+	
+	
+	
 	var sources = Game.spawns["Spawn1"].room.find(FIND_SOURCES);
 	for(var source in sources) {
-		console.log(source.name)
+		console.log(source)
 		if(Game.creeps[source.name+"dropMiner"] == undefined){
 			console.log("create new")
 		} else {
