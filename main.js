@@ -27,7 +27,7 @@ var linkController = require("LinkController");
 
 
 var defaultCreep = [WORK,CARRY,MOVE,MOVE];
-var dropMinerCreep = [WORK,WORK,MOVE,MOVE];
+var dropMinerCreep = [WORK,WORK,WORK,WORK,MOVE,MOVE];
 var defaultCreep2 = [WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE];
 var upgradeCreep = [MOVE,MOVE,MOVE,WORK,WORK,WORK,CARRY,CARRY,CARRY];
 var megaMiner = [MOVE,WORK,WORK,WORK,WORK,WORK,WORK,CARRY];
@@ -45,8 +45,8 @@ var exoMinerCreep = [MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK]
 var exoMuleCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
 var maxHarvester = 4;
-var maxBuilders = 5;
-var maxUpgraders = 3;
+var maxBuilders = 1;
+var maxUpgraders = 6;
 var maxRepair = 2;
 var maxTransporters = 3;
 
@@ -82,10 +82,6 @@ module.exports.loop = function () {
 	if(Game.creeps[source.id+"dropMiner"] == undefined){
 		console.log("create new dropMiner 0")
 		var newName = roleDropMiner.create(source.id+"dropMiner", dropMinerCreep, source.id, "Spawn1");
-	}
-	if(Game.creeps[source.id+"dropMiner2"] == undefined){
-		var newName = roleDropMiner.create(source.id+"dropMiner2", dropMinerCreep, source.id, "Spawn1");
-		console.log("create new dropMiner 0-2")
 	}
 	var source = sources[1]
 	if(Game.creeps[source.id+"dropMiner"] == undefined){
