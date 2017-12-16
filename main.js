@@ -45,7 +45,7 @@ var exoMinerCreep = [MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK]
 var exoMuleCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
 var maxHarvester = 3;
-var maxBuilders = 3;
+var maxBuilders = 1;
 var maxUpgraders = 4;
 var maxRepair = 2;
 var maxTransporters = 3;
@@ -236,6 +236,10 @@ function creepControll(){
 	} else if (upgraders.length < maxUpgraders) {
 		var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'upgrader'});
 		console.log('Spawning new upgrader: ' + newName);
+		
+	} else if (builders.length < maxBuilders) {
+		var newName = Game.spawns['Spawn1'].createCreep([MOVE,MOVE,WORK,CARRY], undefined, {role: 'builder'});
+		console.log('Spawning new builder: ' + newName);
 		
 	}
 
