@@ -9,7 +9,7 @@ module.exports  = {
 
     },
 	create: function (name, creepBody, sourceID, spawn){
-		var newName = Game.spawns["Spawn1"].createCreep(creepBody, name, {role: 'dropminer', srcID:sourceID});
+		var newName = Game.spawns[spawn].createCreep(creepBody, name, {role: 'dropminer', srcID:sourceID});
 		return newName;
 	}
 }
