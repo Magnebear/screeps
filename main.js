@@ -84,8 +84,8 @@ module.exports.loop = function () {
 	var source = sources[0]
 	console.log(source)
 
-	if(Game.creeps[source.name+"dropMiner"] == undefined){
-		console.log("create new: "+source.name+"dropMiner")
+	if(Game.creeps[source+"dropMiner"] == undefined){
+		console.log("create new: "+source+"dropMiner")
 	} else {
 		console.log("Already exists");
 	}
