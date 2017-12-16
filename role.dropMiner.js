@@ -3,7 +3,7 @@ module.exports  = {
     /** @param {Creep} creep **/
     run: function(creep) {
         var source = Game.getObjectById(creep.memory.srcID);
-		if(creep.harvest(Game.getObjectById(source)) == ERR_NOT_IN_RANGE) {
+		if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
 				creep.travelTo(source);
 		}
 
