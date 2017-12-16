@@ -5,8 +5,8 @@ var roleHarvesterTEMP = {
     /** @param {Creep} creep **/
     run: function(creep) {
 	    if(creep.carry.energy < creep.carryCapacity) {
-            var targets = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES);
-			if(targets.length) {
+            var target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES);
+			if(target) {
 				creep.moveTo(targets[0]);
 				creep.pickup(targets[0]);
 			}
