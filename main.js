@@ -26,7 +26,7 @@ var linkController = require("LinkController");
 
 
 
-var defaultCreep = [WORK,CARRY,MOVE,MOVE];
+var defaultCreep = [WORK,CARRY,CARRY,MOVE,MOVE,MOVE];
 var dropMinerCreep = [WORK,WORK,WORK,WORK,MOVE,MOVE];
 var defaultCreep2 = [WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE];
 var upgradeCreep = [MOVE,MOVE,MOVE,WORK,WORK,WORK,CARRY,CARRY,CARRY];
@@ -44,8 +44,8 @@ var superTransporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CA
 var exoMinerCreep = [MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK]
 var exoMuleCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
-var maxHarvester = 4;
-var maxBuilders = 1;
+var maxHarvester = 5;
+var maxBuilders = 2;
 var maxUpgraders = 6;
 var maxRepair = 2;
 var maxTransporters = 3;
