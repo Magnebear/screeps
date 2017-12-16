@@ -17,7 +17,8 @@ var roleUpgrader = {
 	        creep.memory.upgrading = true;
 	        creep.say('Uppgrading');
 	    }
-		var containers = creep.room.find(FIND_STRUCTURES, {filter: (structure) => {return (structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > 1000 }});
+		
+		//var containers = creep.room.find(FIND_STRUCTURES, {filter: (structure) => {return (structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > 1000 }});
 		
 	    if(creep.memory.upgrading) {
 			creep.travelTo(upgradeFlag);
