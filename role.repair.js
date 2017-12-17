@@ -33,11 +33,11 @@ var roleRepair = {
 				}
             }
 			if (creep.carry.energy < 5) {
-				var s = creep.room.find(FIND_STRUCTURES, {
+				var s = creep.pos.findClosestByRange(FIND_STRUCTURES, {
 					filter: (structure) => {return(structure.structureType == STRUCTURE_CONTAINER)}
 				});
-				if(creep.withdraw(s[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-						   creep.travelTo(s[0]);
+				if(creep.withdraw(s, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+						   creep.travelTo(s);
 				}
 				
 				/* if(creep.room.storage.store[RESOURCE_ENERGY] > 10000){
