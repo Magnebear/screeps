@@ -9,7 +9,7 @@ module.exports  = {
 		} else {
 			console.log("Saving sources")
 			var srcs = Game.rooms[tgt].find(FIND_SOURCES);
-			console.log(sources)
+			console.log(srcs)
 			srcs.forEach(function (src){
 				Memory.exoRooms[tgt].sources.source = {}
 				Memory.exoRooms[tgt].sources.source.rPos = src.RoomPosition
