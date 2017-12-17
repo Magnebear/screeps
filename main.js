@@ -180,7 +180,7 @@ module.exports.loop = function () {
 		}
     }
 	
- 	exoRooms.forEach(function(exoRoom) {
+ 	externalMiningRooms.forEach(function(exoRoom) {
 		//Controll the external mining activities for a specific target room
 		console.log(exoRoom)
 		
