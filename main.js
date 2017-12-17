@@ -179,7 +179,7 @@ module.exports.loop = function () {
 				roleTakeover.run(creep);
 				break;
 			case "scout":
-				roleScout.run(creep);
+				//roleScout.run(creep);
 				break;
 		}
     }
