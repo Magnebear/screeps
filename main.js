@@ -182,7 +182,15 @@ module.exports.loop = function () {
 	
  	externalMiningRooms.forEach(function(exoRoom) {
 		//Controll the external mining activities for a specific target room
+		if(!Memory.exoRooms.exoRoom){
+			Memory.exoRooms.exoRoom = {}
+			memory.exoRooms.exoRoom.isScouted = false;
+			memory.exoRooms.exoRoom.sources = [];
+		}
+		
+		
 		console.log(exoRoom)
+		
 		
 		if(Game.creeps[exoRoom+"exoMiner1"] == undefined){
 			console.log("create new "+exoRoom+"exoMiner1");
