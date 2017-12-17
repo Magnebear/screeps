@@ -53,8 +53,8 @@ var roleTransporter = {
 				creep.moveTo(target);
 				creep.pickup(target);
 			} else if (container){
-				if(creep.withdraw(containers, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-				   creep.travelTo(containers);
+				if(creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+				   creep.travelTo(container);
 				}
 			} else {
 					creep.travelTo(Game.flags.holdingArea);
