@@ -62,7 +62,7 @@ var maxBuilders2 = 1;
 var maxExternalHarvesters3 = 3;
 var maxExternalHarvesters4 = 3;
 
-//var externalMiningRooms = ()
+var externalMiningRooms = ("E32N39")
 
 // var startCpu = Game.cpu.getUsed();
 // console.log('elapsed:', Game.cpu.getUsed() - startCpu);
@@ -180,33 +180,22 @@ module.exports.loop = function () {
 		}
     }
 	
-/* 	for(var exoRoom in externalMiningRooms) {
+ 	exoRooms.forEach(function(exoRoom) {
 		//Controll the external mining activities for a specific target room
 		console.log(exoRoom)
 		
 		if(Game.creeps[exoRoom+"exoMiner1"] == undefined){
 			console.log("create new "+exoRoom+"exoMiner1");
 			//var newName = Game.spawns['Spawn1'].createCreep(exoMinerCreep, exoRoom+"exoMiner1", {role: 'exoMiner'});
-		} else {
-			if(Game.rooms[exoRoom] == undefined){
-				console.log("test!")
-			}
-			
-			
-			
 		}
-		
 		if(Game.creeps[exoRoom+"exoMiner2"] == undefined){
 			console.log("create new "+exoRoom+"exoMiner2");
 		}
-			
 		if(Game.creeps[exoRoom+"exoMule1"] == undefined){
-			console.log("create new "+exoRoom+"exoMule1");
-			
+			console.log("create new "+exoRoom+"exoMule1");	
 		}
-	}	
- */
- }
+	});
+}
 
 function creepControll(){
 	var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
