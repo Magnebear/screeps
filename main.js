@@ -6,6 +6,7 @@ var roleUpgraderTEMP = require('role.upgrader.TEMP');
 var roleBuilderTEMP = require('role.builder.TEMP');
 
 var roleHarvester = require('role.harvester');
+var roleScout = require('role.scout');
 var roleDropMiner = require('role.dropMiner');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
@@ -177,6 +178,9 @@ module.exports.loop = function () {
 			case "takeover":
 				roleTakeover.run(creep);
 				break;
+			case "scout":
+				roleScout.run(creep);
+				break;
 		}
     }
 	
@@ -184,7 +188,7 @@ module.exports.loop = function () {
 		if(!Memory.exoRooms){
 			Memory.exoRooms = {}
 		}
-		//Controll the external mining activities for a specific target room
+		//Control the external mining activities for a specific target room
 		if(!Memory.exoRooms.exoRoom){
 			Memory.exoRooms.exoRoom = {}
 			Memory.exoRooms.exoRoom.isScouted = false;
@@ -193,18 +197,25 @@ module.exports.loop = function () {
 		
 		
 		console.log(exoRoom)
+		if(Memory.exoRoom.isScouted){
+			if(Game.creeps[exoRoom+"exoMiner1"] == undefined){
+				//console.log("create new "+exoRoom+"exoMiner1");
+				//var newName = Game.spawns['Spawn1'].createCreep(exoMinerCreep, exoRoom+"exoMiner1", {role: 'exoMiner'});
+			}
+			if(Game.creeps[exoRoom+"exoMiner2"] == undefined){
+				//console.log("create new "+exoRoom+"exoMiner2");
+			}
+			if(Game.creeps[exoRoom+"exoMule1"] == undefined){
+				//console.log("create new "+exoRoom+"exoMule1");	
+			}
+		} else {
+			//Scout room
+			if(Game.creeps[exoRoom+"scout"] == undefined){
+				var newName = roleScout.create("scout", [MOVE,MOVE], exoRoom, "Spawn1");
+			}
+			
+		}
 		
-		
-		if(Game.creeps[exoRoom+"exoMiner1"] == undefined){
-			//console.log("create new "+exoRoom+"exoMiner1");
-			//var newName = Game.spawns['Spawn1'].createCreep(exoMinerCreep, exoRoom+"exoMiner1", {role: 'exoMiner'});
-		}
-		if(Game.creeps[exoRoom+"exoMiner2"] == undefined){
-			//console.log("create new "+exoRoom+"exoMiner2");
-		}
-		if(Game.creeps[exoRoom+"exoMule1"] == undefined){
-			//console.log("create new "+exoRoom+"exoMule1");	
-		}
 	});
 }
 
