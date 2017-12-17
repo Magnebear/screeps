@@ -9,9 +9,9 @@ module.exports  = {
 		} else {
 			var sources = Game.rooms[tgt].find(FIND_SOURCES);
 			sources.forEach(function (source){
-				Memory.exoRooms.tgt.sources.source = {}
-				Memory.exoRooms.tgt.sources.source.pos = source.RoomPosition
-				Memory.exoRooms.tgt.sources.source.pos = source.id
+				Memory.exoRooms[tgt].sources.source = {}
+				Memory.exoRooms[tgt].sources.source.pos = source.RoomPosition
+				Memory.exoRooms[tgt].sources.source.pos = source.id
 			})
 			
 		
