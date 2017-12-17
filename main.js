@@ -210,6 +210,7 @@ module.exports.loop = function () {
 			}
 		} else {
 			//Scout room
+			console.log("Scouting "+exoRoom)
 			if(Game.creeps[exoRoom+"scout"] == undefined){
 				var newName = roleScout.create("scout", [MOVE,MOVE], exoRoom, "Spawn1");
 			}
