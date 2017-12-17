@@ -25,7 +25,7 @@ var roleBuilderTEMP = {
 			}
 	    } else {
 			var target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES);
-			var containers = creep.pos.find(FIND_STRUCTURES, {filter: (structure) => {return (structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > 100 }});
+			var containers = creep.room.find(FIND_STRUCTURES, {filter: (structure) => {return (structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > 100 }});
 
 			if(target) {
 				creep.moveTo(target);
