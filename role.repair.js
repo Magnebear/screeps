@@ -34,7 +34,7 @@ var roleRepair = {
             }
 			if (creep.carry.energy < 5) {
 				var s = creep.pos.findClosestByRange(FIND_STRUCTURES, {
-					filter: (structure) => {return(structure.structureType == STRUCTURE_CONTAINER)}
+					filter: (structure) => {return(structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > 250}
 				});
 				if(creep.withdraw(s, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 						   creep.travelTo(s);
