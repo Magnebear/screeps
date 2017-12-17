@@ -29,12 +29,7 @@ var roleRepair = {
 						creep.travelTo(repairTargets[0]);
 					}
 				} else {					
-					//Idle state
-					if(creep.memory.role = "repair"){
-						creep.travelTo(Game.flags.repairHolding);    
-					} else {
-						creep.travelTo(Game.flags.repair2Holding);    
-					}
+					creep.travelTo(Game.flags.holdingArea);    
 				}
             }
 			if (creep.carry.energy < 5) {
