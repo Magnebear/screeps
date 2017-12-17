@@ -7,6 +7,7 @@ module.exports  = {
 		if(Game.rooms[tgt] == undefined){
 			
 		} else {
+			console.log("Saving sources")
 			var sources = Game.rooms[tgt].find(FIND_SOURCES);
 			sources.forEach(function (source){
 				Memory.exoRooms[tgt].sources.source = {}
