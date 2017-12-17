@@ -35,7 +35,7 @@ var roleUpgrader = {
 				}
 			} else {
 			//Idle
-				creep.travelTo(Game.flags.holdingArea);
+				creep.travelTo(Game.flags.upgradeHolding);
 			}
 		} 
 		

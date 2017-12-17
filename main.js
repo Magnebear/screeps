@@ -181,6 +181,9 @@ module.exports.loop = function () {
     }
 	
  	externalMiningRooms.forEach(function(exoRoom) {
+		if(!Memory.exoRooms){
+			Memory.exoRooms = {}
+		}
 		//Controll the external mining activities for a specific target room
 		if(!Memory.exoRooms.exoRoom){
 			Memory.exoRooms.exoRoom = {}
