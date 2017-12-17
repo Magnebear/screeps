@@ -9,7 +9,7 @@ module.exports  = {
 		} else {
 			console.log("Saving sources")
 			Memory.exoRooms[tgt].sources = Game.rooms[tgt].find(FIND_SOURCES);
-			
+			Memory.exoRooms[tgt].isScouted = true
 		}
 		
 		
