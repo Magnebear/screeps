@@ -206,7 +206,7 @@ function exoRoomControll(){
 		if(Memory.exoRooms[exoRoom].isScouted){
 			if(Game.creeps[exoRoom+"exoMiner1"] == undefined){
 				//console.log("create new "+exoRoom+"exoMiner1");
-				var newName = roleExoMiner.create(exoMinerCreep, exoRoom+"exoMiner1",);
+				//var newName = roleExoMiner.create(exoMinerCreep, exoRoom+"exoMiner1",);
 			}
 			if(Game.creeps[exoRoom+"exoMiner2"] == undefined){
 				//console.log("create new "+exoRoom+"exoMiner2");
