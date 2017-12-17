@@ -115,10 +115,10 @@ module.exports.loop = function () {
 		Memory.clock = 0;
     }
 	
-    
+ 
 
     //Hardcoded link and towwer controls
-	//towerController.run(Game.getObjectById('5a337d5ad362a801f184c350'));
+	towerController.run(Game.getObjectById('5a36463c535526151f8970b8'));
     
 	//linkController.run("59aea243daa30c78a13596a1", "59a9ca4e83bd410897a24445");
     
@@ -206,7 +206,7 @@ function exoRoomControll(){
 		if(Memory.exoRooms[exoRoom].isScouted){
 			if(Game.creeps[exoRoom+"exoMiner1"] == undefined){
 				//console.log("create new "+exoRoom+"exoMiner1");
-				//var newName = Game.spawns['Spawn1'].createCreep(exoMinerCreep, exoRoom+"exoMiner1", {role: 'exoMiner'});
+				var newName = roleExoMiner.create(exoMinerCreep, exoRoom+"exoMiner1",);
 			}
 			if(Game.creeps[exoRoom+"exoMiner2"] == undefined){
 				//console.log("create new "+exoRoom+"exoMiner2");
