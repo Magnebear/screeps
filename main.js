@@ -193,14 +193,14 @@ module.exports.loop = function () {
 		
 		
 		if(Game.creeps[exoRoom+"exoMiner1"] == undefined){
-			console.log("create new "+exoRoom+"exoMiner1");
+			//console.log("create new "+exoRoom+"exoMiner1");
 			//var newName = Game.spawns['Spawn1'].createCreep(exoMinerCreep, exoRoom+"exoMiner1", {role: 'exoMiner'});
 		}
 		if(Game.creeps[exoRoom+"exoMiner2"] == undefined){
-			console.log("create new "+exoRoom+"exoMiner2");
+			//console.log("create new "+exoRoom+"exoMiner2");
 		}
 		if(Game.creeps[exoRoom+"exoMule1"] == undefined){
-			console.log("create new "+exoRoom+"exoMule1");	
+			//console.log("create new "+exoRoom+"exoMule1");	
 		}
 	});
 }
