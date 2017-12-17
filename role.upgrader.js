@@ -25,7 +25,7 @@ var roleUpgrader = {
             creep.upgradeController(creep.room.controller)
         } else {
             var target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES);
-			var container = creep.pos.findClosestByRange(FIND_STRUCTURES, {filter: (structure) => {return (structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > 500}});
+			var container = creep.pos.findClosestByRange(FIND_STRUCTURES, {filter: (structure) => {return (structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > 1000}});
 			if(target){
 				creep.moveTo(target);
 				creep.pickup(target);
