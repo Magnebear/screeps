@@ -8,12 +8,12 @@ module.exports  = {
 			
 		} else {
 			console.log("Saving sources")
-			var sources = Game.rooms[tgt].find(FIND_SOURCES);
-			console.log(Sources)
-			sources.forEach(function (source){
+			var srcs = Game.rooms[tgt].find(FIND_SOURCES);
+			console.log(sources)
+			srcs.forEach(function (src){
 				Memory.exoRooms[tgt].sources.source = {}
-				Memory.exoRooms[tgt].sources.source.pos = source.RoomPosition
-				Memory.exoRooms[tgt].sources.source.pos = source.id
+				Memory.exoRooms[tgt].sources.source.rPos = src.RoomPosition
+				Memory.exoRooms[tgt].sources.source.sID = src.id
 			})
 			
 		
