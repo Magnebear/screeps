@@ -17,9 +17,10 @@
         <File name="role.takeover.js" />
         <File name="role.transporter.js" />
         <File name="role.upgrader.js" />
-        <File name="role.upgrader.TEMP.js" />
         <File name="TowerController.js" />
         <File name="Traveler.js" />
         <File name="ws" />
+        <File name="role.exoMiner.js" />
+        <File name="role.exoMule.js" />
     </Project>
 </NotepadPlus>

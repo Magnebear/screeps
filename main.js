@@ -183,9 +183,11 @@ module.exports.loop = function () {
 				break;
 		}
     }
+	
 	if (Memory.clock == 5){
 		exoRoomControll()
     }
+	
 }
 function exoRoomControll(){
  	externalMiningRooms.forEach(function(exoRoom) {
