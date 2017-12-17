@@ -44,8 +44,8 @@ var superTransporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CA
 var exoMinerCreep = [MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK]
 var exoMuleCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
-var maxHarvester = 1;
-var maxBuilders = 2;
+var maxHarvester = 0;
+var maxBuilders = 4;
 var maxUpgraders = 6;
 var maxRepair = 1;
 var maxTransporters = 3;
