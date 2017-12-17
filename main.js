@@ -184,8 +184,8 @@ module.exports.loop = function () {
 		//Controll the external mining activities for a specific target room
 		if(!Memory.exoRooms.exoRoom){
 			Memory.exoRooms.exoRoom = {}
-			memory.exoRooms.exoRoom.isScouted = false;
-			memory.exoRooms.exoRoom.sources = [];
+			Memory.exoRooms.exoRoom.isScouted = false;
+			Memory.exoRooms.exoRoom.sources = [];
 		}
 		
 		
