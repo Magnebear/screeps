@@ -55,7 +55,7 @@ var maxTransporters = 4;
 var maxSuperTransporters = 1;
 var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 5;
-var maxBasicAttackers = 1;
+var maxBasicAttackers = 2;
 
 var maxTransporters2 = 4;
 var maxRepair2 = 2;
@@ -275,7 +275,10 @@ function creepControll(){
 		var newName = Game.spawns['Spawn1'].createCreep(repairCreep, undefined, {role: 'repair'});
 		console.log('Spawning new repair: ' + newName);
 		
-	} 
+	} else if(basicAttackers.length < maxBasicAttackers) {
+		var newName = roleBasicAttack.create(undefined, "target0", "Spawn1");
+		console.log('Spawning new attacker: ' + newName);
+	}
 	
 /* 	//--------------------ROOM 1--------------------
 	if(Game.creeps["megaMiner1"] == undefined) {

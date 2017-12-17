@@ -1,6 +1,6 @@
 var Traveler = require('Traveler');
 //var body = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,ATTACK,ATTACK,ATTACK,ATTACK,ATTACK,ATTACK,ATTACK]
-var body = [MOVE,ATTACK,MOVE,ATTACK];
+var body = [MOVE,ATTACK,MOVE,ATTACK,MOVE,ATTACK];
 
 module.exports  = {
     /** @param {Creep} creep **/
@@ -29,7 +29,7 @@ module.exports  = {
 			} 
 			creep.memory.targetId = target.id;
 		} else {
-			creep.moveTo(Game.flags.target1);
+			creep.moveTo(Game.flags[creep.memory.targetFlag]);
 		}			
 	},
 	create: function (name, flag, spawn){
