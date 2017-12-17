@@ -251,6 +251,18 @@ function creepControll(){
 		var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'harvester'});
 		console.log('Spawning new harvesters: ' + newName);
 		
+	} else if(Game.creeps["megaMiner1"] == undefined) {
+		var newName = roleMegaMiner.create("megaMiner1", megaMiner, "59f1a51182100e1594f3dec1", "5a355446d48b4e699f1b23fb", "Spawn1");
+		console.log('Spawning new MegaMiner1: ' + newName);
+		
+	} else if(Game.creeps["megaMiner2"] == undefined) {
+		var newName = roleMegaMiner.create("megaMiner2", megaMiner, "59f1a51182100e1594f3debf", "5a355b6ec7b2a67d4c8032dd", "Spawn1");
+		console.log('Spawning new MegaMiner2: ' + newName);
+		
+	} else if (transporters.length < maxTransporters) {
+		var newName = Game.spawns['Spawn1'].createCreep(transporterCreep, undefined, {role: 'transporter'});
+		console.log('Spawning new transporter: ' + newName);
+		
 	} else if (upgraders.length < maxUpgraders) {
 		var newName = Game.spawns['Spawn1'].createCreep(upgradeCreep, undefined, {role: 'upgrader'});
 		console.log('Spawning new upgrader: ' + newName);
@@ -259,19 +271,7 @@ function creepControll(){
 		var newName = Game.spawns['Spawn1'].createCreep([MOVE,MOVE,MOVE,WORK,CARRY,CARRY], undefined, {role: 'builder'});
 		console.log('Spawning new builder: ' + newName);
 		
-	} else if(Game.creeps["megaMiner1"] == undefined) {
-		var newName = roleMegaMiner.create("megaMiner1", megaMiner, "59f1a51182100e1594f3dec1", "5a355446d48b4e699f1b23fb", "Spawn1");
-		console.log('Spawning new MegaMiner1: ' + newName);
-		
-	} else if (transporters.length < maxTransporters) {
-		var newName = Game.spawns['Spawn1'].createCreep(transporterCreep, undefined, {role: 'transporter'});
-		console.log('Spawning new transporter: ' + newName);
-		
-	} else if(Game.creeps["megaMiner2"] == undefined) {
-		var newName = roleMegaMiner.create("megaMiner2", megaMiner, "59f1a51182100e1594f3debf", "5a355b6ec7b2a67d4c8032dd", "Spawn1");
-		console.log('Spawning new MegaMiner2: ' + newName);
-		
-	} else if (repairs.length < maxRepair) {
+	}  else if (repairs.length < maxRepair) {
 		var newName = Game.spawns['Spawn1'].createCreep(repairCreep, undefined, {role: 'repair'});
 		console.log('Spawning new repair: ' + newName);
 		
