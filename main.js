@@ -62,7 +62,7 @@ var maxBuilders2 = 1;
 var maxExternalHarvesters3 = 3;
 var maxExternalHarvesters4 = 3;
 
-var externalMiningRooms = ("E32N39")
+var externalMiningRooms = ["E32N39"]
 
 // var startCpu = Game.cpu.getUsed();
 // console.log('elapsed:', Game.cpu.getUsed() - startCpu);
