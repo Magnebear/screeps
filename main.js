@@ -119,7 +119,12 @@ module.exports.loop = function () {
     }
 	
  
-
+	Game.rooms.forEach(function(room){
+		console.log("Room: "+room)
+		
+		
+	});
+		
     //Hardcoded link and towwer controls
 	towerController.run(Game.getObjectById('5a36463c535526151f8970b8'));
     
