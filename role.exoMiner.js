@@ -8,8 +8,9 @@ module.exports  = {
 		rm = creep.memory.room
 		src = creep.memory.source
 		
+		console.log(creep.name)
 		console.log(rm)
-		console.log(src )
+		console.log(src)
 		
 		try{
 			creep.harvest(Game.getObjectById(Memory.exoRooms[rm].sources[src].id));
