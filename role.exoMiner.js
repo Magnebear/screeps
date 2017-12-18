@@ -8,7 +8,11 @@ module.exports  = {
 		rm = creep.memory.room
 		src = creep.memory.source
 
-		try{
+		if(creep.harvest(Game.getObjectById(Memory.exoRooms[rm].sources[src].id)) != 0){
+			creep.moveTo(new RoomPosition(Memory.exoRooms[rm].sources[src].pos.x, Memory.exoRooms[rm].sources[src].pos.y, rm));
+		}
+		
+/* 		try{
 			creep.harvest(Game.getObjectById(Memory.exoRooms[rm].sources[src].id));
 		} catch (e) {
 			console.log("Error: "+e)
@@ -18,7 +22,7 @@ module.exports  = {
 			console.log(creep.name)
 			console.log(rm)
 			console.log(src)
-		}
+		} */
 		//console.log('elapsed :', Game.cpu.getUsed() - startCpu);
 		
     },
