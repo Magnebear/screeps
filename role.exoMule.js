@@ -1,6 +1,6 @@
 var Traveler = require('Traveler');
 
-var roleTransporter = {
+module.exports = {
     run: function(creep) {
 		var origin = creep.memory.origin
 		var exoRoom = creep.memory.exoRoom
@@ -27,7 +27,11 @@ var roleTransporter = {
 				creep.memory.delivering = true;
 			}
 		}
+	},
+	
+	create: function(creepBody, name, dst, spawn){
+		var newName = Game.spawns[spawn].createCreep(creepBody, name, {role: 'exoMiner',origin:Game.spawns[spawn].room.name, exoRoom:dst});
+		return newName;
 	}
-};
+}
 
-module.exports = roleTransporter;
