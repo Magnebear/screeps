@@ -219,12 +219,13 @@ function exoRoomControll(){
 				console.log("create new "+exoRoom+"exoMiner1");
 				var newName = roleExoMiner.create(exoMinerCreep, exoRoom+"exoMiner1", exoRoom, 1,"Spawn1");
 			} else {
-				for(var i=0; i<exoMulesPerRoom; i++)
+				for(var i=0; i<exoMulesPerRoom; i++){
 					console.log("i er: "+i)
 				/* if(Game.creeps[exoRoom+"exoMule0"] == undefined){
 						console.log("create new "+exoRoom+"exoMule0");
 						var newName = roleExoMule.create(exoMuleCreep, exoRoom+"exoMule0", exoRoom,"Spawn1");
 					} */
+				}
 			}
 		} else {
 			//Scout room
