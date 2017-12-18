@@ -11,7 +11,8 @@ module.exports  = {
 		try{
 			creep.harvest(Game.getObjectById(Memory.exoRooms[rm].sources[src].id));
 		} catch (e) {
-			console.log(creep.moveTo(new RoomPosition(Memory.exoRooms[rm].sources[src].pos.x, Memory.exoRooms[rm].sources[src].pos.y, rm)));
+			console.log(e)
+			creep.moveTo(new RoomPosition(Memory.exoRooms[rm].sources[src].pos.x, Memory.exoRooms[rm].sources[src].pos.y, rm));
 		} finally {
 			console.log("Exo miner error")
 			console.log(creep.name)
