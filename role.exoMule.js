@@ -29,7 +29,7 @@ module.exports = {
 	},
 	
 	create: function(creepBody, name, dst, spawn){
-		var newName = Game.spawns[spawn].createCreep(creepBody, name, {role: 'exoMiner',origin:Game.spawns[spawn].room.name, exoRoom:dst});
+		var newName = Game.spawns[spawn].createCreep(creepBody, name, {role: 'exoMule',origin:Game.spawns[spawn].room.name, exoRoom:dst});
 		return newName;
 	}
 }

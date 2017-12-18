@@ -183,10 +183,10 @@ module.exports.loop = function () {
 				roleScout.run(creep);
 				break;
 			case "exoMiner":
-				roleExoMiner.run(creep);
+				//roleExoMiner.run(creep);
 				break;
 			case "exoMule":
-				roleExo.run(creep);
+				//roleExo.run(creep);
 				break;
 		}
     }
