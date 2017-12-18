@@ -56,7 +56,7 @@ var maxTransporters = 4;
 var maxSuperTransporters = 1;
 var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 5;
-var maxBasicAttackers = 4;
+var maxBasicAttackers = 0;
 
 var maxTransporters2 = 4;
 var maxRepair2 = 2;
