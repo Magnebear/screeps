@@ -24,35 +24,16 @@ var roleUpgrader = {
 			creep.travelTo(upgradeFlag);
             creep.upgradeController(creep.room.controller)
         } else {
-            var target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES);
-			var container = creep.pos.findClosestByRange(FIND_STRUCTURES, {filter: (structure) => {return (structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > 1000}});
-			if(target){
-				creep.moveTo(target);
-				creep.pickup(target);
-			} else if (container){ 
-				if(creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-				   creep.travelTo(container);
+			if(creep.room.storage[RESOURCE_ENERGY] > 25000){
+				if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+				   creep.travelTo(creep.room.storage);
 				}
 			} else {
-			//Idle
+				//Idle
 				creep.travelTo(Game.flags.upgradeHolding);
 			}
 		} 
-		
-		
-		
-		
-		
-		
-/* 		 */
 	}
 };
 
 module.exports = roleUpgrader;
-
-
-/* else if(creep.room.storage.store[RESOURCE_ENERGY] > 50000) {
-            if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-               creep.travelTo(creep.room.storage);
-            }
-        } */
