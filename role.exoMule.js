@@ -5,19 +5,12 @@ module.exports = {
 		var origin = creep.memory.origin
 		var exoRoom = creep.memory.exoRoom
 		
-		console.log(creep.name)
-		console.log(origin)
-		console.log(exoRoom)
-		
-		
 		if(creep.memory.delivering == true){    
 			if(creep.transfer(Game.rooms[origin].storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 				creep.travelTo(Game.rooms[origin].storage);
 			}
         } else {
 			if(creep.room.name != exoRoom){
-				console.log(exoRoom)
-				console.log(new RoomPosition(25,25,exoRoom))
 				creep.moveTo(new RoomPosition(25,25,exoRoom))
 			} else {
 				var target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES);
