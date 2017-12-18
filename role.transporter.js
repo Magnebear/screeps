@@ -31,16 +31,14 @@ var roleTransporter = {
 				if (creep.transfer(creep.room.storage, RESOURCE_ENERGY) != 0) {
 						creep.travelTo(creep.room.storage);
 				}
-				//Transfer to storage if no targets
 /* 				if(creep.room.terminal){
 				    if(creep.room.terminal.store[RESOURCE_ENERGY] < 20000){
                         if(creep.transfer(creep.room.terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 						    creep.travelTo(creep.room.terminal);
 				        }				        
-				    } else 
-				} else if (creep.transfer(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-						creep.travelTo(creep.room.storage);
-				} */
+				    }
+				}
+*/				
 			}
 
             if(creep.carry.energy == 0){
