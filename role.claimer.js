@@ -1,14 +1,19 @@
 var Traveler = require('Traveler');
 
-var roleClaimer = {
-  run: function(creep) {
-    var targetController = Game.getObjectById(creep.memory.targetController);
-	var targetFlag = Game.flags[creep.memory.targetFlag]
+module.exports = {
+    run: function(creep) {
+		if(creep.reserveController(targetController) != 0) {
+			creep.travelTo(targetController);
+		}
+	},
+	
+	create: function(creepBody, name, targetController, spawn){
+		var newName = Game.spawns[spawn].createCreep(creepBody, name, {role:'exoMule', targetController:targetController});
+		return newName;
+	}
+}
 
-    if(creep.reserveController(targetController) != 0) {
-      creep.travelTo(targetFlag);
-    }
-  }
-};
 
-module.exports = roleClaimer;
+
+
+
