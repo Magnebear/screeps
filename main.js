@@ -225,7 +225,6 @@ function exoRoomControll(){
 						console.log("create new "+exoRoom+"exoMule0");
 						var newName = roleExoMule.create(exoMuleCreep, exoRoom+"exoMule0", exoRoom,"Spawn1");
 					} */
-				}
 			}
 		} else {
 			//Scout room
