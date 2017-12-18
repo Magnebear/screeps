@@ -9,7 +9,7 @@ module.exports  = {
 		src = creep.memory.source
 		try{
 			creep.harvest(Game.getObjectById(Game.Memory.exoRooms[rm][soruce].id));
-		} else {
+		} catch {
 			creep.moveto(new RoomPosition(Memory.exoRooms[rm].sources[src].pos.x, Memory.exoRooms[rm].sources[src].pos.y, rm);
 		}
 		console.log('elapsed :', Game.cpu.getUsed() - startCpu);
