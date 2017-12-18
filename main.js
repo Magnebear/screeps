@@ -64,7 +64,7 @@ var maxBuilders2 = 1;
 var maxExternalHarvesters3 = 3;
 var maxExternalHarvesters4 = 3;
 
-var exoMulesPerRoom = 3;
+var exoMulesPerRoom = 4;
 
 var externalMiningRooms = ["E32N39"]
 
