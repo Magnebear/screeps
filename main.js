@@ -196,6 +196,7 @@ module.exports.loop = function () {
     }
 	
 }
+
 function exoRoomControll(){
  	externalMiningRooms.forEach(function(exoRoom) {
 		if(!Memory.exoRooms){
@@ -289,7 +290,7 @@ function creepControll(){
 	
 	
 	
-	
+/* 	
 	if (Game.creeps["claimer3"] == undefined && Game.flags.claim3.room.controller.reservation.ticksToEnd < 1000){
 		var newName = Game.spawns['Spawn2'].createCreep(claimerCreep, "claimer3", 
 			{role: "claimer",
@@ -297,7 +298,7 @@ function creepControll(){
 			targetFlag:"claim3"
 		});
 	
-	
+ */	
 /* 	//--------------------ROOM 1--------------------
 	if(Game.creeps["megaMiner1"] == undefined) {
 		var newName = roleMegaMiner.create("megaMiner1", megaMiner, "59830055b097071b4adc418f", "59a5d22932ef987c0f96bf3b", "Spawn1");
