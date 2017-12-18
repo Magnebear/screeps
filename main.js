@@ -194,7 +194,7 @@ module.exports.loop = function () {
     }
 	
 	if (Memory.clock == 5){
-		exoRoomControll()
+		
     }
 	
 }
@@ -293,19 +293,11 @@ function creepControll(){
 	} else if(basicAttackers.length < maxBasicAttackers) {
 		var newName = roleBasicAttack.create(undefined, "target0", "Spawn1");
 		console.log('Spawning new attacker: ' + newName);
+	} else {
+		//If all local spawns complete, run exo room controll
+		exoRoomControll()
 	}
-	
-	
-	
-/* 	
-	if (Game.creeps["claimer3"] == undefined && Game.flags.claim3.room.controller.reservation.ticksToEnd < 1000){
-		var newName = Game.spawns['Spawn2'].createCreep(claimerCreep, "claimer3", 
-			{role: "claimer",
-			targetController: "59830063b097071b4adc42df",
-			targetFlag:"claim3"
-		});
-	
- */	
+
 /* 	//--------------------ROOM 1--------------------
 	if(Game.creeps["megaMiner1"] == undefined) {
 		var newName = roleMegaMiner.create("megaMiner1", megaMiner, "59830055b097071b4adc418f", "59a5d22932ef987c0f96bf3b", "Spawn1");
