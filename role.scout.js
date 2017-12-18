@@ -2,11 +2,13 @@ var Traveler = require('Traveler');
 module.exports  = {
     /** @param {Creep} creep **/
     run: function(creep) {
-		if(Memory.exoRooms[tgt].isScouted = true){
+		
+		var tgt = creep.memory.targetRoom
+		
+		if(Memory.exoRooms[tgt].isScouted == true){
 			creep.suicide();
 		}
 		
-		var tgt = creep.memory.targetRoom
 		creep.moveTo(new RoomPosition(25, 25, tgt))
 		if(Game.rooms[tgt] == undefined){
 			
