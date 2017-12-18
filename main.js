@@ -220,7 +220,6 @@ function exoRoomControll(){
 				var newName = roleExoMiner.create(exoMinerCreep, exoRoom+"exoMiner1", exoRoom, 1,"Spawn1");
 			} else {
 				for(var i=0; i<exoMulesPerRoom; i++){
-					console.log("i er: "+i)
 					if(Game.creeps[exoRoom+"exoMule"+i] == undefined){
 						console.log("create new "+exoRoom+"exoMule"+i);
 						var newName = roleExoMule.create(exoMuleCreep, exoRoom+"exoMule"+i, exoRoom,"Spawn1");
@@ -236,6 +235,7 @@ function exoRoomControll(){
 			}
 			
 		}
+		console.log("Ticks to reservation end: "+Game.rooms[exoRoom].controller.reservation.ticksToEnd)
 		
 	});
 }
