@@ -17,7 +17,6 @@ module.exports  = {
 			console.log(creep.name)
 			console.log(rm)
 			console.log(src)
-			console.log(e)
 		}
 		//console.log('elapsed :', Game.cpu.getUsed() - startCpu);
 		
