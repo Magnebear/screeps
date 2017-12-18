@@ -208,23 +208,24 @@ function exoRoomControll(){
 		
 		if(Memory.exoRooms[exoRoom].isScouted){
 			if(Game.creeps[exoRoom+"exoMiner0"] == undefined){
-				console.log("create new "+exoRoom+"exoMiner0");
 				var newName = roleExoMiner.create(exoMinerCreep, exoRoom+"exoMiner0", exoRoom, 0,"Spawn1");
+				console.log("create new "+newName);
 			} else if(Game.creeps[exoRoom+"exoMiner1"] == undefined){
-				console.log("create new "+exoRoom+"exoMiner1");
 				var newName = roleExoMiner.create(exoMinerCreep, exoRoom+"exoMiner1", exoRoom, 1,"Spawn1");
+				console.log("create new "+newName);
 			} else {
 				//Create specific amount of exoMules per room
 				for(var i=0; i<exoMulesPerRoom; i++){
 					if(Game.creeps[exoRoom+"exoMule"+i] == undefined){
-						console.log("create new "+exoRoom+"exoMule"+i);
 						var newName = roleExoMule.create(exoMuleCreep, exoRoom+"exoMule"+i, exoRoom,"Spawn1");
+						console.log("create new "+newName);
 						break;
 					}
 				}
 				//Claim external room
 				if(Game.creeps[exoRoom+"claimer"] == undefined && (Game.rooms[exoRoom].controller.reservation == undefined || Game.rooms[exoRoom].controller.reservation.ticksToEnd < 1000)){
 					var newName = roleClaimer.create(claimerCreep, exoRoom+"claimer", Game.rooms[exoRoom].controller, "Spawn1")
+					console.log("create new "+newName);
 				}
 			}
 		} else {
@@ -232,6 +233,7 @@ function exoRoomControll(){
 			console.log("Scouting "+exoRoom)
 			if(Game.creeps[exoRoom+"scout"] == undefined){
 				var newName = roleScout.create("scout", [MOVE,MOVE], exoRoom, "Spawn1");
+				console.log("create new "+newName);
 			}
 			
 		}
