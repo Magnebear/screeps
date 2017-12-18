@@ -18,7 +18,6 @@ module.exports  = {
 			console.log(rm)
 			console.log(src)
 			console.log(e)
-			console.log(f)
 		}
 		//console.log('elapsed :', Game.cpu.getUsed() - startCpu);
 		
