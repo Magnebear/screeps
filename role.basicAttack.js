@@ -1,6 +1,6 @@
 var Traveler = require('Traveler');
 //var body = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,ATTACK,ATTACK,ATTACK,ATTACK,ATTACK,ATTACK,ATTACK]
-var body = [MOVE,ATTACK,MOVE,ATTACK,MOVE,ATTACK];
+var body = [MOVE,ATTACK,MOVE,ATTACK,MOVE,ATTACK,MOVE,ATTACK,MOVE,ATTACK];
 
 module.exports  = {
     /** @param {Creep} creep **/
