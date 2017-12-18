@@ -15,7 +15,7 @@ module.exports  = {
 		console.log('elapsed :', Game.cpu.getUsed() - startCpu);
 		
     },
-	create: function (name, creepBody, rm, src, spawn){
+	create: function (creepBody, name,  rm, src, spawn){
 		var newName = Game.spawns[spawn].createCreep(creepBody, name, {role: 'megaMiner',room:rm, source:src});
 		return newName;
 	}
