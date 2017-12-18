@@ -31,7 +31,8 @@ var defaultCreep = [WORK,CARRY,CARRY,MOVE,MOVE,MOVE];
 var upgradeCreep = [MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY]
 
 var dropMinerCreep = [WORK,WORK,WORK,WORK,MOVE,MOVE];
-var megaMiner = [MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK,CARRY];
+var megaMiner = [MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY]
+
 var megaMinerAlt = [WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE];
 var megaMineralMinerCreep = [MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK];
 var claimerCreep = [CLAIM,CLAIM,MOVE,MOVE];
@@ -42,12 +43,12 @@ var externalHarvesterCreep = [WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,M
 var externalBuilderCreep = [WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE]
 var superTransporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
-var exoMinerCreep = [MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK]
-var exoMuleCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
+var exoMinerCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK]
+var exoMuleCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
 var maxHarvester = 0;
 var maxBuilders = 3;
-var maxUpgraders = 8;
+var maxUpgraders = 6;
 var maxRepair = 2;
 var maxTransporters = 4;
 
@@ -181,6 +182,12 @@ module.exports.loop = function () {
 			case "scout":
 				roleScout.run(creep);
 				break;
+			case "exoMiner":
+				roleExoMiner.run(creep);
+				break;
+			case "exoMule":
+				roleExo.run(creep);
+				break;
 		}
     }
 	
@@ -204,12 +211,12 @@ function exoRoomControll(){
 		
 		console.log(exoRoom)
 		if(Memory.exoRooms[exoRoom].isScouted){
+			if(Game.creeps[exoRoom+"exoMiner0"] == undefined){
+				console.log("create new "+exoRoom+"exoMiner0");
+				var newName = roleExoMiner.create(exoMinerCreep, exoRoom+"exoMiner0", exoRoom, 0,"Spawn1");
+			}
 			if(Game.creeps[exoRoom+"exoMiner1"] == undefined){
 				//console.log("create new "+exoRoom+"exoMiner1");
-				//var newName = roleExoMiner.create(exoMinerCreep, exoRoom+"exoMiner1",);
-			}
-			if(Game.creeps[exoRoom+"exoMiner2"] == undefined){
-				//console.log("create new "+exoRoom+"exoMiner2");
 			}
 			if(Game.creeps[exoRoom+"exoMule1"] == undefined){
 				//console.log("create new "+exoRoom+"exoMule1");	
@@ -279,6 +286,17 @@ function creepControll(){
 		var newName = roleBasicAttack.create(undefined, "target0", "Spawn1");
 		console.log('Spawning new attacker: ' + newName);
 	}
+	
+	
+	
+	
+	if (Game.creeps["claimer3"] == undefined && Game.flags.claim3.room.controller.reservation.ticksToEnd < 1000){
+		var newName = Game.spawns['Spawn2'].createCreep(claimerCreep, "claimer3", 
+			{role: "claimer",
+			targetController: "59830063b097071b4adc42df",
+			targetFlag:"claim3"
+		});
+	
 	
 /* 	//--------------------ROOM 1--------------------
 	if(Game.creeps["megaMiner1"] == undefined) {

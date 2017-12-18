@@ -3,19 +3,20 @@ var Traveler = require('Traveler');
 module.exports  = {
     /** @param {Creep} creep **/
     run: function(creep) {
-        var source = Game.getObjectById(creep.memory.srcID);
-        
-		if(container.store[RESOURCE_ENERGY] < 2000){
-			if(creep.harvest(Game.getObjectById(creep.memory.srcID)) == ERR_NOT_IN_RANGE) {
-			}
+		var startCpu = Game.cpu.getUsed();
+		
+		rm = creep.memory.room
+		src = creep.memory.source
+		try{
+			creep.harvest(Game.getObjectById(Game.Memory.exoRooms[rm][soruce].id));
+		} else {
+			creep.moveto(new RoomPosition(Memory.exoRooms[rm].sources[src].pos.x, Memory.exoRooms[rm].sources[src].pos.y, rm);
 		}
-		creep.travelTo(container);
-		if(container.hits < container.hitsMax){
-			creep.repair(container);
-		}
+		console.log('elapsed :', Game.cpu.getUsed() - startCpu);
+		
     },
-	create: function (name, creepBody, src, spawn){
-		var newName = Game.spawns[spawn].createCreep(creepBody, name, {role: 'megaMiner', source:src});
+	create: function (name, creepBody, rm, src, spawn){
+		var newName = Game.spawns[spawn].createCreep(creepBody, name, {role: 'megaMiner',room:rm, source:src});
 		return newName;
 	}
 
