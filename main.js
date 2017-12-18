@@ -50,7 +50,7 @@ var maxHarvester = 0;
 var maxBuilders = 1;
 var maxUpgraders = 6;
 var maxRepair = 2;
-var maxTransporters = 6;
+var maxTransporters = 4;
 
 
 var maxSuperTransporters = 1;
