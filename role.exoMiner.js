@@ -8,7 +8,7 @@ module.exports  = {
 		rm = creep.memory.room
 		src = creep.memory.source
 		try{
-			creep.harvest(Game.getObjectById(Game.Memory.exoRooms[rm][soruce].id));
+			creep.harvest(Game.getObjectById(Memory.exoRooms[rm].sources[0].id));
 		} catch (e) {
 			creep.moveTo(new RoomPosition(Memory.exoRooms[rm].sources[src].pos.x, Memory.exoRooms[rm].sources[src].pos.y, rm));
 		}
