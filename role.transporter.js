@@ -48,8 +48,8 @@ var roleTransporter = {
             }
         } else {
 			
-			if(creep.room.storage[RESOURCE_ENERGY]>0){
-				if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+			if(creep.room.storage.store[RESOURCE_ENERGY]>0){
+				if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) != 0) {
 					   creep.travelTo(creep.room.storage);
 				}
 			} else {
@@ -60,11 +60,7 @@ var roleTransporter = {
 					}
 				}
 			} 
-			/* else if(creep.room.storage.store[RESOURCE_ENERGY] != 0) {
-				 if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-					   creep.travelTo(creep.room.storage);
-				}  
-			} */			
+			
 			if(creep.carry.energy > 100){
 				creep.memory.delivering = true;
 			}
