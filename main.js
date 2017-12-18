@@ -119,7 +119,9 @@ module.exports.loop = function () {
     }
 	
  
-	Game.rooms.forEach(function(room){
+	rms = Game.rooms
+	
+	rms.forEach(function(room){
 		console.log("Room: "+room)
 		
 		
