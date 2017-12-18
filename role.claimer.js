@@ -9,7 +9,7 @@ module.exports = {
 	},
 	
 	create: function(creepBody, name, tgtController, spawn){
-		var newName = Game.spawns[spawn].createCreep(creepBody, name, {role:'exoMule', targetController:tgtController});
+		var newName = Game.spawns[spawn].createCreep(creepBody, name, {role:'claimer', targetController:tgtController});
 		return newName;
 	}
 }
