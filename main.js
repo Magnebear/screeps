@@ -64,9 +64,8 @@ var maxBuilders2 = 1;
 var maxExternalHarvesters3 = 3;
 var maxExternalHarvesters4 = 3;
 
-var exoMulesPerRoom = 4;
-
 var externalMiningRooms = ["E32N39","E32N38"]
+var externalMiningRoomsMules = [4,6]
 
 // var startCpu = Game.cpu.getUsed();
 // console.log('elapsed:', Game.cpu.getUsed() - startCpu);
@@ -213,6 +212,8 @@ function exoRoomControll(){
 				console.log("create new "+newName);
 			} else {
 				//Create specific amount of exoMules per room
+				var exoMulesPerRoom = externalMiningRoomsMules[externalMiningRooms.indexOf(exoRoom)]
+				console.log(exoMulesPerRoom)
 				for(var i=0; i<exoMulesPerRoom; i++){
 					if(Game.creeps[exoRoom+"exoMule"+i] == undefined){
 						var newName = roleExoMule.create(exoMuleCreep, exoRoom+"exoMule"+i, exoRoom,"Spawn1");
