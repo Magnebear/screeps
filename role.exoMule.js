@@ -11,7 +11,7 @@ module.exports = {
 			}
         } else {
 			if(creep.room.name != exoRoom){
-				creep.travelTo(new RoomPosition(25,25,exoRoom))
+				creep.moveTo(new RoomPosition(25,25,exoRoom))
 			} else {
 				var target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES);
 				if(target){
