@@ -2,7 +2,7 @@ var Traveler = require('Traveler');
 
 module.exports = {
     run: function(creep) {
-		var targetController = Game.getObjectById(creep.memory.targetController)
+		var targetController = Game.getObjectById(creep.memory.targetController.id)
 		if(creep.reserveController(targetController) != 0) {
 			creep.moveTo(targetController);
 		}
