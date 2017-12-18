@@ -221,10 +221,11 @@ function exoRoomControll(){
 			} else {
 				for(var i=0; i<exoMulesPerRoom; i++){
 					console.log("i er: "+i)
-				/* if(Game.creeps[exoRoom+"exoMule0"] == undefined){
-						console.log("create new "+exoRoom+"exoMule0");
-						var newName = roleExoMule.create(exoMuleCreep, exoRoom+"exoMule0", exoRoom,"Spawn1");
-					} */
+					if(Game.creeps[exoRoom+"exoMule"+i] == undefined){
+						console.log("create new "+exoRoom+"exoMule"+i);
+						var newName = roleExoMule.create(exoMuleCreep, exoRoom+"exoMule"+i, exoRoom,"Spawn1");
+						break;
+					}
 				}
 			}
 		} else {
