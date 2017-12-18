@@ -117,15 +117,6 @@ module.exports.loop = function () {
 		
 		Memory.clock = 0;
     }
-	
- 
-	rms = Game.rooms
-	
-	rms.forEach(function(room){
-		console.log("Room: "+room)
-		
-		
-	});
 		
     //Hardcoded link and towwer controls
 	towerController.run(Game.getObjectById('5a36463c535526151f8970b8'));
