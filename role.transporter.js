@@ -45,8 +45,13 @@ var roleTransporter = {
                 creep.memory.delivering = false;
             }
         } else {
-			
-			if(creep.room.storage.store[RESOURCE_ENERGY]>0){
+			var container = creep.pos.findClosestByRange(FIND_STRUCTURES, {filter: (structure) => {return (structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > 500 }});
+			if (container){
+					if(creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+					   creep.travelTo(container);
+					}
+				}
+			} else if(creep.room.storage.store[RESOURCE_ENERGY]>0){
 				if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) != 0) {
 					   creep.travelTo(creep.room.storage);
 				}
@@ -59,7 +64,7 @@ var roleTransporter = {
 				}
 			} 
 			
-			if(creep.carry.energy > 100){
+			if(creep.carry.energy > 200){
 				creep.memory.delivering = true;
 			}
 		}
