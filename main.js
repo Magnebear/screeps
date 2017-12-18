@@ -66,7 +66,7 @@ var maxExternalHarvesters4 = 3;
 
 var exoMulesPerRoom = 4;
 
-var externalMiningRooms = ["E32N39"]
+var externalMiningRooms = ["E32N39","E32N38"]
 
 // var startCpu = Game.cpu.getUsed();
 // console.log('elapsed:', Game.cpu.getUsed() - startCpu);

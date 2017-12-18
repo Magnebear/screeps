@@ -10,15 +10,13 @@ module.exports = {
 				creep.travelTo(Game.rooms[origin].storage);
 			}
         } else {
-			if(creep.room.name != exoRoom){
-				creep.moveTo(new RoomPosition(25,25,exoRoom))
+			var target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES, {filter: (resource) => {return (resource.amount > 300)}});
+			if(target){
+				creep.moveTo(target);
+				creep.pickup(target);
 			} else {
-				var target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES, {filter: (resource) => {return (resource.amount > 250)}});
-				if(target){
-					creep.moveTo(target);
-					creep.pickup(target);
-				}	
-			}
+				creep.moveTo(new RoomPosition(25,25,exoRoom))
+			}				
 		}
 		
 		if(creep.carry.energy == 0){
