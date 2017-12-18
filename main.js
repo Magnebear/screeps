@@ -215,12 +215,10 @@ function exoRoomControll(){
 			if(Game.creeps[exoRoom+"exoMiner0"] == undefined){
 				console.log("create new "+exoRoom+"exoMiner0");
 				var newName = roleExoMiner.create(exoMinerCreep, exoRoom+"exoMiner0", exoRoom, 0,"Spawn1");
-			}
-			if(Game.creeps[exoRoom+"exoMiner1"] == undefined){
+			} else if(Game.creeps[exoRoom+"exoMiner1"] == undefined){
 				console.log("create new "+exoRoom+"exoMiner1");
 				var newName = roleExoMiner.create(exoMinerCreep, exoRoom+"exoMiner1", exoRoom, 1,"Spawn1");
-			}
-			if(Game.creeps[exoRoom+"exoMule1"] == undefined){
+			} else if(Game.creeps[exoRoom+"exoMule1"] == undefined){
 				console.log("create new "+exoRoom+"exoMule0");
 				var newName = roleExoMule.create(exoMuleCreep, exoRoom+"exoMule0", exoRoom,"Spawn1");				
 			}
