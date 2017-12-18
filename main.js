@@ -235,7 +235,7 @@ function exoRoomControll(){
 			}
 			
 		}
-		console.log("Ticks to reservation end: "+Game.rooms[exoRoom].controller.reservation.ticksToEnd)
+		//console.log("Ticks to reservation end: "+Game.rooms[exoRoom].controller.reservation)
 		
 	});
 }
