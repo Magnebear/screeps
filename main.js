@@ -48,7 +48,7 @@ var exoMinerCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK
 var exoMuleCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
 var maxHarvester = 0;
-var maxBuilders = 0;
+var maxBuilders = 1;
 var maxUpgraders = 6;
 var maxRepair = 2;
 var maxTransporters = 4;
@@ -199,7 +199,22 @@ module.exports.loop = function () {
 				roleExoMiner.run(creep);
 				break;
 		}
-    }	
+    }
+	
+	
+/* 	if(Memory.drawPath == true){
+		Memory.drawPath == false
+		var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:new RoomPosition(15,8,"E32N39"),range:1},{swampCost:1});
+		
+		
+		
+		
+		
+		
+		
+		new RoomVisual('W1N1').poly(path, {stroke: '#fff', strokeWidth: .15,
+		opacity: .2, lineStyle: 'dashed'});
+	} */
 }
 
 function exoRoomControll(){
