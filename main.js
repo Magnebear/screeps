@@ -32,7 +32,7 @@ var upgradeCreep = [MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CA
 
 var dropMinerCreep = [WORK,WORK,WORK,WORK,MOVE,MOVE];
 var megaMiner = [MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY]
-
+var builderCreep =[MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY]
 var megaMinerAlt = [WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE];
 var megaMineralMinerCreep = [MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK];
 var claimerCreep = [CLAIM,CLAIM,MOVE,MOVE];
@@ -47,7 +47,7 @@ var exoMinerCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK
 var exoMuleCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
 var maxHarvester = 0;
-var maxBuilders = 1;
+var maxBuilders = 2;
 var maxUpgraders = 6;
 var maxRepair = 2;
 var maxTransporters = 4;
@@ -65,7 +65,7 @@ var maxExternalHarvesters3 = 3;
 var maxExternalHarvesters4 = 3;
 
 var externalMiningRooms = ["E32N39","E32N38"]
-var externalMiningRoomsMules = [3,6]
+var externalMiningRoomsMules = [3,8]
 
 // var startCpu = Game.cpu.getUsed();
 // console.log('elapsed:', Game.cpu.getUsed() - startCpu);
@@ -79,20 +79,18 @@ module.exports.loop = function () {
         }
     }
 
-	var sources = Game.spawns["Spawn1"].room.find(FIND_SOURCES);
+/*	var sources = Game.spawns["Spawn1"].room.find(FIND_SOURCES);
 	
-/* 	var source = sources[0]
+  	var source = sources[0]
 	if(Game.creeps[source.id+"dropMiner"] == undefined){
 		console.log("create new dropMiner 0")
 		var newName = roleDropMiner.create(source.id+"dropMiner", dropMinerCreep, source.id, "Spawn1");
-	} */
-
-/* 	var source = sources[1]
+	}
+ 	var source = sources[1]
 	if(Game.creeps[source.id+"dropMiner"] == undefined){
 		var newName = roleDropMiner.create(source.id+"dropMiner", dropMinerCreep, source.id, "Spawn1");
 		console.log("create new dropMiner 1")
 	} */
-	
 	
     if (Memory.clock < 5){
         Memory.clock++;
@@ -280,7 +278,7 @@ function creepControll(){
 		console.log('Spawning new upgrader: ' + newName);
 		
 	} else if (builders.length < maxBuilders) {
-		var newName = Game.spawns['Spawn1'].createCreep([MOVE,MOVE,MOVE,WORK,CARRY,CARRY], undefined, {role: 'builder'});
+		var newName = Game.spawns['Spawn1'].createCreep(builderCreep, undefined, {role: 'builder'});
 		console.log('Spawning new builder: ' + newName);
 		
 	}  else if (repairs.length < maxRepair) {
@@ -291,7 +289,7 @@ function creepControll(){
 		var newName = roleBasicAttack.create(undefined, "target0", "Spawn1");
 		console.log('Spawning new attacker: ' + newName);
 	} else {
-		//If all local spawns complete, run exo room controll
+		//If all local spawns complete, run exoRoom controll
 		exoRoomControll()
 	}
 
