@@ -1,6 +1,5 @@
 var Traveler = require('Traveler');
-//var body = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,ATTACK,ATTACK,ATTACK,ATTACK,ATTACK,ATTACK,ATTACK]
-var body = [MOVE,ATTACK,MOVE,ATTACK,MOVE,ATTACK,MOVE,ATTACK,MOVE,ATTACK];
+
 
 module.exports  = {
     /** @param {Creep} creep **/
@@ -24,17 +23,19 @@ module.exports  = {
 			target = false;
 		}
 		if(target){
-			if(creep.attack(target) == ERR_NOT_IN_RANGE){
+			if(creep.attack(target) != 0){
 				creep.moveTo(target);
 			}
-			
+			if(creep.rangedattack(target) == ERR_NOT_IN_RANGE){
+				creep.moveTo(target);
+			}
 			creep.memory.targetId = target.id;
 		} else {
-			creep.moveTo(Game.flags[creep.memory.targetFlag]);
+			creep.travelTo(new RoomPosition(25,25,creep.memory.targetRoom));
 		}			
 	},
-	create: function (name, flag, spawn){
-		return Game.spawns[spawn].createCreep(body, name, {role: 'basicAttack', targetFlag:flag});
+	create: function (body, name, room, spawn){
+		return Game.spawns[spawn].createCreep(body, name, {role: 'basicAttack', targetRoom:room});
 	}
 
 }

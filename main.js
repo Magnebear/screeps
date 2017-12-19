@@ -19,6 +19,7 @@ var roleExternalBuilder = require('role.externalBuilder');
 var roleSuperTransporter = require('role.superTransporter');
 var roleTakeover = require('role.takeover');
 var roleBasicAttack = require('role.basicAttack');
+var roleBasicDefender = require('role.basicDefender');
 var roleExoMiner = require('role.exoMiner');
 var roleExoMule = require('role.exoMule');
 
@@ -29,7 +30,7 @@ var linkController = require("LinkController");
 
 var defaultCreep = [WORK,CARRY,CARRY,MOVE,MOVE,MOVE];
 var upgradeCreep = [MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY]
-
+var basicDefenderCreep = [MOVE,ATTACK,MOVE,ATTACK,MOVE,ATTACK,MOVE,ATTACK,MOVE,ATTACK,RANGED_ATTACK]
 var dropMinerCreep = [WORK,WORK,WORK,WORK,MOVE,MOVE];
 var megaMiner = [MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY]
 var builderCreep =[MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY]
@@ -119,11 +120,12 @@ module.exports.loop = function () {
 		var hostiles = Game.rooms[name].find(FIND_HOSTILE_CREEPS)
 		if(hostiles.length > 0){
 			console.log("Enemies in room: "+name);
-			
-		}
-
-	}
-	
+			if(Game.creeps[name+"BasicDefender"]) {
+				var newName = roleBasicAttack.create(name+"BasicDefender", name, "Spawn1");
+				console.log('Spawning new defender: ' + newName);
+			}
+		}		
+	}		
 		
     //Hardcoded link and towwer controls
 	towerController.run(Game.getObjectById('5a38dad0d357753d323886cd'));
