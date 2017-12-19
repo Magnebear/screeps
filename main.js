@@ -117,9 +117,9 @@ module.exports.loop = function () {
 	
 	for(var name in Game.rooms) {
 		console.log(name)
-		var hostiles = name.find(FIND_HOSTILE_CREEPS)
+		var hostiles = Game.rooms[name].find(FIND_HOSTILE_CREEPS)
 		if(hostiles.length > 0){
-			console.log("Enemies in room: "+name.name);
+			console.log("Enemies in room: "+name);
 			
 		}
 		
