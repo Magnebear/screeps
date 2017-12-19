@@ -114,6 +114,19 @@ module.exports.loop = function () {
 		
 		Memory.clock = 0;
     }
+	
+	for(var name in Game.rooms) {
+		console.log(name)
+		var hostiles = name.find(FIND_HOSTILE_CREEPS)
+		if(hostiles.length > 0){
+			console.log("Enemies in room: "+name.name);
+			
+		}
+		
+		
+		
+	}
+	
 		
     //Hardcoded link and towwer controls
 	towerController.run(Game.getObjectById('5a38dad0d357753d323886cd'));
