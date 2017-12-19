@@ -120,7 +120,7 @@ module.exports.loop = function () {
 		var hostiles = Game.rooms[name].find(FIND_HOSTILE_CREEPS)
 		if(hostiles.length > 0){
 			console.log("Enemies in room: "+name);
-			if(Game.creeps[name+"BasicDefender"]) {
+			if(Game.creeps[name+"BasicDefender"] == undefined) {
 				var newName = roleBasicAttack.create(name+"BasicDefender", name, "Spawn1");
 				console.log('Spawning new defender: ' + newName);
 			}
