@@ -47,7 +47,7 @@ var exoMinerCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK
 var exoMuleCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
 var maxHarvester = 0;
-var maxBuilders = 4;
+var maxBuilders = 0;
 var maxUpgraders = 6;
 var maxRepair = 2;
 var maxTransporters = 4;
@@ -117,7 +117,8 @@ module.exports.loop = function () {
 		
     //Hardcoded link and towwer controls
 	towerController.run(Game.getObjectById('5a38dad0d357753d323886cd'));
-    
+	towerController.run(Game.getObjectById('5a38efceb7a9cb10bb8d1171'));
+	¨
 	//linkController.run("59aea243daa30c78a13596a1", "59a9ca4e83bd410897a24445");
     
 	for(var name in Game.creeps) {
