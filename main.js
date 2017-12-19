@@ -220,9 +220,11 @@ function exoRoomControll(){
 					}
 				}
 				//Claim external room
-				if(Game.creeps[exoRoom+"claimer"] == undefined && (Game.rooms[exoRoom].controller.reservation == undefined || Game.rooms[exoRoom].controller.reservation.ticksToEnd < 1000)){
-					var newName = roleClaimer.create(claimerCreep, exoRoom+"claimer", Game.rooms[exoRoom].controller, "Spawn1")
-					console.log("create new claimer"+newName);
+				if(Game.rooms[exoRoom]){
+					if(Game.creeps[exoRoom+"claimer"] == undefined && (Game.rooms[exoRoom].controller.reservation == undefined || Game.rooms[exoRoom].controller.reservation.ticksToEnd < 1000)){
+						var newName = roleClaimer.create(claimerCreep, exoRoom+"claimer", Game.rooms[exoRoom].controller, "Spawn1")
+						console.log("create new claimer"+newName);
+					}
 				}
 			}
 		} else {
