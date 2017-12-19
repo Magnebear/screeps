@@ -30,7 +30,11 @@ var roleBuilderTEMP = {
 			if(target) {
 				creep.moveTo(target);
 				creep.pickup(target);
-			}else if (container){
+			} else if(creep.room.storage.store[RESOURCE_ENERGY]>15000){
+				if(creep.withdraw(creep.room.storage, RESOURCE_ENERGY) != 0) {
+					   creep.travelTo(creep.room.storage);
+				}
+			} else if (container){
 				if(creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 				   creep.travelTo(container);
 				}
