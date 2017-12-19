@@ -11,14 +11,15 @@ module.exports = {
 			}
         } else {
 			if(creep.memory.room.name != exoRoom) {
-			creep.moveTo(new RoomPosition(25,25,exoRoom))
+				creep.moveTo(new RoomPosition(25,25,exoRoom));
 			} else {
 				var target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES, {filter: (resource) => {return (resource.amount > 500)}});
 				if(target){
 					creep.moveTo(target);
 					creep.pickup(target);
-				}				
+				}
 			}
+		}
 		
 		if(creep.carry.energy == 0){
 			creep.memory.delivering = false;
