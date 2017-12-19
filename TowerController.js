@@ -11,6 +11,13 @@ var towerControll = {
 			});
 			if(closestDamagedStructure) {
 				tower.repair(closestDamagedStructure);
+			} else {
+				var closestDamagedCreep = tower.pos.findClosestByRange(FIND_MY_CREEPS, {
+					filter: (creep) => (creep.hits < creep.hitsMax)
+				});
+				if(closestDamagedCreep){
+					tower.heal(closestDamagedCreep)
+				}
 			}
 		}
 	}
