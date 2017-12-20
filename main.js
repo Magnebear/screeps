@@ -51,7 +51,7 @@ var exoMuleCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARR
 
 var maxHarvester = 0;
 var maxBuilders = 2;
-var maxUpgraders = 6;
+var maxUpgraders = 2;
 var maxRepair = 2;
 var maxTransporters = 4;
 
