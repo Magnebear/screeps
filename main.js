@@ -22,6 +22,7 @@ var roleBasicAttack = require('role.basicAttack');
 var roleBasicDefender = require('role.basicDefender');
 var roleExoMiner = require('role.exoMiner');
 var roleExoMule = require('role.exoMule');
+var roleLinkUpgrader = require('role.linkUpgrader');
 
 var towerController = require("TowerController");
 var linkController = require("LinkController");
@@ -43,6 +44,7 @@ var repairCreep = [WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE]
 var externalHarvesterCreep = [WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE]
 var externalBuilderCreep = [WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE]
 var superTransporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
+var linkUpgraderCreep = [MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
 var exoMinerCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK]
 var exoMuleCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
@@ -58,7 +60,6 @@ var maxSuperTransporters = 1;
 var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 5;
 var maxBasicAttackers = 2;
-
 var maxTransporters2 = 4;
 var maxRepair2 = 2;
 var maxBuilders2 = 1;
@@ -66,10 +67,14 @@ var maxExternalHarvesters3 = 3;
 var maxExternalHarvesters4 = 3;
 
 var externalMiningRooms = ["E32N39","E32N38"]
-var externalMiningRoomsMules = [4,7]
+var externalMiningRoomsMules = [4,6]
+
+
+var ownRooms = ["E31N39"]
 
 // var startCpu = Game.cpu.getUsed();
 // console.log('elapsed:', Game.cpu.getUsed() - startCpu);
+
 
 
 module.exports.loop = function () {
@@ -198,8 +203,34 @@ module.exports.loop = function () {
 			case "exoMiner":
 				roleExoMiner.run(creep);
 				break;
+			case "linkUpgrader":
+				roleLinkUpgrader.run(creep);
+				break;
 		}
     }
+	
+	//Experiemental room autonomus controll
+	ownRooms.forEach(function(ownRoom){
+		room = Game.rooms[ownRoom]
+		
+		if(room.memory.stage = 8){
+			//Controll link upgraders, uses storage in room
+			if(room.storage.store[RESOURCE_ENERGY] > 25000){
+				for(var i=0; i<1; i++){
+					if(Game.creeps[ownRoom+"LinkUpgrader"+i] == undefined){
+						var newName = Game.spawns["Spawn1"].createCreep(linkUpgraderCreep, ownRoom+"LinkUpgrader"+i, {linkId:room.memory.upgradeLink});
+						console.log("create new linkUpgrader: "+newName);
+						break;
+					}
+				}
+			}
+		}
+		
+		
+		
+	});
+	
+	
 	
 /* 	if(Memory.drawPath == true){
 		
@@ -330,7 +361,7 @@ function creepControll(){
 		var newName = roleBasicAttack.create(undefined, "target0", "Spawn1");
 		console.log('Spawning new attacker: ' + newName);
 	} else {
-		//If all local spawns complete, run exoRoom controll
+		//If all local spawns complete, run exoRoom control
 		exoRoomControll()
 	}
 
