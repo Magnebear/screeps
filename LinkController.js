@@ -3,7 +3,7 @@ var linkControll = {
 		originLink = Game.getObjectById(o);
 		destinationLink = Game.getObjectById(d);
 		
-		if(originLink.energy >= 400){
+		if(originLink.energy == 800 && originLink.cooldown == 0){
 			originLink.transferEnergy(destinationLink);
 			console.log("Energy transfered!");
 		}

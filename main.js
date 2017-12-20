@@ -131,7 +131,7 @@ module.exports.loop = function () {
 	towerController.run(Game.getObjectById('5a38dad0d357753d323886cd'));
 	towerController.run(Game.getObjectById('5a38efceb7a9cb10bb8d1171'));
 
-	//linkController.run("59aea243daa30c78a13596a1", "59a9ca4e83bd410897a24445");
+	//linkController.run("5a38e5d1a73fd951a613dca8", "59a9ca4e83bd410897a24445");
     
 	for(var name in Game.creeps) {
         var creep = Game.creeps[name];
@@ -201,20 +201,23 @@ module.exports.loop = function () {
 		}
     }
 	
-	
-/*  	if(Memory.drawPath == true){
+	if(Memory.drawPath == true){
 		Memory.drawPath == false
 		var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:new RoomPosition(15,8,"E32N39"),range:1},{swampCost:1});
 		
-		path.path.forEach()
+		var sortedPath = []
+		path.path.forEach(function(element){
+			sortedPath[element.roomName].push(element)
+		})
+		
+		console.log(sortedPath);
 		
 		
 		
 		
 		
-		new RoomVisual('W1N1').poly(path, {stroke: '#fff', strokeWidth: .15,
-		opacity: .2, lineStyle: 'dashed'});
-	} */
+		//new RoomVisual('W1N1').poly(path, {stroke: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'});
+	} 
 	
 }
 
