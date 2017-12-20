@@ -116,6 +116,7 @@ module.exports.loop = function () {
         console.log('-------------------------------')
 		
 		//Controlls creeps spawning
+		ownRoomControll()
 		creepControll();
 		
 		Memory.clock = 0;
@@ -209,26 +210,7 @@ module.exports.loop = function () {
 		}
     }
 	
-	//Experiemental room autonomus controll
-	ownRooms.forEach(function(ownRoom){
-		room = Game.rooms[ownRoom]
-		
-		if(room.memory.stage = 8){
-			//Controll link upgraders, uses storage in room
-			if(room.storage.store[RESOURCE_ENERGY] > 25000){
-				for(var i=0; i<1; i++){
-					if(Game.creeps[ownRoom+"LinkUpgrader"+i] == undefined){
-						var newName = Game.spawns["Spawn1"].createCreep(linkUpgraderCreep, ownRoom+"LinkUpgrader"+i, {linkId:room.memory.upgradeLink});
-						console.log("create new linkUpgrader: "+newName);
-						break;
-					}
-				}
-			}
-		}
-		
-		
-		
-	});
+
 	
 	
 	
@@ -257,6 +239,26 @@ module.exports.loop = function () {
 		};
 	} */
 	
+}
+
+function ownRoomControll(){
+	//Experiemental room autonomus controll
+	ownRooms.forEach(function(ownRoom){
+		room = Game.rooms[ownRoom]
+		
+		if(room.memory.stage = 8){
+			//Controll link upgraders, uses storage in room
+			if(room.storage.store[RESOURCE_ENERGY] > 25000){
+				for(var i=0; i<1; i++){
+					if(Game.creeps[ownRoom+"LinkUpgrader"+i] == undefined){
+						var newName = Game.spawns["Spawn1"].createCreep(linkUpgraderCreep, ownRoom+"LinkUpgrader"+i, {linkId:room.memory.upgradeLink});
+						console.log("create new linkUpgrader: "+newName);
+						break;
+					}
+				}
+			}
+		}
+	});
 }
 
 function exoRoomControll(){
