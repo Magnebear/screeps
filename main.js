@@ -211,7 +211,7 @@ module.exports.loop = function () {
 			console.log(part)
 			console.log(part.roomName)
 			if(sortedPath[part.roomName] == undefined){
-				sortedPath[part.roomName] = {};
+				sortedPath[part.roomName] = [];
 			}
 			sortedPath[part.roomName].push(part)
 		})
