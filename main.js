@@ -215,9 +215,11 @@ module.exports.loop = function () {
 			sortedPath[part.roomName].push(part)
 		})
 		
-		sortedPath.forEach(function(roomPath){
-			RoomVisual(roomPath[0].roomName).poly(path, {roomPath: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'});
-		});
+		console.log()
+		
+		for(var propt in sortedPath){
+			RoomVisual(propt[0].roomName).poly(propt, {roomPath: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'});
+		};
 		
 		
 		
