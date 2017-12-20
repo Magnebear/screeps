@@ -201,12 +201,14 @@ module.exports.loop = function () {
 		}
     }
 	
-	if(Memory.drawPath == true){
+/* 	if(Memory.drawPath == true){
 		Memory.drawPath == false
 		var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:new RoomPosition(15,8,"E32N39"),range:1},{swampCost:1});
 		
 		var sortedPath = []
 		path.path.forEach(function(part){
+			
+			
 			sortedPath[part.roomName].push(part)
 		})
 		
@@ -217,7 +219,7 @@ module.exports.loop = function () {
 		
 		
 		//new RoomVisual('W1N1').poly(path, {stroke: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'});
-	} 
+	}  */
 	
 }
 
