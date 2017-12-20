@@ -202,7 +202,9 @@ module.exports.loop = function () {
     }
 	
 	if(Memory.drawPath == true){
-		Memory.drawPath = false
+		
+		
+		
 		var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:new RoomPosition(15,8,"E32N39"),range:1},{swampCost:1});
 		
 		var sortedPath = new Object;
@@ -216,12 +218,12 @@ module.exports.loop = function () {
 		//new RoomVisual('W1N1').poly(path, {stroke: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'});
 	}
 	
-/* 	if(Memory.showPath == true){
+	if(Memory.showPath == true){
 		for(var propt in Memory.sortedPath){
-			console.log(sortedPath[propt][0].roomName)
-			new RoomVisual(sortedPath[propt][0].roomName).poly(sortedPath[propt], {roomPath: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'});
+			console.log(Memory.sortedPath[propt][0].roomName)
+			new RoomVisual(Memory.sortedPath[propt][0].roomName).poly(Memory.sortedPath[propt], {roomPath: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'});
 		};
-	} */
+	}
 	
 }
 
