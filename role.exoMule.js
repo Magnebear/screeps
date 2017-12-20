@@ -13,7 +13,7 @@ module.exports = {
 			if(creep.room.name != exoRoom) {
 				creep.moveTo(new RoomPosition(25,25,exoRoom));
 			} else {
-				var target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES, {filter: (resource) => {return (resource.amount > 500)}});
+				var target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES, {filter: (resource) => {return (resource.amount > 450)}});
 				if(target){
 					creep.moveTo(target);
 					creep.pickup(target);
