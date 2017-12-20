@@ -222,7 +222,7 @@ module.exports.loop = function () {
 		for(var propt in Memory.sortedPath){
 			console.log("Vis: ")
 			console.log(typeof (Memory.sortedPath[propt]));
-			new RoomVisual(propt).poly(Memory.sortedPath[propt], {roomPath: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'});
+			new RoomVisual(propt).poly(Memory.sortedPath[propt], {stroke: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'});
 		};
 	}
 	
