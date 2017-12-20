@@ -216,12 +216,12 @@ module.exports.loop = function () {
 		//new RoomVisual('W1N1').poly(path, {stroke: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'});
 	}
 	
-	if(Memory.showPath == true){
+/* 	if(Memory.showPath == true){
 		for(var propt in Memory.sortedPath){
 			console.log(sortedPath[propt][0].roomName)
 			new RoomVisual(sortedPath[propt][0].roomName).poly(sortedPath[propt], {roomPath: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'});
 		};
-	}
+	} */
 	
 }
 
