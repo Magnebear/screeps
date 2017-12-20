@@ -213,6 +213,7 @@ module.exports.loop = function () {
 			sortedPath[part.roomName].push(part)
 		})
 		
+		Memory.sortedPath = sortedPath;
 		console.log(sortedPath);
 		
 		
