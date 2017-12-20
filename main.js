@@ -221,8 +221,8 @@ module.exports.loop = function () {
 	if(Memory.showPath == true){
 		for(var propt in Memory.sortedPath){
 			console.log("Vis: ")
-			console.log(Memory.sortedPath[propt][0].roomName)
-			console.log(propt)
+			console.log(typeof (Memory.sortedPath[propt][0].roomName))
+			console.log(typeof (propt))
 			new RoomVisual(Memory.sortedPath[propt][0].roomName).poly(Memory.sortedPath[propt], {roomPath: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'});
 		};
 	}
