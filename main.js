@@ -208,6 +208,8 @@ module.exports.loop = function () {
 		var sortedPath = []
 		
 		path.path.forEach(function(part){
+			console.log(part)
+			console.log(part.roomName)
 			if(sortedPath[part.roomName] == undefined){
 				sortedPath[part.roomName] = [];
 			}
