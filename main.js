@@ -116,7 +116,7 @@ module.exports.loop = function () {
         console.log('-------------------------------')
 		
 		//Controlls creeps spawning
-		ownRoomControll()
+		//ownRoomControll()
 		creepControll();
 		
 		Memory.clock = 0;

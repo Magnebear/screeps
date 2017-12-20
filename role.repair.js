@@ -1,5 +1,5 @@
 var Traveler = require('Traveler');
-const maxHits = 20000;
+const maxHits = 100000;
 var roleRepair = {
     run: function(creep) {
         if(creep.memory.repairTarget==null || !creep.memory.repairTarget) {
