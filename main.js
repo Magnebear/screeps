@@ -137,7 +137,7 @@ module.exports.loop = function () {
 	towerController.run(Game.getObjectById('5a38dad0d357753d323886cd'));
 	towerController.run(Game.getObjectById('5a38efceb7a9cb10bb8d1171'));
 
-	//linkController.run("5a38e5d1a73fd951a613dca8", "59a9ca4e83bd410897a24445");
+	linkController.run("5a38e5d1a73fd951a613dca8", "5a3a3ea191b0d34c51baefff");
     
 	for(var name in Game.creeps) {
         var creep = Game.creeps[name];
