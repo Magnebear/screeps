@@ -216,8 +216,8 @@ module.exports.loop = function () {
 		
 		
 		for(var propt in sortedPath){
-			console.log(propt[0].roomName)
-			RoomVisual(propt[0].roomName).poly(propt, {roomPath: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'});
+			console.log(sortedPath[propt][0].roomName)
+			RoomVisual(sortedPath[propt][0].roomName).poly(sortedPath[propt], {roomPath: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'});
 		};
 		
 		
