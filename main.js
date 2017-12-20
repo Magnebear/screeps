@@ -207,17 +207,16 @@ module.exports.loop = function () {
 		
 		var sortedPath = new Object;
 		path.path.forEach(function(part){
-			console.log(part)
-			console.log(part.roomName)
 			if(sortedPath[part.roomName] == undefined){
 				sortedPath[part.roomName] = [] ;
 			}
 			sortedPath[part.roomName].push(part)
 		})
 		
-		console.log()
+		
 		
 		for(var propt in sortedPath){
+			console.log(propt[0].roomName)
 			RoomVisual(propt[0].roomName).poly(propt, {roomPath: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'});
 		};
 		
