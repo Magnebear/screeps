@@ -205,13 +205,16 @@ module.exports.loop = function () {
 		Memory.drawPath = false
 		var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:new RoomPosition(15,8,"E32N39"),range:1},{swampCost:1});
 		
-		var sortedPath = {}
+		
+		
+		
+		var sortedPath = new Object;
 		
 		path.path.forEach(function(part){
 			console.log(part)
 			console.log(part.roomName)
 			if(sortedPath[part.roomName] == undefined){
-				sortedPath[part.roomName] = [];
+				sortedPath[part.roomName] = [] ;
 			}
 			sortedPath[part.roomName].push(part)
 		})
