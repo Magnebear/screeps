@@ -201,7 +201,7 @@ module.exports.loop = function () {
 		}
     }
 	
-	if(Memory.drawPath == true){
+/* 	if(Memory.drawPath == true){
 		
 		
 		
@@ -224,7 +224,7 @@ module.exports.loop = function () {
 			console.log(propt);
 			console.log(new RoomVisual(propt).poly(Memory.sortedPath[propt], {stroke: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'}))
 		};
-	}
+	} */
 	
 }
 
