@@ -205,11 +205,7 @@ module.exports.loop = function () {
 		Memory.drawPath = false
 		var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:new RoomPosition(15,8,"E32N39"),range:1},{swampCost:1});
 		
-		
-		
-		
 		var sortedPath = new Object;
-		
 		path.path.forEach(function(part){
 			console.log(part)
 			console.log(part.roomName)
@@ -219,8 +215,9 @@ module.exports.loop = function () {
 			sortedPath[part.roomName].push(part)
 		})
 		
-		Memory.sortedPath = sortedPath
-		console.log(sortedPath);
+		sortedPath.forEach(function(roomPath){
+			RoomVisual(roomPath[0].roomName).poly(path, {roomPath: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'});
+		});
 		
 		
 		
