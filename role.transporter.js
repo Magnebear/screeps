@@ -21,6 +21,7 @@ var roleTransporter = {
 					}
 				});
 			}
+			targets.push(Game.getObjectById("5a38e5d1a73fd951a613dca8"))
 			var closestTarget = creep.pos.findClosestByRange(targets)
 			
 			if(targets.length > 0) {
