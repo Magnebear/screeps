@@ -206,8 +206,8 @@ module.exports.loop = function () {
 		var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:new RoomPosition(15,8,"E32N39"),range:1},{swampCost:1});
 		
 		var sortedPath = []
-		path.path.forEach(function(element){
-			sortedPath[element.roomName].push(element)
+		path.path.forEach(function(part){
+			sortedPath[part.roomName].push(part)
 		})
 		
 		console.log(sortedPath);
