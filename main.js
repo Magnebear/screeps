@@ -314,7 +314,7 @@ function exoRoomControll(){
 					//Optimal path, ignoring swamps
 					console.log(Game.spawns["Spawn1"].room.storage.pos)
 					console.log(Memory.exoRooms[exoRoom].sources[i].pos)
-					var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:Memory.exoRooms[exoRoom].sources[i].pos,range:1},{swampCost:1});	
+					var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:new RoomPosition(Memory.exoRooms[exoRoom].sources[i].pos.x,Memory.exoRooms[exoRoom].sources[i].pos.y,Memory.exoRooms[exoRoom].sources[i].pos.roomName),range:1},{swampCost:1});	
 					//Create road construction site for each road segment
 					for(var j=0; j<path.length;j++){
 							console.log(j)
@@ -324,7 +324,7 @@ function exoRoomControll(){
 			}
 		} else {
 			//Scout room
-			console.log("Scouting "+exoRoom)
+			console.log("Scouting "+exoRoom)	
 			if(Game.creeps[exoRoom+"scout"] == undefined){
 				var newName = roleScout.create("scout", [MOVE,MOVE], exoRoom, "Spawn1");
 				console.log("create new "+newName);
