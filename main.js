@@ -306,6 +306,7 @@ function exoRoomControll(){
 			//3. Road Maintenance
 			if(Memory.exoRooms.exoRoom.roadStatus == "unPlanned") {
 				Memory.exoRooms.exoRoom.roadStatus = "planned"
+				console.log("Creating roadPlans in "+exoRoom)
 				for(var i=0; i<Memory.exoRooms[exoRoom].sources.length; i++){
 					//Optimal path, ignoring swamps
 					var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:Memory.exoRooms[exoRoom].sources[i].pos,range:1},{swampCost:1});	
