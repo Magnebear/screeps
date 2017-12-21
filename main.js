@@ -274,28 +274,45 @@ function exoRoomControll(){
 		}
 		
 		if(Memory.exoRooms[exoRoom].isScouted){
-			if(Game.creeps[exoRoom+"exoMiner0"] == undefined){
-				var newName = roleExoMiner.create(exoMinerCreep, exoRoom+"exoMiner0", exoRoom, 0,"Spawn1");
-				console.log("create new exoMiner0"+newName);
-			} else if(Game.creeps[exoRoom+"exoMiner1"] == undefined){
-				var newName = roleExoMiner.create(exoMinerCreep, exoRoom+"exoMiner1", exoRoom, 1,"Spawn1");
-				console.log("create new exoMiner1"+newName);
-			} else {
-				//Create specific amount of exoMules per room
-				var exoMulesPerRoom = externalMiningRoomsMules[externalMiningRooms.indexOf(exoRoom)]
-				for(var i=0; i<exoMulesPerRoom; i++){
-					if(Game.creeps[exoRoom+"exoMule"+i] == undefined){
-						var newName = roleExoMule.create(exoMuleCreep, exoRoom+"exoMule"+i, exoRoom,"Spawn1");
-						console.log("create new exoMule: "+newName);
-						break;
-					}
+			//Spawn one exoMiner per source
+			for(var i=0; i<Memory.exoRooms[exoRoom].sources.length; i++){
+				if(Game.creeps[exoRoom+"exoMiner"+i] == undefined){
+					var newName = roleExoMiner.create(exoMinerCreep, exoRoom+"exoMiner"+i, exoRoom, i,"Spawn1");
+					console.log("create new exoMiner: "+newName);
+					break 
 				}
-				//Claim external room
-				if(Game.rooms[exoRoom]){
-					if(Game.creeps[exoRoom+"claimer"] == undefined && (Game.rooms[exoRoom].controller.reservation == undefined || Game.rooms[exoRoom].controller.reservation.ticksToEnd < 1000)){
-						var newName = roleClaimer.create(claimerCreep, exoRoom+"claimer", Game.rooms[exoRoom].controller, "Spawn1")
-						console.log("create new claimer"+newName);
-					}
+			}
+			//Create exoMules
+			for(var i=0; i<externalMiningRoomsMules[externalMiningRooms.indexOf(exoRoom)]; i++){
+				if(Game.creeps[exoRoom+"exoMule"+i] == undefined){
+					var newName = roleExoMule.create(exoMuleCreep, exoRoom+"exoMule"+i, exoRoom,"Spawn1");
+					console.log("create new exoMule: "+newName);
+					break;
+				}
+			}
+			//Claim external room
+			if(Game.rooms[exoRoom]){
+				if(Game.creeps[exoRoom+"claimer"] == undefined && (Game.rooms[exoRoom].controller.reservation == undefined || Game.rooms[exoRoom].controller.reservation.ticksToEnd < 1000)){
+					var newName = roleClaimer.create(claimerCreep, exoRoom+"claimer", Game.rooms[exoRoom].controller, "Spawn1")
+					console.log("create new claimer"+newName);
+				}
+			}
+			
+			
+			
+			//Road Construction
+			//1. Road planning
+			//2. Road Building
+			//3. Road Maintenance
+			if(Memory.exoRooms.exoRoom.roadStatus == "unPlanned") {
+				Memory.exoRooms.exoRoom.roadStatus = "planned"
+				for(var i=0; i<Memory.exoRooms[exoRoom].sources.length; i++){
+					//Optimal path, ignoring swamps
+					var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:Memory.exoRooms[exoRoom].sources[i].pos,range:1},{swampCost:1});	
+					//Create road construction site for each road segment
+					path.forEach(function(segment){
+							Game.rooms[segment.roomName].createConstructionSite(segment, STRUCTURE_ROAD);
+					});
 				}
 			}
 		} else {
