@@ -315,6 +315,7 @@ function exoRoomControll(){
 					var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:Memory.exoRooms[exoRoom].sources[i].pos,range:1},{swampCost:1});	
 					//Create road construction site for each road segment
 					for(var i=0; i<path.length;i++){
+							console.log(i)
 							Game.rooms[path[i].roomName].createConstructionSite(path[i], STRUCTURE_ROAD);
 					};
 				}
