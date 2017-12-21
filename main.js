@@ -304,8 +304,8 @@ function exoRoomControll(){
 			//1. Road planning
 			//2. Road Building
 			//3. Road Maintenance
-			if(Memory.exoRooms.exoRoom.roadStatus == "unPlanned") {
-				Memory.exoRooms.exoRoom.roadStatus = "planned"
+			if(Memory.exoRooms[exoRoom].roadStatus == "unPlanned") {
+				Memory.exoRooms[exoRoom].roadStatus = "planned"
 				console.log("Creating roadPlans in "+exoRoom)
 				console.log(Memory.exoRooms[exoRoom].sources.length)
 				for(var i=0; i<Memory.exoRooms[exoRoom].sources.length; i++){
