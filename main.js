@@ -314,10 +314,8 @@ function exoRoomControll(){
 					//Optimal path, ignoring swamps
 					var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:Memory.exoRooms[exoRoom].sources[i].pos,range:1},{swampCost:1});	
 					//Create road construction site for each road segment
-					for(var segment in path){
-							console.log(segment)
-							console.log(segment.roomName)
-							Game.rooms[segment.roomName].createConstructionSite(segment, STRUCTURE_ROAD);
+					for(var i=0; i<path.length;i++){
+							Game.rooms[path[i].roomName].createConstructionSite(path[i], STRUCTURE_ROAD);
 					};
 				}
 			}
