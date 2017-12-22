@@ -140,6 +140,8 @@ module.exports.loop = function () {
 				console.log(i)
 				console.log(Game.spawns["Spawn1"].room.storage.pos)
 				console.log(Memory.exoRooms[exoRoom].sources[i].pos.x)
+				console.log(Memory.exoRooms[exoRoom].sources[i].pos.y)
+				console.log(Memory.exoRooms[exoRoom].sources[i].pos.roomName)
 				
 				//Optimal path, ignoring swamps
 				var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:new RoomPosition(Memory.exoRooms[exoRoom].sources[i].pos.x,Memory.exoRooms[exoRoom].sources[i].pos.y,Memory.exoRooms[exoRoom].sources[i].pos.roomName),range:1},{swampCost:1});	
