@@ -23,7 +23,7 @@ var roleBasicDefender = require('role.basicDefender');
 
 var roleExoMiner = require('role.exoMiner');
 var roleExoMule = require('role.exoMule');
-var roleJanoitor = require('role.exoJanitor');
+var roleExoJanitor = require('role.exoJanitor');
 
 
 var roleLinkUpgrader = require('role.linkUpgrader');
@@ -245,13 +245,11 @@ module.exports.loop = function () {
 			case "linkUpgrader":
 				roleLinkUpgrader.run(creep);
 				break;
+			case "exoJanitor":
+				exoJanitor.run(creep);
+				break;
 		}
-    }
-	
-
-	
-	
-	
+    }	
 /* 	if(Memory.drawPath == true){
 		
 		
@@ -276,7 +274,6 @@ module.exports.loop = function () {
 			console.log(new RoomVisual(propt).poly(Memory.sortedPath[propt], {stroke: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'}))
 		};
 	} */
-	
 }
 
 function ownRoomControll(){
@@ -313,30 +310,51 @@ function exoRoomControll(){
 		
 		if(Memory.exoRooms[exoRoom].isScouted){
 			//Spawn one exoMiner per source
+			var spawning = false
 			for(var i=0; i<Memory.exoRooms[exoRoom].sources.length; i++){
 				if(Game.creeps[exoRoom+"exoMiner"+i] == undefined){
 					var newName = roleExoMiner.create(exoMinerCreep, exoRoom+"exoMiner"+i, exoRoom, i,"Spawn1");
 					console.log("create new exoMiner: "+newName);
+					spawning = true;
 					break 
 				}
 			}
-			//Create exoMules
-			for(var i=0; i<externalMiningRoomsMules[externalMiningRooms.indexOf(exoRoom)]; i++){
-				if(Game.creeps[exoRoom+"exoMule"+i] == undefined){
-					var newName = roleExoMule.create(exoMuleCreep, exoRoom+"exoMule"+i, exoRoom,"Spawn1");
-					console.log("create new exoMule: "+newName);
-					break;
-				}
-			}
-			//Claim external room
-			if(Game.rooms[exoRoom]){
+			//Claim external room			
+			if(!spawning &&Game.rooms[exoRoom]){
 				if(Game.creeps[exoRoom+"claimer"] == undefined && (Game.rooms[exoRoom].controller.reservation == undefined || Game.rooms[exoRoom].controller.reservation.ticksToEnd < 1000)){
 					var newName = roleClaimer.create(claimerCreep, exoRoom+"claimer", Game.rooms[exoRoom].controller, "Spawn1")
 					console.log("create new claimer"+newName);
+					spawning=true;
 				}
 			}
-
-
+			if(!spawning && (Game.time%10 == 0)){
+				//Check if repairs or building is needed
+				if(Game.creeps["exoJanitor"+exoRoom] == undefined){
+					console.log("Checking if janitor is needed in room "+exoRoom)
+					var constructionSites = Game.rooms[exoRooms].find(FIND_CONSTRUCTION_SITES)
+					var repairSites = Game.rooms[exoRooms].find(FIND_STRUCTURES, {
+						filter: (structure) => {
+							return(structure.structureType == STRUCTURE_ROAD
+							&& structure.hits < (structure.hitsMax/2)}
+						});
+					if((constructionSites.length > 0) || (repairSites > 0)){
+						var newName = roleExoJanitor.create(exoJanitorCreep,"exoJanitor"+exoRoom, exoRoom, "Spawn1")
+						console.log("Creating new exoJanitor: "+newName)
+						spawning = true
+					}
+				}
+			}
+			
+			//Create exoMules
+			if(!spawning){
+				for(var i=0; i<externalMiningRoomsMules[externalMiningRooms.indexOf(exoRoom)]; i++){
+					if(Game.creeps[exoRoom+"exoMule"+i] == undefined){
+						var newName = roleExoMule.create(exoMuleCreep, exoRoom+"exoMule"+i, exoRoom,"Spawn1");
+						console.log("create new exoMule: "+newName);
+						break;
+					}
+				}
+			}
 		} else {
 			//Scout room
 			console.log("Scouting "+exoRoom)	

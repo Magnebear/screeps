@@ -42,7 +42,7 @@ module.exports = {
 				break;
 			case "build":
 				if(creep.build(target) != 0) {
-					creep.travelTo(targets);
+					creep.travelTo(target);
 				}
 				break;
 			case "gather":
