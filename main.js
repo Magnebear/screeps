@@ -145,7 +145,7 @@ module.exports.loop = function () {
 				//Create road construction site for each road segment
 				for(var j=0; j<path.length;j++){
 						console.log(j)
-						Game.rooms[path[j].roomName].createConstructionSite(path[j], STRUCTURE_ROAD);
+						console.log(Game.rooms[path[j].roomName].createConstructionSite(path[j], STRUCTURE_ROAD))
 				};
 			}
 		}	
