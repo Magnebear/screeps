@@ -74,6 +74,8 @@ var ownRooms = ["E31N39"]
 
 var expansionRooms = ["E34N39"]
 
+var spawnQueue = []
+
 // var startCpu = Game.cpu.getUsed();
 // console.log('elapsed:', Game.cpu.getUsed() - startCpu);
 
@@ -123,6 +125,37 @@ module.exports.loop = function () {
 		
 		Memory.clock = 0;
     }
+	
+	externalMiningRooms.forEach(function(exoRoom) {			
+		//Road Construction
+		//1. Road planning
+		//2. Road Building
+		//3. Road Maintenance
+		console.log("Road status for "+exoRoom+": "+Memory.exoRooms[exoRoom].roadStatus)
+		
+		if(Memory.exoRooms[exoRoom].roadStatus == "unPlanned") {
+			Memory.exoRooms[exoRoom].roadStatus = "planned"
+			console.log("Creating roadPlans in "+exoRoom)
+			console.log(Memory.exoRooms[exoRoom].sources.length)
+			for(var i=0; i<Memory.exoRooms[exoRoom].sources.length; i++){
+				
+				console.log(Game.spawns["Spawn1"].room.storage.pos)
+				console.log(Memory.exoRooms[exoRoom].sources[i].pos)
+				
+				//Optimal path, ignoring swamps
+				var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:new RoomPosition(Memory.exoRooms[exoRoom].sources[i].pos.x,Memory.exoRooms[exoRoom].sources[i].pos.y,Memory.exoRooms[exoRoom].sources[i].pos.roomName),range:1},{swampCost:1});	
+				//Create road construction site for each road segment
+				for(var j=0; j<path.length;j++){
+						console.log(j)
+						Game.rooms[path[j].roomName].createConstructionSite(path[j], STRUCTURE_ROAD);
+				};
+			}
+		}	
+	});
+	
+	
+	
+	
 	
 	for(var name in Game.rooms) {
 		var hostiles = Game.rooms[name].find(FIND_HOSTILE_CREEPS)
@@ -300,28 +333,7 @@ function exoRoomControll(){
 				}
 			}
 
-			//Road Construction
-			//1. Road planning
-			//2. Road Building
-			//3. Road Maintenance
-			console.log("Road status for "+exoRoom+": "+Memory.exoRooms[exoRoom].roadStatus)
-			
-			if(Memory.exoRooms[exoRoom].roadStatus == "unPlanned") {
-				Memory.exoRooms[exoRoom].roadStatus = "planned"
-				console.log("Creating roadPlans in "+exoRoom)
-				console.log(Memory.exoRooms[exoRoom].sources.length)
-				for(var i=0; i<Memory.exoRooms[exoRoom].sources.length; i++){
-					//Optimal path, ignoring swamps
-					console.log(Game.spawns["Spawn1"].room.storage.pos)
-					console.log(Memory.exoRooms[exoRoom].sources[i].pos)
-					var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:new RoomPosition(Memory.exoRooms[exoRoom].sources[i].pos.x,Memory.exoRooms[exoRoom].sources[i].pos.y,Memory.exoRooms[exoRoom].sources[i].pos.roomName),range:1},{swampCost:1});	
-					//Create road construction site for each road segment
-					for(var j=0; j<path.length;j++){
-							console.log(j)
-							Game.rooms[path[j].roomName].createConstructionSite(path[j], STRUCTURE_ROAD);
-					};
-				}
-			}
+
 		} else {
 			//Scout room
 			console.log("Scouting "+exoRoom)	
@@ -333,6 +345,16 @@ function exoRoomControll(){
 		}
 	});
 }
+
+function spawnControll(priority, creepBody, creepName, creepMemory, spawn){
+	spawnQueue.push([priority,[creepBody, creepName, creepMemory, spawn]])
+	
+	
+	
+	
+	
+}
+
 
 function creepControll(){
 	var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
