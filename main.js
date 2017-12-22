@@ -93,7 +93,19 @@ module.exports.loop = function () {
             console.log('Clearing non-existing creep memory:', name);
         }
     }
-
+	//Adjust amount of Upgraders in room1
+	if(Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]<25000){
+		maxUpgraders = 0;
+	} else if (Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]>25000){
+		maxUpgraders = 1;
+	} else if (Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]>50000){
+		maxUpgraders = 2;
+	} else if (Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]>100000){
+		maxUpgraders = 4;
+	}
+	
+	
+	
 /*	var sources = Game.spawns["Spawn1"].room.find(FIND_SOURCES);
 	
   	var source = sources[0]
@@ -156,7 +168,7 @@ module.exports.loop = function () {
 		}	
 	});
 	
-	
+
 	
 	
 	
