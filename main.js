@@ -336,7 +336,7 @@ function exoRoomControll(){
 						filter: (structure) => {
 							return(structure.structureType == STRUCTURE_ROAD
 							&& structure.hits < (structure.hitsMax/2)}
-						});
+						}));
 					if((constructionSites.length > 0) || (repairSites > 0)){
 						var newName = roleExoJanitor.create(exoJanitorCreep,"exoJanitor"+exoRoom, exoRoom, "Spawn1")
 						console.log("Creating new exoJanitor: "+newName)
