@@ -135,10 +135,9 @@ module.exports.loop = function () {
 		
 		if(Memory.exoRooms[exoRoom].roadStatus == "unPlanned") {
 			Memory.exoRooms[exoRoom].roadStatus = "planned"
-			console.log("Creating roadPlans in "+exoRoom)
-			console.log(Memory.exoRooms[exoRoom].sources.length)
 			for(var i=0; i<Memory.exoRooms[exoRoom].sources.length; i++){
 				
+				console.log(i)
 				console.log(Game.spawns["Spawn1"].room.storage.pos)
 				console.log(Memory.exoRooms[exoRoom].sources[i].pos)
 				
