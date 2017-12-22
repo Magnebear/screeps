@@ -17,6 +17,8 @@ module.exports = {
 				if(target){
 					creep.moveTo(target);
 					creep.pickup(target);
+				} else {
+					creep.travelTo(new RoomPosition(25,25,exoRoom))
 				}
 			}
 		}
