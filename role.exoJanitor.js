@@ -5,7 +5,7 @@ module.exports = {
 		if(creep.memory.mode == undefined || creep.room.name != creep.memory.exoRoom){
 			creep.memory.mode = "travel"
 			creep.say("Travel")
-		} else if (creep.energy == 0) {
+		} else if (creep.carry.energy == 0) {
 			creep.memory.mode = "gather"
 			creep.say("Gather")
 		} else {
