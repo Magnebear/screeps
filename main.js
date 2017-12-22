@@ -159,7 +159,7 @@ module.exports.loop = function () {
 				console.log(i)
 				pos = Memory.exoRooms[exoRoom].sources[i].pos
 				//Optimal path, ignoring swamps
-				var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:new RoomPosition(pos.x,pos.y,pos.roomName),range:1},{swampCost:1});	
+				var path = PathFinder.search(new RoomPosition(18,38,"E32N39"),{pos:new RoomPosition(pos.x,pos.y,pos.roomName),range:1},{swampCost:1});	
 				//Create road construction site for each road segment
 
 				for(var j=0; j<path.path.length;j++){

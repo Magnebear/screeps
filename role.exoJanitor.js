@@ -4,8 +4,10 @@ module.exports = {
     run: function(creep) {
 		if(creep.memory.mode == undefined || creep.room.name != creep.memory.exoRoom){
 			creep.memory.mode = "travel"
+			creep.say("Travel")
 		} else if (creep.energy == 0) {
 			creep.memory.mode = "gather"
+			creep.say("Gather")
 		} else {
 			var repairTarget = creep.pos.findClosestByRange(FIND_STRUCTURES, {
 				filter: (structure) => {
@@ -17,13 +19,16 @@ module.exports = {
 			if (repairTarget) {
 				creep.memory.target = repairTarget.id
 				creep.memory.mode = "repair"
+				creep.say("Repair")
 			} else { 	
 				var constructionSite = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
 			    if(constructionSite) {
 					creep.memory.target = constructionSite.id
 					creep.memory.mode = "build"
+					creep.say("Build")
 				} else {
 					creep.memory.mode = "idle"
+					creep.say("Idle")
 				}
 			}
 		}
