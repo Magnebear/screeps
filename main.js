@@ -41,7 +41,7 @@ var megaMiner = [MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY]
 var builderCreep =[MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY]
 var megaMinerAlt = [WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE];
 var megaMineralMinerCreep = [MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK];
-var claimerCreep = [MOVE,MOVE,MOVE,CLAIM,CLAIM,CLAIM]
+var claimerCreep = [MOVE,MOVE,MOVE,CLAIM,CLAIM]
 var miniMegaMiner = [WORK,WORK,CARRY,MOVE];
 var transporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 var repairCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
@@ -337,7 +337,7 @@ function exoRoomControll(){
 			if(!spawning &&Game.rooms[exoRoom]){
 				if(Game.creeps[exoRoom+"claimer"] == undefined && (Game.rooms[exoRoom].controller.reservation == undefined || Game.rooms[exoRoom].controller.reservation.ticksToEnd < 1000)){
 					var newName = roleClaimer.create(claimerCreep, exoRoom+"claimer", Game.rooms[exoRoom].controller, "Spawn1")
-					console.log("create new claimer"+newName);
+					console.log("create new claimer "+newName);
 					spawning=true;
 				}
 			}
