@@ -12,7 +12,10 @@ module.exports  = {
 			structure.structureType == STRUCTURE_EXTENSION
 		});
 		var closestHostile = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-		var closestStructure = creep.pos.findClosestByRange(FIND_HOSTILE_STRUCTURES);
+		var closestStructure = creep.pos.findClosestByRange(FIND_HOSTILE_STRUCTURES, {
+			filter: (structure) =>
+			structure.structureType != STRUCTURE_CONTROLLER
+		});
 		
 		if(closestExtension){
 			target = closestExtension;

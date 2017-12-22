@@ -72,6 +72,8 @@ var externalMiningRoomsMules = [4,6]
 
 var ownRooms = ["E31N39"]
 
+var expansionRooms = [E34N39]
+
 // var startCpu = Game.cpu.getUsed();
 // console.log('elapsed:', Game.cpu.getUsed() - startCpu);
 
