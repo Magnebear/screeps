@@ -346,8 +346,8 @@ function exoRoomControll(){
 				//Check if repairs or building is needed
 				if(Game.creeps["exoJanitor"+exoRoom] == undefined){
 					console.log("Checking if janitor is needed in room "+exoRoom)
-					var constructionSites = Game.rooms[exoRooms].find(FIND_CONSTRUCTION_SITES)
-					var repairSites = Game.rooms[exoRooms].find(FIND_STRUCTURES, {
+					var constructionSites = Game.rooms[exoRoom].find(FIND_CONSTRUCTION_SITES)
+					var repairSites = Game.rooms[exoRoom].find(FIND_STRUCTURES, {
 						filter: (structure) => {
 							return(structure.structureType == STRUCTURE_ROAD
 							&& structure.hits < (structure.hitsMax/2))}
