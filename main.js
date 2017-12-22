@@ -260,7 +260,7 @@ module.exports.loop = function () {
 				roleLinkUpgrader.run(creep);
 				break;
 			case "exoJanitor":
-				exoJanitor.run(creep);
+				roleExoJanitor.run(creep);
 				break;
 		}
     }	
