@@ -41,7 +41,7 @@ var megaMiner = [MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY]
 var builderCreep =[MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY]
 var megaMinerAlt = [WORK,WORK,WORK,WORK,WORK,WORK,CARRY,MOVE];
 var megaMineralMinerCreep = [MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK];
-var claimerCreep = [CLAIM,CLAIM,MOVE,MOVE];
+var claimerCreep = [MOVE,MOVE,MOVE,CLAIM,CLAIM,CLAIM]
 var miniMegaMiner = [WORK,WORK,CARRY,MOVE];
 var transporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 var repairCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
@@ -338,6 +338,7 @@ function exoRoomControll(){
 				}
 			}
 			if(!spawning && (Game.time%10 == 0)){
+				console.log("Checking if janitor is needed in room "+exoRoom)
 				//Check if repairs or building is needed
 				if(Game.creeps["exoJanitor"+exoRoom] == undefined){
 					console.log("Checking if janitor is needed in room "+exoRoom)
@@ -347,7 +348,10 @@ function exoRoomControll(){
 							return(structure.structureType == STRUCTURE_ROAD
 							&& structure.hits < (structure.hitsMax/2))}
 						});
-					if((constructionSites.length > 0) || (repairSites > 0)){
+					console.log(constructionSites)	
+					console.log(repairSites)	
+						
+					if((constructionSites.length > 0) || (repairSites.length > 0)){
 						var newName = roleExoJanitor.create(exoJanitorCreep,"exoJanitor"+exoRoom, exoRoom, "Spawn1")
 						console.log("Creating new exoJanitor: "+newName)
 						spawning = true
