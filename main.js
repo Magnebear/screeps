@@ -341,7 +341,7 @@ function exoRoomControll(){
 					spawning=true;
 				}
 			}
-			if(!spawning && (Game.time%10 == 0)){
+			if(!spawning && (Memory.clock == 5)){
 				console.log("Checking if janitor is needed in room "+exoRoom)
 				//Check if repairs or building is needed
 				if(Game.creeps["exoJanitor"+exoRoom] == undefined){
