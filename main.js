@@ -20,8 +20,12 @@ var roleSuperTransporter = require('role.superTransporter');
 var roleTakeover = require('role.takeover');
 var roleBasicAttack = require('role.basicAttack');
 var roleBasicDefender = require('role.basicDefender');
+
 var roleExoMiner = require('role.exoMiner');
 var roleExoMule = require('role.exoMule');
+var roleJanoitor = require('role.exoJanitor');
+
+
 var roleLinkUpgrader = require('role.linkUpgrader');
 
 var towerController = require("TowerController");
@@ -48,6 +52,7 @@ var linkUpgraderCreep = [MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,
 
 var exoMinerCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK]
 var exoMuleCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
+var exoJanitorCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
 var maxHarvester = 0;
 var maxBuilders = 2;
