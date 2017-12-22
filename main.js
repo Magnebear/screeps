@@ -148,8 +148,6 @@ module.exports.loop = function () {
 		//1. Road planning
 		//2. Road Building
 		//3. Road Maintenance
-		console.log("Road status for "+exoRoom+": "+Memory.exoRooms[exoRoom].roadStatus)
-		
 		if(Memory.exoRooms[exoRoom].roadStatus == "unPlanned") {
 			Memory.exoRooms[exoRoom].roadStatus = "planned"
 			for(var i=0; i<Memory.exoRooms[exoRoom].sources.length; i++){
