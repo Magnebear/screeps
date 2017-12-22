@@ -142,8 +142,8 @@ module.exports.loop = function () {
 				//Optimal path, ignoring swamps
 				var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:new RoomPosition(pos.x,pos.y,pos.roomName),range:1},{swampCost:1});	
 				//Create road construction site for each road segment
-				console.log(path.length())
-				for(var j=0; j<path.length();j++){
+				console.log(path.length)
+				for(var j=0; j<path.length;j++){
 						console.log(j)
 						console.log(Game.rooms[path[j].roomName].createConstructionSite(path[j], STRUCTURE_ROAD))
 				};
