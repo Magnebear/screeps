@@ -2,7 +2,7 @@ var Traveler = require('Traveler');
 
 module.exports = {
     run: function(creep) {
-		if(creep.memory.mode == undefined || creep.room != creep.memory.exoRoom){
+		if(creep.memory.mode == undefined || creep.room.name != creep.memory.exoRoom){
 			creep.memory.mode = "travel"
 		} else if (creep.energy == 0) {
 			creep.memory.mode = "gather"
