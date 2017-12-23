@@ -20,9 +20,7 @@ module.exports  = {
 		var closestTower = creep.pos.findClosestByRange(FIND_HOSTILE_STRUCTURES, {
 			filter: (structure) => structure.structureType == STRUCTURE_TOWER
 		});
-		
-		creep.say("Muhahaha!")
-		
+				
 		if(closestTower){
 			target = closestTower;
 		} else if(closestExtension){
