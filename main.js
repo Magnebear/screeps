@@ -54,9 +54,11 @@ var sapperCreep = [TOUGH,TOUGH,TOUGH,TOUGH,TOUGH,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,M
 var exoMinerCreep = [MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK]
 var exoMuleCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 var exoJanitorCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
+var spammerCreep = [MOVE]
 
 var maxHarvester = 0;
 var maxBuilders = 2;
+var maxSpammers = 10;
 var maxUpgraders = 4;
 var maxSappers = 0;
 var maxRepair = 2;
@@ -409,6 +411,7 @@ function creepControll(){
 	var externalHarvesters3 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester3');
 	var externalHarvesters4 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester4');		
 	var sappers = _.filter(Game.creeps, (creep) => creep.memory.role == 'sapper');		
+	var spammer = _.filter(Game.creeps, (creep) => creep.memory.role == 'spammer');		
 	
 	var superTransporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'superTransporter');
 	var basicAttackers = _.filter(Game.creeps, (creep) => creep.memory.role == 'basicAttack');
@@ -455,6 +458,9 @@ function creepControll(){
 	} else if((Game.creeps["mineralMiner"+Game.spawns["Spawn1"].room.name] == undefined)&& (Game.spawns["Spawn1"].room.find(FIND_MINERALS)[0].mineralAmount > 0)) {
 		var newName = roleMineralMiner.create(mineralMinerCreep,"mineralMiner"+Game.spawns["Spawn1"].room.name, "Spawn1");
 		console.log('Spawning new mineralMiner: ' + newName);
+	} else if(spammers.length < maxSpammers) {
+		var newName = roleSpammer.create(spammerCreep,undefined, spamTarget0, "Spawn1");
+		console.log('Spawning new spammer: ' + newName);
 	} else {
 		//If all local spawns complete, run exoRoom control
 		exoRoomControll()
@@ -594,3 +600,4 @@ function creepControll(){
 		console.log('Spawning new externalHarvester4: ' + newName);
 	} */  
 }
+
