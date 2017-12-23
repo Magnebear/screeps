@@ -445,7 +445,7 @@ function creepControll(){
 	} else if(basicAttackers.length < maxBasicAttackers) {
 		var newName = roleBasicAttack.create(undefined, "target0", "Spawn1");
 		console.log('Spawning new attacker: ' + newName);
-	} else if(game.creeps["mineralMiner"+Game.spawns["Spawn1"].room.name] == undefined && Game.spawns[Spawn1].room.find(RESOURCE_MINERAL)[0].mineralAmount > 0) {
+	} else if(Game.creeps["mineralMiner"+Game.spawns["Spawn1"].room.name] == undefined && Game.spawns[Spawn1].room.find(RESOURCE_MINERAL)[0].mineralAmount > 0) {
 		var newName = roleMineralMiner.create(mineralMinerCreep,"mineralMiner"+Game.spawns["Spawn1"].room.name, "Spawn1");
 		console.log('Spawning new mineralMiner: ' + newName);
 	} else {
