@@ -11,8 +11,8 @@ module.exports  = {
 		}
 		
     },
-	create: function (creepBody, name, rm, src, spawn){
-		var newName = Game.spawns[spawn].createCreep(creepBody, name, {role: 'exoMiner',room:rm, source:src});
+	create: function (creepBody, name, room, spawn){
+		var newName = Game.spawns[spawn].createCreep(creepBody, name, {role: 'mineralMiner',room:rm});
 		return newName;
 	}
 

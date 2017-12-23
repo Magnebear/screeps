@@ -31,8 +31,6 @@ var roleLinkUpgrader = require('role.linkUpgrader');
 var towerController = require("TowerController");
 var linkController = require("LinkController");
 
-
-
 var defaultCreep = [WORK,CARRY,CARRY,MOVE,MOVE,MOVE];
 var upgradeCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 var basicDefenderCreep = [MOVE,ATTACK,MOVE,ATTACK,MOVE,ATTACK,MOVE,ATTACK,MOVE,ATTACK,RANGED_ATTACK]
@@ -59,8 +57,6 @@ var maxBuilders = 2;
 var maxUpgraders = 4;
 var maxRepair = 2;
 var maxTransporters = 4;
-
-
 var maxSuperTransporters = 1;
 var maxExternalHarvesters1 = 4;
 var maxExternalHarvesters2 = 5;
@@ -74,17 +70,12 @@ var maxExternalHarvesters4 = 3;
 var externalMiningRooms = ["E32N39","E32N38"]
 var externalMiningRoomsMules = [4,6]
 
-
 var ownRooms = ["E31N39"]
-
 var expansionRooms = ["E34N39"]
-
 var spawnQueue = []
 
 // var startCpu = Game.cpu.getUsed();
 // console.log('elapsed:', Game.cpu.getUsed() - startCpu);
-
-
 
 module.exports.loop = function () {
     for(var name in Memory.creeps) {
