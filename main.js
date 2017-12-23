@@ -20,6 +20,7 @@ var roleSuperTransporter = require('role.superTransporter');
 var roleTakeover = require('role.takeover');
 var roleBasicAttack = require('role.basicAttack');
 var roleBasicDefender = require('role.basicDefender');
+var roleMineralMiner = require('role.mineralMiner');
 
 var roleExoMiner = require('role.exoMiner');
 var roleExoMule = require('role.exoMule');
@@ -47,6 +48,7 @@ var externalHarvesterCreep = [WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,M
 var externalBuilderCreep = [WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE]
 var superTransporterCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 var linkUpgraderCreep = [MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
+var mineralMinerCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 
 var exoMinerCreep = [MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK]
 var exoMuleCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
@@ -253,6 +255,10 @@ module.exports.loop = function () {
 			case "exoJanitor":
 				roleExoJanitor.run(creep);
 				break;
+			case "mineralMiner":
+				roleMineralMiner.run(creep);
+				break;	
+				
 		}
     }	
 /* 	if(Memory.drawPath == true){
@@ -439,6 +445,9 @@ function creepControll(){
 	} else if(basicAttackers.length < maxBasicAttackers) {
 		var newName = roleBasicAttack.create(undefined, "target0", "Spawn1");
 		console.log('Spawning new attacker: ' + newName);
+	} else if(game.creeps["mineralMiner"+Game.spawns["Spawn1"].room.name] == undefined && Game.spawns[Spawn1].room.find(RESOURCE_MINERAL)[0].mineralAmount > 0) {
+		var newName = roleMineralMiner.create(mineralMinerCreep,"mineralMiner"+Game.spawns["Spawn1"].room.name, "Spawn1");
+		console.log('Spawning new mineralMiner: ' + newName);
 	} else {
 		//If all local spawns complete, run exoRoom control
 		exoRoomControll()
