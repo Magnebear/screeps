@@ -13,6 +13,8 @@ module.exports  = {
 			}
 		} else 
 		 */	
+	 
+	 
 		if(creep.room.name != targetRoom && creep.hits == creep.hitsMax){
 			//If max healt enter target room
 			creep.say("Moving")
