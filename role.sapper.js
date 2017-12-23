@@ -11,10 +11,7 @@ module.exports  = {
 			if(creep.room.name == targetRoom){
 				
 			}
-		}
-		
-		
-		if(creep.room.name != targetRoom){
+		} else if(creep.room.name != targetRoom){
 			//If max healt enter target room
 			if(creep.hits == creep.hitsMax){
 				creep.say("Moving")
