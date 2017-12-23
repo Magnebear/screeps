@@ -3,7 +3,7 @@ var Traveler = require('Traveler');
 module.exports  = {
     /** @param {Creep} creep **/
     run: function(creep) {	
-		mineral = creep.room.find(RESOURCE_MINERAL)[0]
+		mineral = creep.room.find(FIND_MINERALS)[0]
 		if(_.sum(creep.carry) < creep.carryCapacity && mineral.mineralAmount > 0){
 			if(creep.harvest(mineral) != 0){
 				creep.travelTo(mineral)
