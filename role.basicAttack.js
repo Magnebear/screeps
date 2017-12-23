@@ -21,6 +21,8 @@ module.exports  = {
 			filter: (structure) => structure.structureType == STRUCTURE_TOWER
 		});
 		
+		creep.say("Muhahaha!")
+		
 		if(closestTower){
 			target = closestTower;
 		} else if(closestExtension){
