@@ -9,7 +9,7 @@ module.exports  = {
 				creep.travelTo(mineral)
 			}
 		} else {
-			if(creep.transfer(creep.room.terminal, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+			if(creep.transfer(creep.room.terminal, RESOURCE_UTRIUM) == ERR_NOT_IN_RANGE) {
 				creep.travelTo(creep.room.terminal);
 			}
 		}
