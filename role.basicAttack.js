@@ -17,8 +17,13 @@ module.exports  = {
 			(structure.structureType != STRUCTURE_CONTROLLER
 			&& structure.structureType != STRUCTURE_POWER_BANK)
 		});
+		var closestTower = creep.pos.findClosestByRange(FIND_HOSTILE_STRUCTURES, {
+			filter: (structure) => structure.structureType == STRUCTURE_TOWER
+		});
 		
-		if(closestExtension){
+		if(closestTower){
+			target = closestTower;
+		} else if(closestExtension){
 			target = closestExtension;
 		} else if(closestHostile) {
 			target = closestHostile;
