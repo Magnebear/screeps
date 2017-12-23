@@ -18,9 +18,10 @@ module.exports  = {
 			if(creep.hits < creep.hitsmax/2){
 				if(creep.room.name == targetRoom){
 					creep.moveTo(new RoomPosition (25,25,"E32N39"))
-					creep.heal(creep)
+					
 				}
 			}
+			creep.heal(creep)
 			
 		}
 	},
