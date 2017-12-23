@@ -408,7 +408,7 @@ function creepControll(){
 	var externalHarvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester2');		
 	var externalHarvesters3 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester3');
 	var externalHarvesters4 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester4');		
-	var sappers = _.filter(Game.creeps, (creep) => creep.memory.role == 'sappers');		
+	var sappers = _.filter(Game.creeps, (creep) => creep.memory.role == 'sapper');		
 	
 	var superTransporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'superTransporter');
 	var basicAttackers = _.filter(Game.creeps, (creep) => creep.memory.role == 'basicAttack');
