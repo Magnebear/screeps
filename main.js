@@ -447,7 +447,7 @@ function creepControll(){
 		console.log('Spawning new repair: ' + newName);
 		
 	} else if(sappers.length < maxSappers) {
-		var newName = roleSapper.create(sapperCreep, undefined, "E33N37" "Spawn1");
+		var newName = roleSapper.create(sapperCreep, undefined, "E33N37", "Spawn1");
 		console.log('Spawning new sapper: ' + newName);
 	} else if(basicAttackers.length < maxBasicAttackers) {
 		var newName = roleBasicAttack.create(undefined, "target0", "Spawn1");
