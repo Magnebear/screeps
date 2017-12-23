@@ -21,9 +21,10 @@ module.exports  = {
 					
 				}
 			}
-			creep.heal(creep)
+			
 			
 		}
+		creep.heal(creep)
 	},
 	create: function (body, name, targetRoom, spawn){
 		return Game.spawns[spawn].createCreep(body, name, {role: 'sapper', targetRoom:targetRoom});
