@@ -262,9 +262,9 @@ module.exports.loop = function () {
 			case "mineralMiner":
 				roleMineralMiner.run(creep);
 				break;	
-/* 			case "sapper":
+			case "sapper":
 				roleSapper.run(creep);
-				break;	 */		}
+				break;	 		}
     }	
 /* 	if(Memory.drawPath == true){
 		
