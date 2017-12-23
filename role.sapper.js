@@ -5,7 +5,7 @@ module.exports  = {
     run: function(creep) {
 		var targetRoom = creep.memory.targetRoom;
 		//Get target by priority
-		
+		creep.heal(creep)
 		if(creep.room.name != targetRoom){
 			//If max healt enter target room
 			if(creep.hits == creep.hitsMax){
@@ -23,7 +23,7 @@ module.exports  = {
 			
 			
 		}
-		creep.heal(creep)
+		
 	},
 	create: function (body, name, targetRoom, spawn){
 		return Game.spawns[spawn].createCreep(body, name, {role: 'sapper', targetRoom:targetRoom});
