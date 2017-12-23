@@ -13,12 +13,10 @@ module.exports  = {
 			}
 		} else 
 		 */	
-		if(creep.room.name != targetRoom){
+		if(creep.room.name != targetRoom && creep.hits == creep.hitsMax){
 			//If max healt enter target room
-			if(creep.hits == creep.hitsMax){
-				creep.say("Moving")
-				creep.moveTo(new RoomPosition (25,25,targetRoom))
-			}
+			creep.say("Moving")
+			creep.moveTo(new RoomPosition (25,25,targetRoom))
 		} else {
 			//If low healt, flee!
 			if(creep.hits < creep.hitsMax/2){
