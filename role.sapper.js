@@ -7,8 +7,9 @@ module.exports  = {
 		//Get target by priority
 		creep.heal(creep)
 		if(creep.hits < creep.hitsmax/2){
+			creep.moveTo(new RoomPosition (25,25,"E32N39"))
 			if(creep.room.name == targetRoom){
-				creep.moveTo(new RoomPosition (25,25,"E32N39"))
+				
 			}
 		}
 		
