@@ -6,7 +6,7 @@ module.exports  = {
 		var targetRoom = creep.memory.targetRoom;
 		//Get target by priority
 		
-		creep.heal(creep)
+		
 		
 		if(creep.room.name != targetRoom){
 			//If max healt enter target room
@@ -16,8 +16,12 @@ module.exports  = {
 		} else {
 			//If low healt, flee!
 			if(creep.hits < creep.hitsmax/2){
-				creep.moveTo(new RoomPosition (25,25,"E32N39"))
+				if(creep.room.name = targetRoom){
+					creep.moveTo(new RoomPosition (25,25,"E32N39"))
+					creep.heal(creep)
+				}
 			}
+			
 		}
 	},
 	create: function (body, name, targetRoom, spawn){
