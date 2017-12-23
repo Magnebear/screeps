@@ -16,7 +16,7 @@ module.exports  = {
 		} else {
 			//If low healt, flee!
 			if(creep.hits < creep.hitsmax/2){
-				if(creep.room.name = targetRoom){
+				if(creep.room.name == targetRoom){
 					creep.moveTo(new RoomPosition (25,25,"E32N39"))
 					creep.heal(creep)
 				}
