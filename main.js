@@ -59,7 +59,7 @@ var spammerCreep = [MOVE]
  
 var maxHarvester = 0;
 var maxBuilders = 1;
-var maxSpammers = 0;
+var maxSpammers = 5;
 var maxUpgraders = 4;
 var maxSappers = 3;
 var maxRepair = 2;
