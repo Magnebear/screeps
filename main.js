@@ -22,6 +22,7 @@ var roleBasicAttack = require('role.basicAttack');
 var roleBasicDefender = require('role.basicDefender');
 var roleMineralMiner = require('role.mineralMiner');
 var roleSapper = require('role.sapper');
+var roleSpammer = require('role.spammer');
 
 var roleExoMiner = require('role.exoMiner');
 var roleExoMule = require('role.exoMule');
