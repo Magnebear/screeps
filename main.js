@@ -416,7 +416,7 @@ function creepControll(){
 	var externalHarvesters3 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester3');
 	var externalHarvesters4 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester4');		
 	var sappers = _.filter(Game.creeps, (creep) => creep.memory.role == 'sapper');		
-	var spammer = _.filter(Game.creeps, (creep) => creep.memory.role == 'spammer');		
+	var spammers = _.filter(Game.creeps, (creep) => creep.memory.role == 'spammer');		
 	
 	var superTransporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'superTransporter');
 	var basicAttackers = _.filter(Game.creeps, (creep) => creep.memory.role == 'basicAttack');
