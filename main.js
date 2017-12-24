@@ -57,10 +57,10 @@ var exoJanitorCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,CARRY,C
 var spammerCreep = [MOVE]
 
 var maxHarvester = 0;
-var maxBuilders = 2;
-var maxSpammers = 10;
+var maxBuilders = 0;
+var maxSpammers = 2;
 var maxUpgraders = 4;
-var maxSappers = 3;
+var maxSappers = 0;
 var maxRepair = 2;
 var maxTransporters = 4;
 var maxSuperTransporters = 1;
@@ -264,7 +264,12 @@ module.exports.loop = function () {
 				break;	
 			case "sapper":
 				roleSapper.run(creep);
-				break;	 		}
+				break;
+			case "spammer":
+				roleSpammer.run(creep);
+				break;
+		
+		}
     }	
 /* 	if(Memory.drawPath == true){
 		
@@ -448,7 +453,6 @@ function creepControll(){
 	}  else if (repairs.length < maxRepair) {
 		var newName = Game.spawns['Spawn1'].createCreep(repairCreep, undefined, {role: 'repair'});
 		console.log('Spawning new repair: ' + newName);
-		
 	} else if(sappers.length < maxSappers) {
 		var newName = roleSapper.create(sapperCreep, undefined, "E33N37", "Spawn1");
 		console.log('Spawning new sapper: ' + newName);
