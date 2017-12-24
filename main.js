@@ -464,7 +464,7 @@ function creepControll(){
 		var newName = roleMineralMiner.create(mineralMinerCreep,"mineralMiner"+Game.spawns["Spawn1"].room.name, "Spawn1");
 		console.log('Spawning new mineralMiner: ' + newName);
 	} else if(spammers.length < maxSpammers) {
-		var newName = roleSpammer.create(spammerCreep,undefined, spamTarget0, "Spawn1");
+		var newName = roleSpammer.create(spammerCreep,undefined, Game.flags.spamTarget0, "Spawn1");
 		console.log('Spawning new spammer: ' + newName);
 	} else {
 		//If all local spawns complete, run exoRoom control
