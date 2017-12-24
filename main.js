@@ -172,7 +172,7 @@ module.exports.loop = function () {
 	
 	
 	
-	for(var name in Game.rooms) {
+/* 	for(var name in Game.rooms) {
 		var hostiles = Game.rooms[name].find(FIND_HOSTILE_CREEPS)
 		if(hostiles.length > 0){
 			console.log("Enemies in room: "+name);
@@ -181,7 +181,7 @@ module.exports.loop = function () {
 				console.log('Spawning new defender: ' + newName);
 			}
 		}		
-	}		
+	} */		
 		
     //Hardcoded link and towwer controls
 	towerController.run(Game.getObjectById('5a38dad0d357753d323886cd'));
