@@ -58,10 +58,10 @@ var exoJanitorCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,CARRY,C
 var spammerCreep = [MOVE]
  
 var maxHarvester = 0;
-var maxBuilders = 0;
+var maxBuilders = 1;
 var maxSpammers = 0;
 var maxUpgraders = 4;
-var maxSappers = 0;
+var maxSappers = 3;
 var maxRepair = 2;
 var maxTransporters = 4;
 var maxSuperTransporters = 1;
