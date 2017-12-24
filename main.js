@@ -264,7 +264,7 @@ module.exports.loop = function () {
 				roleMineralMiner.run(creep);
 				break;	
 			case "sapper":
-				roleSapper.run(creep);
+				//roleSapper.run(creep);
 				break;
 			case "spammer":
 				roleSpammer.run(creep);
