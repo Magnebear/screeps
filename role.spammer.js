@@ -7,7 +7,7 @@ module.exports  = {
 		creep.moveTo(new RoomPosition(creeps.memory.targetFlag.pos.x,creeps.memory.targetFlag.pos.y,creeps.memory.targetFlag.pos.roomName))
 	},
 	create: function (body, name, targetFlag, spawn){
-		return Game.spawns[spawn].createCreep(body, name, {role: 'sapper', targetFlag:targetFlag});
+		return Game.spawns[spawn].createCreep(body, name, {role: 'spammer', targetFlag:targetFlag});
 	}
 
 }
