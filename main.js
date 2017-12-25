@@ -92,18 +92,18 @@ module.exports.loop = function () {
         }
     }
 	//Adjust amount of Upgraders in room1
-	if(Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]<25000){
-		maxUpgraders = 0;
-	} else if (Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]>25000){
-		maxUpgraders = 1;
-	} else if (Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]>50000){
-		maxUpgraders = 2;
-	} else if (Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]>75000){
-		maxUpgraders = 3;
+	if (Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]>150000){
+		maxUpgraders = 5;
 	} else if (Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]>100000){
 		maxUpgraders = 4;
-	} else if (Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]>150000){
-		maxUpgraders = 5;
+	} else if (Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]>75000){
+		maxUpgraders = 3;
+	} else if (Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]>50000){
+		maxUpgraders = 2;
+	} else if (Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]>25000){
+		maxUpgraders = 1;
+	} else if(Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]<25000){
+		maxUpgraders = 0;
 	}
 	
 	
