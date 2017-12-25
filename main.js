@@ -355,6 +355,7 @@ function exoRoomControll(){
 				if(Game.creeps["exoJanitor"+exoRoom] == undefined){
 					console.log("Checking if janitor is needed in room "+exoRoom)
 					var startCpu = Game.cpu.getUsed();
+					console.log(exoRoom)
 					//var constructionSites = Game.rooms[exoRoom].find(FIND_CONSTRUCTION_SITES)
 					//var repairSites = Game.rooms[exoRoom].find(FIND_STRUCTURES, {
 						filter: (structure) => {
