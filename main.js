@@ -60,7 +60,7 @@ var spammerCreep = [MOVE]
 var maxHarvester = 0;
 var maxBuilders = 1;
 var maxSpammers = 0;
-var maxUpgraders = 4;
+var maxUpgraders = 1;
 var maxSappers = 0;
 var maxRepair = 2;
 var maxTransporters = 4;
@@ -92,7 +92,7 @@ module.exports.loop = function () {
         }
     }
 	//Adjust amount of Upgraders in room1
-	if (Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]>150000){
+/* 	if (Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]>150000){
 		maxUpgraders = 5;
 	} else if (Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]>100000){
 		maxUpgraders = 4;
@@ -104,7 +104,7 @@ module.exports.loop = function () {
 		maxUpgraders = 1;
 	} else if(Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]<25000){
 		maxUpgraders = 0;
-	}
+	} */
 	
 	
 	
