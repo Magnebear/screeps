@@ -165,7 +165,9 @@ module.exports.loop = function () {
 						console.log(Game.rooms[path.path[j].roomName].createConstructionSite(path.path[j], STRUCTURE_ROAD))
 				};
 			}
-		}	
+		} else {
+			Memory.exoRooms[exoRoom].roadStatus = "NA"
+		}
 	});
 	
 
