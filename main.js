@@ -253,9 +253,7 @@ module.exports.loop = function () {
 			case "exoMule":
 				roleExoMule.run(creep);
 				break;
-			case "exoMiner":
-				roleExoMiner.run(creep);
-				break;
+
 			case "linkUpgrader":
 				roleLinkUpgrader.run(creep);
 				break;
@@ -270,6 +268,9 @@ module.exports.loop = function () {
 				break;
 			case "spammer":
 				roleSpammer.run(creep);
+				break;
+			case "exoMiner":
+				roleExoMiner.run(creep);
 				break;
 		
 		}
