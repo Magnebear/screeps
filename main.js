@@ -85,6 +85,10 @@ var spawnQueue = []
 // console.log('elapsed:', Game.cpu.getUsed() - startCpu);
 
 module.exports.loop = function () {
+	
+	delete Memory.exoRooms["E32N39"]
+	
+	
     for(var name in Memory.creeps) {
         if(!Game.creeps[name]) {
             delete Memory.creeps[name];
