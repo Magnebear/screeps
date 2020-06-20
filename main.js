@@ -56,7 +56,7 @@ var exoMinerCreep = [MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK]
 var exoMuleCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 var exoJanitorCreep = [MOVE,MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY]
 var spammerCreep = [MOVE]
- 
+
 var maxHarvester = 0;
 var maxBuilders = 1;
 var maxSpammers = 0;
@@ -91,6 +91,7 @@ module.exports.loop = function () {
             console.log('Clearing non-existing creep memory:', name);
         }
     }
+    console.log('This is a test commit')		
 	//Adjust amount of Upgraders in room1
 /* 	if (Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]>150000){
 		maxUpgraders = 5;
@@ -105,11 +106,11 @@ module.exports.loop = function () {
 	} else if(Game.spawns["Spawn1"].room.storage.store[RESOURCE_ENERGY]<25000){
 		maxUpgraders = 0;
 	} */
-	
-	
-	
+
+
+
 /*	var sources = Game.spawns["Spawn1"].room.find(FIND_SOURCES);
-	
+
   	var source = sources[0]
 	if(Game.creeps[source.id+"dropMiner"] == undefined){
 		console.log("create new dropMiner 0")
@@ -120,12 +121,12 @@ module.exports.loop = function () {
 		var newName = roleDropMiner.create(source.id+"dropMiner", dropMinerCreep, source.id, "Spawn1");
 		console.log("create new dropMiner 1")
 	} */
-	
+
     if (Memory.clock < 5){
         Memory.clock++;
-    } else {		
+    } else {
 		var roles = {}
-		console.log('-------------------------------')		
+		console.log('-------------------------------')
 		for(var name in Game.creeps) {
 			if(roles[Game.creeps[name].memory.role]){
 				roles[Game.creeps[name].memory.role] ++
@@ -135,17 +136,17 @@ module.exports.loop = function () {
 		}
 		for(var role in roles) {
 			console.log(role,":\t\t",roles[role])
-		}	
+		}
         console.log('-------------------------------')
-		
+
 		//Controlls creeps spawning
 		//ownRoomControll()
 		creepControll();
-		
+
 		Memory.clock = 0;
     }
-	
-	externalMiningRooms.forEach(function(exoRoom) {			
+
+	externalMiningRooms.forEach(function(exoRoom) {
 		//Road Construction
 		//1. Road planning
 		//2. Road Building
@@ -153,11 +154,11 @@ module.exports.loop = function () {
 		if(Memory.exoRooms[exoRoom].roadStatus == "unPlanned") {
 			Memory.exoRooms[exoRoom].roadStatus = "planned"
 			for(var i=0; i<Memory.exoRooms[exoRoom].sources.length; i++){
-				
+
 				console.log(i)
 				pos = Memory.exoRooms[exoRoom].sources[i].pos
 				//Optimal path, ignoring swamps
-				var path = PathFinder.search(new RoomPosition(18,38,"E32N39"),{pos:new RoomPosition(pos.x,pos.y,pos.roomName),range:1},{swampCost:1});	
+				var path = PathFinder.search(new RoomPosition(18,38,"E32N39"),{pos:new RoomPosition(pos.x,pos.y,pos.roomName),range:1},{swampCost:1});
 				//Create road construction site for each road segment
 
 				for(var j=0; j<path.path.length;j++){
@@ -169,11 +170,11 @@ module.exports.loop = function () {
 			Memory.exoRooms[exoRoom].roadStatus = "NA"
 		}
 	});
-	
 
-	
-	
-	
+
+
+
+
 /* 	for(var name in Game.rooms) {
 		var hostiles = Game.rooms[name].find(FIND_HOSTILE_CREEPS)
 		if(hostiles.length > 0){
@@ -182,21 +183,21 @@ module.exports.loop = function () {
 				var newName = roleBasicAttack.create(name+"BasicDefender", name, "Spawn1");
 				console.log('Spawning new defender: ' + newName);
 			}
-		}		
-	} */		
-		
+		}
+	} */
+
     //Hardcoded link and towwer controls
 	towerController.run(Game.getObjectById('5a38dad0d357753d323886cd'));
 	towerController.run(Game.getObjectById('5a38efceb7a9cb10bb8d1171'));
 
 	linkController.run("5a38e5d1a73fd951a613dca8", "5a3a3ea191b0d34c51baefff");
-    
+
 	for(var name in Game.creeps) {
         var creep = Game.creeps[name];
 		switch(Game.creeps[name].memory.role) {
 			//TEMP cases for transittion
 			case "harvester":
-				roleHarvesterTEMP.run(creep);				
+				roleHarvesterTEMP.run(creep);
 				break;
 			case "builder":
 				roleBuilderTEMP.run(creep);
@@ -218,7 +219,7 @@ module.exports.loop = function () {
 			case "externalBuilder":
 				roleExternalBuilder.run(creep);
 				break;
-			case "megaMiner":	
+			case "megaMiner":
 				roleMegaMiner.run(creep);
 				break;
 			case "repair":
@@ -231,7 +232,7 @@ module.exports.loop = function () {
 			case "externalHarvester1":
 			case "externalHarvester2":
 			case "externalHarvester3":
-			case "externalHarvester4":				    
+			case "externalHarvester4":
 				roleExternalHarvester.run(creep);
 				break;
 			case "superTransporter":
@@ -262,7 +263,7 @@ module.exports.loop = function () {
 				break;
 			case "mineralMiner":
 				roleMineralMiner.run(creep);
-				break;	
+				break;
 			case "sapper":
 				roleSapper.run(creep);
 				break;
@@ -272,15 +273,15 @@ module.exports.loop = function () {
 			case "exoMiner":
 				roleExoMiner.run(creep);
 				break;
-		
+
 		}
-    }	
+    }
 /* 	if(Memory.drawPath == true){
-		
-		
-		
+
+
+
 		var path = PathFinder.search(Game.spawns["Spawn1"].room.storage.pos,{pos:new RoomPosition(15,8,"E32N39"),range:1},{swampCost:1});
-		
+
 		var sortedPath = new Object;
 		path.path.forEach(function(part){
 			if(sortedPath[part.roomName] == undefined){
@@ -291,7 +292,7 @@ module.exports.loop = function () {
 		Memory.sortedPath = sortedPath
 		//new RoomVisual('W1N1').poly(path, {stroke: '#fff', strokeWidth: .15,opacity: .2, lineStyle: 'dashed'});
 	}
-	
+
 	if(Memory.showPath == true){
 		for(var propt in Memory.sortedPath){
 			console.log("Vis: ")
@@ -305,7 +306,7 @@ function ownRoomControll(){
 	//Experiemental room autonomus controll
 	ownRooms.forEach(function(ownRoom){
 		room = Game.rooms[ownRoom]
-		
+
 		if(room.memory.stage = 8){
 			//Controll link upgraders, uses storage in room
 			if(room.storage.store[RESOURCE_ENERGY] > 25000){
@@ -332,7 +333,7 @@ function exoRoomControll(){
 			Memory.exoRooms[exoRoom].isScouted = false;
 			Memory.exoRooms[exoRoom].sources = [];
 		}
-		
+
 		if(Memory.exoRooms[exoRoom].isScouted){
 			//Spawn one exoMiner per source
 			var spawning = false
@@ -341,10 +342,10 @@ function exoRoomControll(){
 					var newName = roleExoMiner.create(exoMinerCreep, exoRoom+"exoMiner"+i, exoRoom, i,"Spawn1");
 					console.log("create new exoMiner: "+newName);
 					spawning = true;
-					break 
+					break
 				}
 			}
-			//Claim external room			
+			//Claim external room
 			if(!spawning &&Game.rooms[exoRoom]){
 				if(Game.creeps[exoRoom+"claimer"] == undefined && (Game.rooms[exoRoom].controller.reservation == undefined || Game.rooms[exoRoom].controller.reservation.ticksToEnd < 1000)){
 					var newName = roleClaimer.create(claimerCreep, exoRoom+"claimer", Game.rooms[exoRoom].controller, "Spawn1")
@@ -365,9 +366,9 @@ function exoRoomControll(){
 							return(structure.structureType == STRUCTURE_ROAD
 							&& structure.hits < (structure.hitsMax/2))}
 						});
-					console.log(constructionSites)	
-					console.log(repairSites)	
-						
+					console.log(constructionSites)
+					console.log(repairSites)
+
 					if((constructionSites.length > 0) || (repairSites.length > 0)){
 						var newName = roleExoJanitor.create(exoJanitorCreep,"exoJanitor"+exoRoom, exoRoom, "Spawn1")
 						console.log("Creating new exoJanitor: "+newName)
@@ -376,7 +377,7 @@ function exoRoomControll(){
 					console.log('elapsed:', Game.cpu.getUsed() - startCpu);
 				}
 			}
-			
+
 			//Create exoMules
 			if(!spawning){
 				for(var i=0; i<externalMiningRoomsMules[externalMiningRooms.indexOf(exoRoom)]; i++){
@@ -389,23 +390,23 @@ function exoRoomControll(){
 			}
 		} else {
 			//Scout room
-			console.log("Scouting "+exoRoom)	
+			console.log("Scouting "+exoRoom)
 			if(Game.creeps[exoRoom+"scout"] == undefined){
 				var newName = roleScout.create("scout", [MOVE,MOVE], exoRoom, "Spawn1");
 				console.log("create new "+newName);
 			}
-			
+
 		}
 	});
 }
 
 function spawnControll(priority, creepBody, creepName, creepMemory, spawn){
 	spawnQueue.push([priority,[creepBody, creepName, creepMemory, spawn]])
-	
-	
-	
-	
-	
+
+
+
+
+
 }
 
 function creepControll(){
@@ -417,44 +418,44 @@ function creepControll(){
 	var repairs = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair');
 	var claimers = _.filter(Game.creeps, (creep) => creep.memory.role == 'claimer');
 	var externalHarvesters1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester1');
-	var externalHarvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester2');		
+	var externalHarvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester2');
 	var externalHarvesters3 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester3');
-	var externalHarvesters4 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester4');		
-	var sappers = _.filter(Game.creeps, (creep) => creep.memory.role == 'sapper');		
-	var spammers = _.filter(Game.creeps, (creep) => creep.memory.role == 'spammer');		
-	
+	var externalHarvesters4 = _.filter(Game.creeps, (creep) => creep.memory.role == 'externalHarvester4');
+	var sappers = _.filter(Game.creeps, (creep) => creep.memory.role == 'sapper');
+	var spammers = _.filter(Game.creeps, (creep) => creep.memory.role == 'spammer');
+
 	var superTransporters = _.filter(Game.creeps, (creep) => creep.memory.role == 'superTransporter');
 	var basicAttackers = _.filter(Game.creeps, (creep) => creep.memory.role == 'basicAttack');
-	
+
 	//R2
 	var transporters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'transporter2');
 	var repair2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair2');
 	var builders2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder2');
-	
+
 	if (harvesters.length < maxHarvester) {
 		var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'harvester'});
 		console.log('Spawning new harvesters: ' + newName);
-		
+
 	} else if(Game.creeps["megaMiner1"] == undefined) {
 		var newName = roleMegaMiner.create("megaMiner1", megaMiner, "59f1a51182100e1594f3dec1", "5a355446d48b4e699f1b23fb", "Spawn1");
 		console.log('Spawning new MegaMiner1: ' + newName);
-		
+
 	} else if(Game.creeps["megaMiner2"] == undefined) {
 		var newName = roleMegaMiner.create("megaMiner2", megaMiner, "59f1a51182100e1594f3debf", "5a355b6ec7b2a67d4c8032dd", "Spawn1");
 		console.log('Spawning new MegaMiner2: ' + newName);
-		
+
 	} else if (transporters.length < maxTransporters) {
 		var newName = Game.spawns['Spawn1'].createCreep(transporterCreep, undefined, {role: 'transporter'});
 		console.log('Spawning new transporter: ' + newName);
-		
+
 	} else if (upgraders.length < maxUpgraders) {
 		var newName = Game.spawns['Spawn1'].createCreep(upgradeCreep, undefined, {role: 'upgrader'});
 		console.log('Spawning new upgrader: ' + newName);
-		
+
 	} else if (builders.length < maxBuilders) {
 		var newName = Game.spawns['Spawn1'].createCreep(builderCreep, undefined, {role: 'builder'});
 		console.log('Spawning new builder: ' + newName);
-		
+
 	}  else if (repairs.length < maxRepair) {
 		var newName = Game.spawns['Spawn1'].createCreep(repairCreep, undefined, {role: 'repair'});
 		console.log('Spawning new repair: ' + newName);
@@ -480,7 +481,7 @@ function creepControll(){
 		var newName = roleMegaMiner.create("megaMiner1", megaMiner, "59830055b097071b4adc418f", "59a5d22932ef987c0f96bf3b", "Spawn1");
 		console.log('Spawning new MegaMiner1: ' + newName);
 	}  else if(Game.creeps["megaMiner2"] == undefined) {
-		var newName = Game.spawns['Spawn1'].createCreep(megaMiner, "megaMiner2", 
+		var newName = Game.spawns['Spawn1'].createCreep(megaMiner, "megaMiner2",
 			{role: 'megaMiner',
 			srcID:'59830055b097071b4adc4190',
 			contID:'59aea243daa30c78a13596a1'
@@ -499,7 +500,7 @@ function creepControll(){
 		var newName = Game.spawns['Spawn1'].createCreep(defaultCreep, undefined, {role: 'builder'});
 		console.log('Spawning new builder: ' + newName);
 	} else if (externalHarvesters1.length < maxExternalHarvesters1) {
-		var newName = Game.spawns['Spawn1'].createCreep(externalHarvesterCreep, undefined, 
+		var newName = Game.spawns['Spawn1'].createCreep(externalHarvesterCreep, undefined,
 			{role: 'externalHarvester1',
 			targetSource:"59830062b097071b4adc42d6",
 			targetContainer:"59a9d6c7901b9f6272a9c69a",
@@ -507,7 +508,7 @@ function creepControll(){
 		});
 		console.log('Spawning new externalHarvester1: ' + newName);
 	} else if (externalHarvesters2.length < maxExternalHarvesters2) {
-		var newName = Game.spawns['Spawn1'].createCreep(externalHarvesterCreep, undefined, 
+		var newName = Game.spawns['Spawn1'].createCreep(externalHarvesterCreep, undefined,
 			{role: 'externalHarvester2',
 			targetSource:"59830055b097071b4adc4193",
 			targetContainer:"59aea243daa30c78a13596a1",
@@ -515,14 +516,14 @@ function creepControll(){
 		});
 		console.log('Spawning new externalHarvester2: ' + newName);
 	} else if(Game.creeps["megaMiner5"] == undefined && (Game.getObjectById("598342fa641acf0573578ea5").mineralAmount != 0)) {
-		var newName = Game.spawns['Spawn1'].createCreep(megaMineralMinerCreep, "megaMiner5", 
+		var newName = Game.spawns['Spawn1'].createCreep(megaMineralMinerCreep, "megaMiner5",
 			{role: 'megaMiner',
 			srcID:'598342fa641acf0573578ea5',
 			contID:'59b059c06e986e7f983deca7'
 		});
 		console.log('Spawning new MegaMiner5: ' + newName);
 	} else if (superTransporters.length < maxSuperTransporters) {
-		var newName = Game.spawns['Spawn1'].createCreep(superTransporterCreep, undefined, 
+		var newName = Game.spawns['Spawn1'].createCreep(superTransporterCreep, undefined,
 			{role: 'superTransporter',
 			containerId:"59aea243daa30c78a13596a1",
 			flag:"HoldingArea"
@@ -530,7 +531,7 @@ function creepControll(){
 		console.log('Spawning new superTransporter: ' + newName);
 	} else if (Game.creeps["claimer1"] == undefined && Game.flags.claim1.room.controller.reservation.ticksToEnd < 1000){
 			//Spawn new claimer 1
-			var newName = Game.spawns['Spawn1'].createCreep(claimerCreep, "claimer1", 
+			var newName = Game.spawns['Spawn1'].createCreep(claimerCreep, "claimer1",
 				{role: "claimer",
 				targetController: "59830062b097071b4adc42d7",
 				targetFlag:"claim1"
@@ -538,7 +539,7 @@ function creepControll(){
 			console.log("Spawning new claimer 1");
 	} else if (Game.creeps["claimer2"] == undefined && Game.flags.claim2.room.controller.reservation.ticksToEnd < 1000){
 			//Spawn new claimer 2
-			var newName = Game.spawns['Spawn1'].createCreep(claimerCreep, "claimer2", 
+			var newName = Game.spawns['Spawn1'].createCreep(claimerCreep, "claimer2",
 				{role: "claimer",
 				targetController: "59830055b097071b4adc4192",
 				targetFlag:"claim2"
@@ -549,50 +550,50 @@ function creepControll(){
 		console.log('Spawning new attacker: ' + newName);
 	}
  */
-	
+
 /* 	//--------------------ROOM 2--------------------
 	if (harvesters.length < maxHarvester) {
-		var newName = Game.spawns['Spawn2'].createCreep(defaultCreep2, undefined, 
+		var newName = Game.spawns['Spawn2'].createCreep(defaultCreep2, undefined,
 			{role: 'harvester',
 			containerId: "59ac2dc842200e583074dad8",
 			sourceId: "59830062b097071b4adc42d9"
 		});
 		console.log('Spawning new harvester: ' + newName);
 	} else if(Game.creeps["megaMiner3"] == undefined) {
-		var newName = Game.spawns['Spawn2'].createCreep(megaMinerAlt, "megaMiner3", 
+		var newName = Game.spawns['Spawn2'].createCreep(megaMinerAlt, "megaMiner3",
 			{role: 'megaMiner',
 			srcID:'59830062b097071b4adc42da',
 			contID:'59b79f83e835542779c49fbc'
 		});
 		console.log('Spawning new MegaMiner3: ' + newName);
 	} else if(Game.creeps["megaMiner4"] == undefined) {
-		var newName = Game.spawns['Spawn2'].createCreep(megaMinerAlt, "megaMiner4", 
+		var newName = Game.spawns['Spawn2'].createCreep(megaMinerAlt, "megaMiner4",
 			{role: 'megaMiner',
 			srcID:'59830062b097071b4adc42d9',
 			contID:'59ac2dc842200e583074dad8'
 		});
 		console.log('Spawning new MegaMiner4: ' + newName);
 	} else if (transporters2.length < maxTransporters2) {
-		var newName = Game.spawns['Spawn2'].createCreep(transporterCreep, undefined, 
+		var newName = Game.spawns['Spawn2'].createCreep(transporterCreep, undefined,
 			{role: 'transporter2',
 			room2selector: true
 		});
 		console.log('Spawning new transporter2: ' + newName);
 	} else if(repair2.length < maxRepair2) {
 		var newName = Game.spawns['Spawn2'].createCreep(repairCreep, undefined, {role: 'repair2'});
-		console.log('Spawning new repair2: ' + newName);		        
+		console.log('Spawning new repair2: ' + newName);
 	} else if(builders2.length < maxBuilders2) {
 		var newName = Game.spawns['Spawn2'].createCreep(defaultCreep, undefined, {role: 'builder2'});
-		console.log('Spawning new builder: ' + newName);		        
+		console.log('Spawning new builder: ' + newName);
 	} else if (Game.creeps["claimer3"] == undefined && Game.flags.claim3.room.controller.reservation.ticksToEnd < 1000){
-		var newName = Game.spawns['Spawn2'].createCreep(claimerCreep, "claimer3", 
+		var newName = Game.spawns['Spawn2'].createCreep(claimerCreep, "claimer3",
 			{role: "claimer",
 			targetController: "59830063b097071b4adc42df",
 			targetFlag:"claim3"
 		});
 		console.log("Spawning new claimer 3");
 	} else if (externalHarvesters3.length < maxExternalHarvesters3) {
-		var newName = Game.spawns['Spawn2'].createCreep(externalHarvesterCreep, undefined, 
+		var newName = Game.spawns['Spawn2'].createCreep(externalHarvesterCreep, undefined,
 			{role: 'externalHarvester3',
 			targetSource:"59830063b097071b4adc42dd",
 			targetContainer:"59adf5d36a4b6643c42b3abc",
@@ -600,13 +601,12 @@ function creepControll(){
 		});
 		console.log('Spawning new externalHarvester2: ' + newName);
 	} else if (externalHarvesters4.length < maxExternalHarvesters4) {
-		var newName = Game.spawns['Spawn2'].createCreep(externalHarvesterCreep, undefined, 
+		var newName = Game.spawns['Spawn2'].createCreep(externalHarvesterCreep, undefined,
 			{role: 'externalHarvester4',
 			targetSource:"59830063b097071b4adc42de",
 			targetContainer:"59adf5d36a4b6643c42b3abc",
 			flag:"externalSource4"
 		});
 		console.log('Spawning new externalHarvester4: ' + newName);
-	} */  
+	} */
 }
-
